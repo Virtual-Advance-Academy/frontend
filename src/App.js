@@ -10,6 +10,7 @@ import NavBar from './shared/NavBar'
       return (
         <div>
           <NavBar />
+          <span>This page was deployed via GitHub Actions</span>
         </div>
       )
     }

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8ab6f918.chunk.css",
+    "main.js": "/static/js/main.c8c14488.chunk.js",
+    "main.js.map": "/static/js/main.c8c14488.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4e64986e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4e64986e.js.map",
+    "static/js/2.bb275279.chunk.js": "/static/js/2.bb275279.chunk.js",
+    "static/js/2.bb275279.chunk.js.map": "/static/js/2.bb275279.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.1ab25c082eb7f7f443357fafc69e492a.js": "/precache-manifest.1ab25c082eb7f7f443357fafc69e492a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.8ab6f918.chunk.css.map": "/static/css/main.8ab6f918.chunk.css.map",
+    "static/js/2.bb275279.chunk.js.LICENSE": "/static/js/2.bb275279.chunk.js.LICENSE",
+    "static/media/AdvanceLogo.png": "/static/media/AdvanceLogo.faa7be8c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e64986e.js",
+    "static/js/2.bb275279.chunk.js",
+    "static/css/main.8ab6f918.chunk.css",
+    "static/js/main.c8c14488.chunk.js"
+  ]
+}

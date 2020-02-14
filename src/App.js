@@ -12,7 +12,7 @@ import ColorScheme from './shared/ColorScheme';
         <div>
           <NavBar />
           <Home />
-          <ColorScheme />
+          {/* <ColorScheme /> */}
         </div>
       )
     }

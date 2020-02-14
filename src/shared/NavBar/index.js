@@ -12,7 +12,7 @@ const NavBar = () => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <AppBar position="static" style={{ background: '#979797' }}>
+            <AppBar position="static" style={{ background: '#545454' }}>
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="menu">
                         <MenuIcon />

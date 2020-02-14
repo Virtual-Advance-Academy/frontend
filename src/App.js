@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './App.css';
-import NavBar from './shared/NavBar'
-// import Home from './screens/Home';
+import NavBar from './shared/NavBar/'
+import Home from './screens/Home';
+import ColorScheme from './shared/ColorScheme';
 // import Main from './screens/Main';
 // import Survey from './screens/Survey';
 
@@ -10,6 +11,8 @@ import NavBar from './shared/NavBar'
       return (
         <div>
           <NavBar />
+          <Home />
+          <ColorScheme />
         </div>
       )
     }

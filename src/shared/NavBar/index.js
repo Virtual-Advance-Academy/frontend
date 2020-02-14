@@ -5,15 +5,14 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Typography from '@material-ui/core/Typography'
 
-import logo from '../assets/AdvanceLogo.png';
+import logo from '../../assets/AdvanceLogo.png';
 
 const NavBar = () => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <AppBar position="static" style={{ background: '#7C629D' }}>
+            <AppBar position="static" style={{ background: '#979797' }}>
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="menu">
                         <MenuIcon />
@@ -37,7 +36,7 @@ const useStyles = makeStyles(
         },
         loginButton: {
             marginLeft: "auto"
-        }
+        },
     })
 );
 

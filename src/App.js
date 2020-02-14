@@ -13,6 +13,7 @@ import ColorScheme from './shared/ColorScheme';
           <NavBar />
           <Home />
           {/* <ColorScheme /> */}
+          <span>This page was deployed via GitHub Actions</span>
         </div>
       )
     }

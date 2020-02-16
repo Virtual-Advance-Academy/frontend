@@ -11,17 +11,17 @@ import logo from '../../assets/AdvanceLogo.png';
 const NavBar = () => {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
-            <AppBar position="static" style={{ background: '#545454' }}>
+        <nav className={classes.root}>
+            <AppBar color="default" position="static">
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton>
                     <img src={logo} alt='logo' className={classes.logo} />
-                    <Button color="inherit" className={classes.loginButton}>Login</Button>
+                    <Button variant="outlined" className={classes.loginButton}>Login</Button>
                 </Toolbar>
             </AppBar>
-        </div>
+        </nav>
     )
 }
 
@@ -29,7 +29,7 @@ const useStyles = makeStyles(
     createStyles({
         logo: {
             maxWidth: 160,
-            marginLeft: 10,
+            marginLeft: 10
         },
         root: {
             flexGrow: 1,

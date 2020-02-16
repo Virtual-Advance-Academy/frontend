@@ -9,33 +9,23 @@ import deepPurple from '@material-ui/core/colors/deepPurple';
 const Home = () => {
     const classes = styles();
     return (
-            <MuiThemeProvider theme={theme}>
-                <Typography className={classes.mainTitle} variant="h2" color='secondary' component="p">Ready to land your dream internship?</Typography>
-            </MuiThemeProvider>
+        <Typography className={classes.mainTitle} variant="h2" color="primary" component="p">
+            <span>Ready to </span> 
+            <span>land your </span>
+            <span>dream </span>
+            <span>internship?</span>
+        </Typography>
     );
 };
 
-const theme = createMuiTheme({
-    palette: {
-        primary: deepPurple,
-        secondary: {
-            main: '#BB86FC',
-        },
-    },
-});
-
 const styles = makeStyles(theme => ({
-    menuBar: {
-        // Ensures buttons are right-aligned
-        marginLeft: 'auto'
-    },
     mainTitle: {
         marginLeft: '230px',
         marginTop: '213px',
         width: '300px',
-    },
-    root: {
-        background: '#F1F1F1',
+        '& span': {
+            display: 'inline-block'
+        }
     }
 }));
 

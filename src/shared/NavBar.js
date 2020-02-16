@@ -11,7 +11,7 @@ import logo from '../assets/AdvanceLogo.png';
 const NavBar = () => {
     const classes = useStyles();
     return (
-        <AppBar color="default" position="absolute">
+        <AppBar color="default" position="sticky">
             <Toolbar>
                 <IconButton edge="start" color="inherit" aria-label="menu">
                     <MenuIcon />

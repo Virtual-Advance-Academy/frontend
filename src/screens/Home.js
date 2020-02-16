@@ -15,7 +15,7 @@ const Home = () => {
                     <span>internship?</span>
                 </Typography>
             </Grid>
-            <Grid component="form" item container direction="column" xs={2} spacing={2}>
+            <Grid component="form" item container direction="column" xs={10} sm={2} spacing={2}>
                 <Grid item>
                     <TextField id="username" label="Username" variant="outlined" fullWidth />
                 </Grid>
@@ -41,7 +41,10 @@ const styles = makeStyles(theme => ({
         }
     },
     titleSpacing: {
-        marginRight: '80px'
+        marginRight: '80px',
+        [theme.breakpoints.down('xs')]:{
+            marginRight: 'unset'
+        }
     },
     page: {
         minHeight: '100vh'

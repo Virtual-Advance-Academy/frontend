@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './App.css';
-import NavBar from './shared/NavBar/'
+import NavBar from './shared/NavBar'
 import Home from './screens/Home';
-import ColorScheme from './shared/ColorScheme';
+// import ColorScheme from './shared/ColorScheme';
 // import Main from './screens/Main';
 // import Survey from './screens/Survey';
 

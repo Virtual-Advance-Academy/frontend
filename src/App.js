@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css';
-import NavBar from './shared/NavBar'
+import Page from './shared/Page'
 import Home from './screens/Home';
 // import ColorScheme from './shared/ColorScheme';
 // import Main from './screens/Main';
@@ -9,11 +9,11 @@ import Home from './screens/Home';
   class App extends Component {
     render() {
       return (
-        <div>
-          <NavBar />
-          <Home />
-          {/* <ColorScheme /> */}
-        </div>
+        <>
+          <Page>
+            <Home />
+          </Page>
+        </>
       )
     }
   }

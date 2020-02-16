@@ -11,17 +11,15 @@ import logo from '../assets/AdvanceLogo.png';
 const NavBar = () => {
     const classes = useStyles();
     return (
-        <nav className={classes.root}>
-            <AppBar color="default" position="static">
-                <Toolbar>
-                    <IconButton edge="start" color="inherit" aria-label="menu">
-                        <MenuIcon />
-                    </IconButton>
-                    <img src={logo} alt='logo' className={classes.logo} />
-                    <Button variant="outlined" className={classes.loginButton}>Login</Button>
-                </Toolbar>
-            </AppBar>
-        </nav>
+        <AppBar color="default" position="static">
+            <Toolbar>
+                <IconButton edge="start" color="inherit" aria-label="menu">
+                    <MenuIcon />
+                </IconButton>
+                <img src={logo} alt='logo' className={classes.logo} />
+                <Button variant="outlined" className={classes.loginButton}>Login</Button>
+            </Toolbar>
+        </AppBar>
     )
 }
 

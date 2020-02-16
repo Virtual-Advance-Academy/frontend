@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './App.css';
-import Page from './shared/Page'
 import Home from './screens/Home';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Page from './shared/Page';
 // import ColorScheme from './shared/ColorScheme';
 // import Main from './screens/Main';
 // import Survey from './screens/Survey';
@@ -9,11 +10,12 @@ import Home from './screens/Home';
   class App extends Component {
     render() {
       return (
-        <>
-          <Page>
-            <Home />
-          </Page>
-        </>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route component={Page} /> { /* This is a catch-all route */ }
+          </Switch>
+        </BrowserRouter>
       )
     }
   }

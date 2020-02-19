@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import Page from '../shared/Page';
 import { Typography, TextField, Grid, Button } from '@material-ui/core';
 
 const Home = () => {
@@ -17,16 +16,19 @@ const Home = () => {
             </Grid>
             <Grid component="form" item container direction="column" xs={10} sm={2} spacing={2}>
                 <Grid item>
-                    <TextField id="username" label="Username" variant="outlined" fullWidth />
+                    <TextField id="username" label="Username" variant="outlined" fullWidth size="small" />
                 </Grid>
                 <Grid item>
-                    <TextField id="fullName" label="Full Name" variant="outlined" fullWidth />
+                    <TextField id="fullName" label="Full Name" variant="outlined" fullWidth size="small" />
                 </Grid>
                 <Grid item>
-                    <TextField id="email4" label="Email" variant="outlined" fullWidth />
+                    <TextField id="email" label="Email" variant="outlined" fullWidth size="small" />
+                </Grid>
+                <Grid item>
+                    <TextField id="password" type="password" label="Password" variant="outlined" fullWidth size="small" />
                 </Grid>
                 <Grid item justify="flex-end" container>
-                    <Button variant="outlined" color="primary">Create Account</Button>
+                    <Button variant="outlined" color="primary" size="small">Create Account</Button>
                 </Grid>
             </Grid>
         </Grid>

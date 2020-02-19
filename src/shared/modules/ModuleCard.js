@@ -1,30 +1,50 @@
 import React, { useState } from 'react'
-import { Card, CardHeader, IconButton, CardContent, CardActions, Button, makeStyles, Avatar, CardMedia, Typography, CircularProgress } from '@material-ui/core';
-import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
+import { Card, CardHeader, CardContent, CardActions, Button, makeStyles, Avatar, CardMedia, Typography, CircularProgress, Grid } from '@material-ui/core';
+import { CheckCircle, RadioButtonUnchecked } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
-const ModuleCard = (props) => {
+const CompletionBadge = ({ completion }) => {
+    const classes = styles()
+    return (
+        <Avatar className={classes.avatar}>
+            <CircularProgress variant="static" value={completion % 100} />
+            {completion < 100 && <RadioButtonUnchecked className={classes.completeCheck} />}
+            {completion === 100 && <CheckCircle className={classes.completeCheck} />}
+        </Avatar>
+    )
+}
+
+const ModuleCard = ({ title, description, image, completion = 0 }) => {
     let [raised, setRaised] = useState(false)
     const classes = styles()
     return (
         <Card raised={raised}
             onMouseEnter={() => setRaised(true)}
             onMouseLeave={() => setRaised(false)}
-            className={classes.moduleCard}>
+            className={classes.moduleCard}
+            //Dim the card if it's complete
+            style={(completion === 100) ? { opacity: .6 } : {}}
+            classes={{
+                root: classes.cardRoot
+            }}>
             <CardHeader
-                title={<Typography variant="h5">Types of Internships</Typography>}
-                action={<Avatar>
-                	<CircularProgress variant="static" value={50} />
-                    <CheckCircleRoundedIcon className={classes.completeCheck}/>
-                </Avatar>}
+                title={<Typography variant="h6">{title}</Typography>}
+                action={<CompletionBadge completion={completion} />}
+                classes={{
+                    action: classes.actionOverride
+                }}
             />
             <CardMedia
+                image={require(`assets/modules/${image}.png`)}
+                className={classes.cardImg}
             />
             <CardContent>
-                Learn about various types of internships available in the field, how requirements change for different types of internships & about company culture
+                <Typography variant="body2" >
+                    {description}
+                </Typography>
             </CardContent>
             <CardActions>
-                <Button component={Link} to="/" color="primary">
+                <Button className={classes.getStarted} size="large" component={Link} to="/" color="primary">
                     Get Started
                 </Button>
             </CardActions>
@@ -34,10 +54,37 @@ const ModuleCard = (props) => {
 
 const styles = makeStyles(theme => ({
     moduleCard: {
-        maxWidth: 300
+        // Provide some spacing between cards
+        margin: 16,
+
+        // Use flex layout with column direction for components in the card
+        // (CardContent and CardActions)
+        display: "flex",
+        flexDirection: "column",
+
+        // Justify the content so that CardContent will always be at the top of the card,
+        // and CardActions will be at the bottom
+        justifyContent: "space-between",
+        flexGrow: 1
     },
-    completeCheck:{
+    cardImg: {
+        paddingTop: '68.9655172%'
+    },
+    cardRoot: {
+        backgroundColor: "#2b2730"
+    },
+    completeCheck: {
         position: 'absolute'
+    },
+    getStarted: {
+        marginLeft: 'auto'
+    },
+    avatar: {
+        backgroundColor: 'transparent',
+        color: theme.palette.common.white
+    },
+    actionOverride: {
+        marginTop: 0
     }
 }))
 

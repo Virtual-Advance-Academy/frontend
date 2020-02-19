@@ -3,18 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { ThemeProvider, CssBaseline } from '@material-ui/core'
+import { ThemeProvider, CssBaseline, responsiveFontSizes } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles'
 
-const darkTheme = createMuiTheme({
-    palette: {
-        type: 'dark',
-        primary:{
-            main: '#BB86FC',
-            dark: '#BB86FC'
+const darkTheme = responsiveFontSizes(
+    createMuiTheme({
+        palette: {
+            type: 'dark',
+            primary: {
+                main: '#BB86FC',
+                dark: '#BB86FC'
+            }
         }
-    }
-});
+    }));
 
 ReactDOM.render(
     <ThemeProvider theme={darkTheme}>

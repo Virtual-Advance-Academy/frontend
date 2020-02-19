@@ -22,6 +22,7 @@ const Main = () => {
                                 title={module.title}
                                 description={module.description}
                                 completion={Math.floor((Math.random() * 11)) * 10}
+                                slug={module.slug}
                             />
                         </Grid>
                     )

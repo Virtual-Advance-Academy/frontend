@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Card, CardHeader, CardContent, CardActions, Button, makeStyles, Avatar, CardMedia, Typography, CircularProgress, Grid } from '@material-ui/core';
 import { CheckCircle, RadioButtonUnchecked } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 const CompletionBadge = ({ completion }) => {
     const classes = styles()
@@ -14,9 +14,10 @@ const CompletionBadge = ({ completion }) => {
     )
 }
 
-const ModuleCard = ({ title, description, image, completion = 0 }) => {
+const ModuleCard = ({ title, description, image, completion = 0, slug }) => {
     let [raised, setRaised] = useState(false)
     const classes = styles()
+    const match = useRouteMatch()
     return (
         <Card raised={raised}
             onMouseEnter={() => setRaised(true)}
@@ -44,7 +45,7 @@ const ModuleCard = ({ title, description, image, completion = 0 }) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button className={classes.getStarted} size="large" component={Link} to="/" color="primary">
+                <Button className={classes.getStarted} size="large" component={Link} to={`${match.path}/${slug}`} color="primary">
                     Get Started
                 </Button>
             </CardActions>

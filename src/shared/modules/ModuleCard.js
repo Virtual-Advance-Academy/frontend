@@ -1,48 +1,73 @@
-import React, { useState } from 'react'
-import { Card, CardHeader, CardContent, CardActions, Button, makeStyles, Avatar, CardMedia, Typography, CircularProgress, Tooltip } from '@material-ui/core';
-import { CheckCircle, RadioButtonUnchecked } from '@material-ui/icons';
-import { Link, useRouteMatch } from 'react-router-dom';
-import clsx from 'clsx';
+import {
+    Avatar,
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    CardHeader,
+    CardMedia,
+    CircularProgress,
+    makeStyles,
+    Typography
+} from "@material-ui/core";
+import { CheckCircle } from "@material-ui/icons";
+import clsx from "clsx";
+import React, { useState } from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 
 const CompletionBadge = ({ completion }) => {
-    const classes = styles()
+    const classes = styles();
+    const completionText = `${Math.floor(completion)}%`;
     return (
-        <Tooltip disableFocusListener title={`${Math.floor(completion)}%`} placement="top">
-            <Avatar className={classes.avatar}>
-                <CircularProgress variant="static" value={completion % 100} />
-                {completion < 100 && <RadioButtonUnchecked className={classes.completeCheck} />}
-                {completion === 100 && <CheckCircle className={classes.completeCheck} />}
-            </Avatar>
-        </Tooltip>
-    )
-}
+        <Avatar className={classes.avatar}>
+            <CircularProgress variant="static" value={completion % 100} />
+            {completion < 100 && (
+                <Typography variant="caption" className={classes.completeCheck}>
+                    {completionText}
+                </Typography>
+            )}
+            {completion === 100 && (
+                <CheckCircle className={classes.completeCheck} />
+            )}
+        </Avatar>
+    );
+};
 
-const ModuleCard = ({ title, description, image, completion = 0, slug, msDelay = 0 }) => {
-    let [raised, setRaised] = useState(false)
-    const classes = styles()
-    const match = useRouteMatch()
+const ModuleCard = ({
+    title,
+    description,
+    image,
+    completion = 0,
+    slug,
+    msDelay = 0
+}) => {
+    let [raised, setRaised] = useState(false);
+    const classes = styles();
+    const match = useRouteMatch();
     let cardStyles = [
         classes.moduleCard,
         // Dim the card if it's completed
-        (completion === 100) && (classes.cardDimmed)
+        completion === 100 && classes.cardDimmed
     ];
 
     return (
-        <Card raised={raised}
+        <Card
+            raised={raised}
             onMouseEnter={() => setRaised(true)}
             onMouseLeave={() => setRaised(false)}
             className={clsx(
                 classes.moduleCard,
-                (completion === 100) && (classes.cardDimmed)
+                completion === 100 && classes.cardDimmed
             )}
             // Light up the card on hover, even if it's completed
-            style={(raised) ? ({ opacity: 1 }) : ({})}
+            style={raised ? { opacity: 1 } : {}}
             classes={{
                 root: classes.cardRoot
-            }}>
+            }}
+        >
             <div>
                 <CardHeader
-                    title={<Typography variant="h6" >{title}</Typography>}
+                    title={<Typography variant="h6">{title}</Typography>}
                     action={<CompletionBadge completion={completion} />}
                     classes={{
                         action: classes.actionOverride
@@ -53,19 +78,23 @@ const ModuleCard = ({ title, description, image, completion = 0, slug, msDelay =
                     className={classes.cardImg}
                 />
                 <CardContent>
-                    <Typography variant="body2" >
-                        {description}
-                    </Typography>
+                    <Typography variant="body2">{description}</Typography>
                 </CardContent>
             </div>
             <CardActions>
-                <Button className={classes.getStarted} size="large" component={Link} to={`${match.path}/${slug}`} color="primary">
+                <Button
+                    className={classes.getStarted}
+                    size="large"
+                    component={Link}
+                    to={`${match.path}/${slug}`}
+                    color="primary"
+                >
                     Get Started
-                    </Button>
+                </Button>
             </CardActions>
         </Card>
     );
-}
+};
 
 const styles = makeStyles(theme => ({
     moduleCard: {
@@ -83,28 +112,28 @@ const styles = makeStyles(theme => ({
         flexGrow: 1
     },
     cardImg: {
-        paddingTop: '68.9655172%'
+        paddingTop: "68.9655172%"
     },
     cardRoot: {
         backgroundColor: "#2b2730"
     },
     completeCheck: {
-        position: 'absolute'
+        position: "absolute"
     },
     getStarted: {
-        marginLeft: 'auto'
+        marginLeft: "auto"
     },
     avatar: {
-        backgroundColor: 'transparent',
+        backgroundColor: "transparent",
         color: theme.palette.common.white
     },
     actionOverride: {
         marginTop: 0
     },
     cardDimmed: {
-        opacity: .6,
-        transition: 'opacity .3s'
+        opacity: 0.6,
+        transition: "opacity .3s"
     }
-}))
+}));
 
 export default ModuleCard;

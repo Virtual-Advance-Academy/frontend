@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import {
-    Card, CardHeader, CardContent, CardActions, Button,
-    makeStyles, Avatar, CardMedia, Typography, CircularProgress, Grow
-} from '@material-ui/core';
+import { Card, CardHeader, CardContent, CardActions, Button, makeStyles, Avatar, CardMedia, Typography, CircularProgress, Tooltip } from '@material-ui/core';
 import { CheckCircle, RadioButtonUnchecked } from '@material-ui/icons';
 import { Link, useRouteMatch } from 'react-router-dom';
 import clsx from 'clsx';
@@ -10,11 +7,13 @@ import clsx from 'clsx';
 const CompletionBadge = ({ completion }) => {
     const classes = styles()
     return (
-        <Avatar className={classes.avatar}>
-            <CircularProgress variant="static" value={completion % 100} />
-            {completion < 100 && <RadioButtonUnchecked className={classes.completeCheck} />}
-            {completion === 100 && <CheckCircle className={classes.completeCheck} />}
-        </Avatar>
+        <Tooltip disableFocusListener title={`${Math.floor(completion)}%`} placement="top">
+            <Avatar className={classes.avatar}>
+                <CircularProgress variant="static" value={completion % 100} />
+                {completion < 100 && <RadioButtonUnchecked className={classes.completeCheck} />}
+                {completion === 100 && <CheckCircle className={classes.completeCheck} />}
+            </Avatar>
+        </Tooltip>
     )
 }
 

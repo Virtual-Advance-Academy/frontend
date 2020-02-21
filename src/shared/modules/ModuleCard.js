@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
-import { Card, CardHeader, CardContent, CardActions, Button, makeStyles, Avatar, CardMedia, Typography, CircularProgress, Grid } from '@material-ui/core';
+import {
+    Card, CardHeader, CardContent, CardActions, Button,
+    makeStyles, Avatar, CardMedia, Typography, CircularProgress, Grow
+} from '@material-ui/core';
 import { CheckCircle, RadioButtonUnchecked } from '@material-ui/icons';
 import { Link, useRouteMatch } from 'react-router-dom';
+import clsx from 'clsx';
 
 const CompletionBadge = ({ completion }) => {
     const classes = styles()
@@ -14,17 +18,26 @@ const CompletionBadge = ({ completion }) => {
     )
 }
 
-const ModuleCard = ({ title, description, image, completion = 0, slug }) => {
+const ModuleCard = ({ title, description, image, completion = 0, slug, msDelay = 0 }) => {
     let [raised, setRaised] = useState(false)
     const classes = styles()
     const match = useRouteMatch()
+    let cardStyles = [
+        classes.moduleCard,
+        // Dim the card if it's completed
+        (completion === 100) && (classes.cardDimmed)
+    ];
+
     return (
         <Card raised={raised}
             onMouseEnter={() => setRaised(true)}
             onMouseLeave={() => setRaised(false)}
-            className={classes.moduleCard}
-            //Dim the card if it's complete
-            style={(completion === 100) ? { opacity: .6 } : {}}
+            className={clsx(
+                classes.moduleCard,
+                (completion === 100) && (classes.cardDimmed)
+            )}
+            // Light up the card on hover, even if it's completed
+            style={(raised) ? ({ opacity: 1 }) : ({})}
             classes={{
                 root: classes.cardRoot
             }}>
@@ -49,7 +62,7 @@ const ModuleCard = ({ title, description, image, completion = 0, slug }) => {
             <CardActions>
                 <Button className={classes.getStarted} size="large" component={Link} to={`${match.path}/${slug}`} color="primary">
                     Get Started
-                </Button>
+                    </Button>
             </CardActions>
         </Card>
     );
@@ -88,6 +101,10 @@ const styles = makeStyles(theme => ({
     },
     actionOverride: {
         marginTop: 0
+    },
+    cardDimmed: {
+        opacity: .6,
+        transition: 'opacity .3s'
     }
 }))
 

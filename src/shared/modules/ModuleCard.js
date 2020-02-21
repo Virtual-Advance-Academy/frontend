@@ -28,22 +28,24 @@ const ModuleCard = ({ title, description, image, completion = 0, slug }) => {
             classes={{
                 root: classes.cardRoot
             }}>
-            <CardHeader
-                title={<Typography variant="h6">{title}</Typography>}
-                action={<CompletionBadge completion={completion} />}
-                classes={{
-                    action: classes.actionOverride
-                }}
-            />
-            <CardMedia
-                image={require(`assets/modules/${image}.png`)}
-                className={classes.cardImg}
-            />
-            <CardContent>
-                <Typography variant="body2" >
-                    {description}
-                </Typography>
-            </CardContent>
+            <div>
+                <CardHeader
+                    title={<Typography variant="h6" >{title}</Typography>}
+                    action={<CompletionBadge completion={completion} />}
+                    classes={{
+                        action: classes.actionOverride
+                    }}
+                />
+                <CardMedia
+                    image={require(`assets/modules/${image}.png`)}
+                    className={classes.cardImg}
+                />
+                <CardContent>
+                    <Typography variant="body2" >
+                        {description}
+                    </Typography>
+                </CardContent>
+            </div>
             <CardActions>
                 <Button className={classes.getStarted} size="large" component={Link} to={`${match.path}/${slug}`} color="primary">
                     Get Started
@@ -56,7 +58,7 @@ const ModuleCard = ({ title, description, image, completion = 0, slug }) => {
 const styles = makeStyles(theme => ({
     moduleCard: {
         // Provide some spacing between cards
-        margin: 16,
+        margin: 8,
 
         // Use flex layout with column direction for components in the card
         // (CardContent and CardActions)

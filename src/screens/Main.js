@@ -7,7 +7,7 @@ import modules from 'shared/modules/modules'
 const Main = () => {
     const classes = styles()
     return (
-        <Container maxWidth='xl'>
+        <Container className={classes.container}>
             <Grid item>
                 <Typography className={classes.title} variant="h2" component="h1" color="primary">
                     Welcome back, Carolina!
@@ -39,7 +39,10 @@ const styles = makeStyles(theme => ({
     },
     card: {
         display: "flex",
-        flex: "1 1 300px"
+        flex: '1 1 290px'
+    },
+    container: {
+        maxWidth: 1500
     }
 }))
 

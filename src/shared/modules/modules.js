@@ -58,7 +58,7 @@ export default [
     {
         id: "module-9",
         slug: "tips",
-        title: "Tips from Professionals",
+        title: "Tips from the Pros",
         description: "Want to get the industry secrets? Here professionals and interns from companies like Microsoft, JP Morgan, Tesla, Disney, Amazon and more will share their experiences and secret tips on landing your dream role!",
         image: "tips",
     },

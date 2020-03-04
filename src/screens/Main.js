@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography, Container } from '@material-ui/core';
+import { Grid, Typography, Container, Grow, Zoom } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import ModuleCard from '../shared/modules/ModuleCard';
 import modules from 'shared/modules/modules'
@@ -14,17 +14,19 @@ const Main = () => {
                 </Typography>
             </Grid>
             <Grid item container spacing={0}>
-                {modules.map((module) =>
+                {modules.map((module, i) =>
                     (
-                        <Grid key={module.id} item className={classes.card}>
-                            <ModuleCard
-                                image={module.image}
-                                title={module.title}
-                                description={module.description}
-                                completion={Math.floor((Math.random() * 11)) * 10}
-                                slug={module.slug}
-                            />
-                        </Grid>
+                        <Zoom in style={{transitionDelay:`calc(.25s + ${i * 100}ms)`}}>
+                            <Grid key={module.id} item className={classes.card}>
+                                <ModuleCard
+                                    image={module.image}
+                                    title={module.title}
+                                    description={module.description}
+                                    completion={Math.floor((Math.random() * 11)) * 10}
+                                    slug={module.slug}
+                                />
+                            </Grid>
+                        </Zoom>
                     )
                 )}
 

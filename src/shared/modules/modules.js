@@ -1,10 +1,13 @@
+import React from 'react';
+import ModuleCard from './ModuleCard';
 export default [
     {
         id: "module-1",
         slug: "Types-of-internships",
         title: "Types of Internships",
         description: "Learn about various types of internships available in the field, where to find internships, the different internship seasons & how to decide which companies are best for you based on your goals and interests.",
-        image: "types"
+        image: "types",
+        component: () => {return (<div>I did it bois</div>)}
     },
     {
         id: "module-2",

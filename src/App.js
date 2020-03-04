@@ -7,6 +7,7 @@ import Page from './shared/Page';
 import Main from './screens/Main';
 import Networking from './screens/ModuleContent/Networking-and-pitching';
 // import Survey from './screens/Survey';
+import ModuleRoutes from 'shared/ModuleRoutes'
 
   class App extends Component {
     render() {
@@ -16,7 +17,7 @@ import Networking from './screens/ModuleContent/Networking-and-pitching';
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/modules" exact component={Main}/>
-              <Route path="/modules/Networking-and-pitching" exact component={Networking}/>
+              <Route path="/modules" component={ModuleRoutes}/>
               <Route component={null} /> { /* This is a catch-all route */ }
             </Switch>
           </Page>

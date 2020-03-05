@@ -6,10 +6,10 @@ import modules from '../../shared/modules/modules'
 
 const Networking = () => {
     const classes = styles()
-    const networking = modules.filter(module => module.title === "Networking & Pitching");
+    const [networking] = modules.filter(module => module.title === "Networking & Pitching");
     return (
         <ModuleContent
-            title={module.title}
+            title={networking.title}
          //   description={module.description}
         />
 

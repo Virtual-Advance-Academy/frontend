@@ -1,5 +1,5 @@
 import React from 'react';
-import ModuleCard from './ModuleCard';
+import Networking from 'screens/ModuleContent/Networking-and-pitching';
 export default [
     {
         id: "module-1",
@@ -7,7 +7,7 @@ export default [
         title: "Types of Internships",
         description: "Learn about various types of internships available in the field, where to find internships, the different internship seasons & how to decide which companies are best for you based on your goals and interests.",
         image: "types",
-        component: () => {return (<div>I did it bois</div>)}
+        component: Networking
     },
     {
         id: "module-2",

@@ -4,13 +4,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import ModuleContent from '../../shared/modules/ModuleContent';
 import modules from '../../shared/modules/modules'
 
-const Networking = () => {
+const Resumes = () => {
     const classes = styles()
-    const [networking] = modules.filter(module => module.title === "Networking & Pitching");
+    const [resumes] = modules.filter(module => module.title === "Resume Building");
     return (
         <ModuleContent
-            title={networking.title}
-            description={networking.description}
+            title={resumes.title}
+            description={resumes.description}
         />
     );
 }
@@ -19,4 +19,4 @@ const styles = makeStyles(theme => ({
 
 }))
 
-export default Networking
+export default Resumes

@@ -3,10 +3,7 @@ import './App.css';
 import Home from './screens/Home';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Page from './shared/Page';
-// import ColorScheme from './shared/ColorScheme';
 import Main from './screens/Main';
-import Networking from './screens/ModuleContent/networking-and-pitching';
-// import Survey from './screens/Survey';
 import ModuleRoutes from 'shared/ModuleRoutes'
 
   class App extends Component {

@@ -1,5 +1,8 @@
 import React from 'react';
 import Networking from 'screens/ModuleContent/networking-and-pitching';
+import InternshipTypes from 'screens/ModuleContent/types-of-internships';
+import Resumes from 'screens/ModuleContent/resume-building';
+
 export default [
     {
         id: "module-1",
@@ -7,6 +10,8 @@ export default [
         title: "Types of Internships",
         description: "Learn about various types of internships available in the field, where to find internships, the different internship seasons & how to decide which companies are best for you based on your goals and interests.",
         image: "types",
+        component: InternshipTypes
+
     },
     {
         id: "module-2",
@@ -22,6 +27,7 @@ export default [
         title: "Resume Building",
         description: "Resumes are crucial for recruiters to see what makes you stand out as a potential candidate. Learn how to design a resume to best highlight your skills and experience in an aesthetically pleasing way.",
         image: "resume",
+        component: Resumes
     },
     {
         id: "module-4",

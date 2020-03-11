@@ -10,6 +10,7 @@ const Networking = () => {
     return (
         <ModuleContent
             title={networking.title}
+            description={networking.description}
          //   description={module.description}
         />
 
@@ -31,9 +32,6 @@ const Networking = () => {
 }
 
 const styles = makeStyles(theme => ({
-    title: {
-        margin: '20px 0'
-    },
     container: {
         maxWidth: 1500
     }

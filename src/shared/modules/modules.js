@@ -7,7 +7,6 @@ export default [
         title: "Types of Internships",
         description: "Learn about various types of internships available in the field, where to find internships, the different internship seasons & how to decide which companies are best for you based on your goals and interests.",
         image: "types",
-        component: Networking
     },
     {
         id: "module-2",
@@ -15,6 +14,7 @@ export default [
         title: "Networking & Pitching",
         description: "Curious about where to find networking opportunities or how to perfect your elevator pitch? This module will give an overview of why networking is crucial and will provide examples of a well structured elevator pitch.",
         image: "networking",
+        component: Networking
     },
     {
         id: "module-3",

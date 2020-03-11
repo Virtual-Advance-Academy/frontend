@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Page from './shared/Page';
 // import ColorScheme from './shared/ColorScheme';
 import Main from './screens/Main';
-import Networking from './screens/ModuleContent/Networking-and-pitching';
+import Networking from './screens/ModuleContent/networking-and-pitching';
 // import Survey from './screens/Survey';
 import ModuleRoutes from 'shared/ModuleRoutes'
 

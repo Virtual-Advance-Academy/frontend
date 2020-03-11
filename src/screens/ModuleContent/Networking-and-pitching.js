@@ -11,23 +11,7 @@ const Networking = () => {
         <ModuleContent
             title={networking.title}
             description={networking.description}
-         //   description={module.description}
         />
-
-        // <Container className={classes.container}>
-        //     <Grid item container spacing={0}>
-        //         {modules.map((module) =>
-        //             (
-        //                 <Grid key={modules.id} item>
-        //                     <ModuleContent
-        //                         title={modules.title}
-        //                         description={module.description}
-        //                     />
-        //                 </Grid>
-        //             )
-        //         )}
-        //     </Grid>
-        // </Container>
     );
 }
 

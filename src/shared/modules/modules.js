@@ -4,6 +4,8 @@ import InternshipTypes from 'screens/ModuleContent/types-of-internships';
 import Resumes from 'screens/ModuleContent/resume-building';
 import AppProcess from 'screens/ModuleContent/application-process';
 import WhatToWear from 'screens/ModuleContent/what-to-wear';
+import BehaviorialQuestions from 'screens/ModuleContent/behaviorial-questions';
+import TechnicalQuestions from 'screens/ModuleContent/tech-questions';
 
 export default [
     {
@@ -53,6 +55,7 @@ export default [
         title: "Behaviorial Questions",
         description: "Preparing for behavioral questions is extremely critical. This is where the interviewer see's who you are as a person and if you are a good fit. Additionally, they want to see how you approach and handle different situations.",
         image: "interview",
+        component: BehaviorialQuestions,
     },
     {
         id: "module-7",
@@ -60,6 +63,7 @@ export default [
         title: "Technical Questions",
         description: "Master your data structures and constantly practice for technical interviews. This module will go over how to generally approach technical questions and provide beneficial resources that will help you prepare.",
         image: "code",
+        component: TechnicalQuestions,
     },
     {
         id: "module-8",

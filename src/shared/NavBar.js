@@ -16,7 +16,9 @@ const NavBar = () => {
                 <IconButton edge="start" color="inherit" aria-label="menu">
                     <MenuIcon />
                 </IconButton>
-                <img src={logo} alt='logo' className={classes.logo} />
+                <a href='/'>
+                    <img src={logo} alt='logo' className={classes.logo} />
+                </a>
                 <Button variant="outlined" className={classes.loginButton}>Login</Button>
             </Toolbar>
         </AppBar>

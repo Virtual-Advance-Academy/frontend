@@ -6,6 +6,9 @@ import AppProcess from 'screens/ModuleContent/application-process';
 import WhatToWear from 'screens/ModuleContent/what-to-wear';
 import BehaviorialQuestions from 'screens/ModuleContent/behaviorial-questions';
 import TechnicalQuestions from 'screens/ModuleContent/tech-questions';
+import DosAndDonts from 'screens/ModuleContent/dos-and-donts';
+import Tips from 'screens/ModuleContent/tips';
+import More from 'screens/ModuleContent/more';
 
 export default [
     {
@@ -71,6 +74,7 @@ export default [
         title: "The Do's & Don'ts",
         description: "There are small actions that can sometimes leave a lasting impression on your interviewer (positive or negative), let's learn about a couple of the main ones to ensure your success.",
         image: "check",
+        component: DosAndDonts,
     },
     {
         id: "module-9",
@@ -78,6 +82,7 @@ export default [
         title: "Tips from the Pros",
         description: "Want to get the industry secrets? Here professionals and interns from companies like Microsoft, JP Morgan, Tesla, Disney, Amazon and more will share their experiences and secret tips on landing your dream role!",
         image: "tips",
+        component: Tips,
     },
     {
         id: "module-10",
@@ -85,5 +90,6 @@ export default [
         title: "Hungry for more?",
         description: "If you're interested in diving more into these topics, checkout these curated resources our team has put together for you! Please also leave feedback here if there is anything else you would like to see.",
         image: "more",
+        component: More,
     }
 ]

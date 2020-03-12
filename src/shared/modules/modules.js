@@ -3,6 +3,7 @@ import Networking from 'screens/ModuleContent/networking-and-pitching';
 import InternshipTypes from 'screens/ModuleContent/types-of-internships';
 import Resumes from 'screens/ModuleContent/resume-building';
 import AppProcess from 'screens/ModuleContent/application-process';
+import WhatToWear from 'screens/ModuleContent/what-to-wear';
 
 export default [
     {
@@ -11,7 +12,7 @@ export default [
         title: "Types of Internships",
         description: "Learn about various types of internships available in the field, where to find internships, the different internship seasons & how to decide which companies are best for you based on your goals and interests.",
         image: "types",
-        component: InternshipTypes
+        component: InternshipTypes,
 
     },
     {
@@ -20,7 +21,7 @@ export default [
         title: "Networking & Pitching",
         description: "Curious about where to find networking opportunities or how to perfect your elevator pitch? This module will give an overview of why networking is crucial and will provide examples of a well structured elevator pitch.",
         image: "networking",
-        component: Networking
+        component: Networking,
     },
     {
         id: "module-3",
@@ -28,7 +29,7 @@ export default [
         title: "Resume Building",
         description: "Resumes are crucial for recruiters to see what makes you stand out as a potential candidate. Learn how to design a resume to best highlight your skills and experience in an aesthetically pleasing way.",
         image: "resume",
-        component: Resumes
+        component: Resumes,
     },
     {
         id: "module-4",
@@ -36,7 +37,7 @@ export default [
         title: "Application Process",
         description: "Understand the items that are high priority to include in your application, and why some items might not be as applicable. Also, this module will go over tips to make the application process efficient!",
         image: "application",
-        component: AppProcess
+        component: AppProcess,
     },
     {
         id: "module-5",
@@ -44,6 +45,7 @@ export default [
         title: "What to Wear",
         description: "Company culture impacts what you should wear to onsite interviews. Some companies prefer their candidates to wear business formal, while others suggest come in what you’re comfortable in.",
         image: "clothing",
+        component: WhatToWear,
     },
     {
         id: "module-6",

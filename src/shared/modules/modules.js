@@ -2,6 +2,7 @@ import React from 'react';
 import Networking from 'screens/ModuleContent/networking-and-pitching';
 import InternshipTypes from 'screens/ModuleContent/types-of-internships';
 import Resumes from 'screens/ModuleContent/resume-building';
+import AppProcess from 'screens/ModuleContent/application-process';
 
 export default [
     {
@@ -35,6 +36,7 @@ export default [
         title: "Application Process",
         description: "Understand the items that are high priority to include in your application, and why some items might not be as applicable. Also, this module will go over tips to make the application process efficient!",
         image: "application",
+        component: AppProcess
     },
     {
         id: "module-5",

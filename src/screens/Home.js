@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid } from "@material-ui/core";
-import HomeLogin from "shared/HomeLogin";
+import HomeRegister from "shared/HomeRegister";
 
 const Home = () => {
     const classes = styles();
@@ -26,7 +26,7 @@ const Home = () => {
                     <span>internship?</span>
                 </Typography>
             </Grid>
-            <HomeLogin />
+            <HomeRegister />
         </Grid>
     );
 };

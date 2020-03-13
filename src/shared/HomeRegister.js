@@ -62,11 +62,11 @@ const HomeRegister = () => {
                     component="form"
                     onSubmit={handleSubmit}
                     noValidate
-                    item
                     container
                     direction="column"
                     xs={10}
-                    sm={2}
+                    md={3}
+                    lg={2}
                     spacing={2}
                 >
                     <Grid item>

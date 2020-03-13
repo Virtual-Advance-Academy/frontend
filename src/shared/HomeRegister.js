@@ -5,7 +5,7 @@ import { Form } from "react-final-form";
 import { TextField, makeValidate, makeRequired } from "mui-rff";
 import axios from "axios";
 import * as Yup from "yup";
-import config from "config/appConfig";
+import { config } from "config/appConfig";
 
 const HomeRegister = () => {
     const [showPass, setShowPass] = useState(false);
@@ -19,14 +19,19 @@ const HomeRegister = () => {
             .matches(
                 /^[a-zA-Z0-9_]+$/,
                 "Usernames may only contain numbers, letters, and underscores"
-            ),
-        fullName: Yup.string().required(),
+            )
+            .label("Username"),
+        fullName: Yup.string()
+            .required()
+            .label("Full Name"),
         email: Yup.string()
             .email()
-            .required(),
+            .required()
+            .label("Email"),
         password: Yup.string()
             .min(8)
             .required()
+            .label("Password")
     });
 
     const validator = makeValidate(schema);
@@ -48,7 +53,6 @@ const HomeRegister = () => {
             console.log(e);
             console.log(e.response);
         }
-
     };
 
     return (

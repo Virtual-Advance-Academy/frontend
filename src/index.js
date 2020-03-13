@@ -1,30 +1,57 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { ThemeProvider, CssBaseline, responsiveFontSizes } from '@material-ui/core'
-import { createMuiTheme } from '@material-ui/core/styles'
+import React, { setGlobal } from "reactn";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import {
+    ThemeProvider,
+    CssBaseline,
+    responsiveFontSizes,
+    Button
+} from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { SnackbarProvider } from "notistack";
+import { appState } from "config/appConfig";
 
 const darkTheme = responsiveFontSizes(
     createMuiTheme({
         palette: {
-            type: 'dark',
+            type: "dark",
             primary: {
-                main: '#BB86FC',
-                dark: '#BB86FC'
+                main: "#BB86FC",
+                dark: "#BB86FC"
             }
         }
-    }));
+    })
+);
+
+const notistackRef = React.createRef();
+const onClickDismiss = key => () => {
+    notistackRef.current.closeSnackbar(key);
+};
+
+setGlobal(appState)
 
 ReactDOM.render(
     <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <App />
+        <SnackbarProvider
+            ref={notistackRef}
+            action={key => (
+                <Button
+                    onClick={onClickDismiss(key)}
+                    color="secondary"
+                    size="small"
+                >
+                    Dismiss
+                </Button>
+            )}
+        >
+            <App />
+        </SnackbarProvider>
     </ThemeProvider>,
-    document.getElementById('root'));
-
-
+    document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

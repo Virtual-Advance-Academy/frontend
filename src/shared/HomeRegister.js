@@ -6,10 +6,12 @@ import { TextField, makeValidate, makeRequired } from "mui-rff";
 import axios from "axios";
 import * as Yup from "yup";
 import { config } from "config/appConfig";
+import { useSnackbar } from "notistack";
 
 const HomeRegister = () => {
     const [showPass, setShowPass] = useState(false);
     const [form, setForm] = useState({});
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     const schema = Yup.object().shape({
         username: Yup.string()
@@ -52,6 +54,7 @@ const HomeRegister = () => {
         } catch (e) {
             console.log(e);
             console.log(e.response);
+            enqueueSnackbar(e.response.data.message)
         }
     };
 

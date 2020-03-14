@@ -9,7 +9,17 @@ const config = {
         AUTH: `${API_URL}/users/auth`
     }
 };
-const appState = {
-    user: null
+
+const extractUser = jwt => {
+    try {
+        return JSON.parse(atob(jwt.split(".")[1]));
+    } catch (e) {
+        return null
+    }
 };
-export { config, appState };
+
+const appState = {
+    user: extractUser(window.localStorage["jwt"]) || undefined,
+    jwt: window.localStorage["jwt"] || undefined
+};
+export { config, appState, extractUser };

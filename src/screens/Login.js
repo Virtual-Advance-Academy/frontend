@@ -1,4 +1,4 @@
-import React, { useState } from "reactn";
+import React, { useState, useGlobal } from "reactn";
 import { makeStyles } from "@material-ui/core/styles";
 import {
     Typography,
@@ -11,9 +11,10 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { Form } from "react-final-form";
 import { TextField, makeValidate, makeRequired } from "mui-rff";
 import * as Yup from "yup";
-import { config } from "config/appConfig";
+import { config, extractUser } from "config/appConfig";
 import axios from "axios";
 import { useSnackbar } from "notistack";
+import { Redirect } from "react-router-dom";
 
 const Login = () => {
     const classes = styles();
@@ -43,6 +44,8 @@ const Login = () => {
 const LoginForm = () => {
     const [showPass, setShowPass] = useState(false);
     const [form, setForm] = useState({});
+    const [user, setUser] = useGlobal("user");
+    const [jwt, setJwt] = useGlobal("jwt");
 
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -72,6 +75,10 @@ const LoginForm = () => {
         try {
             const res = await axios.post(config.API_ENDPOINTS.AUTH, form);
             console.log(res);
+            let userInfo = extractUser(res.data.token);
+            setUser(userInfo);
+            setJwt(res.data.token);
+            window.localStorage.setItem('jwt', res.data.token)
         } catch (e) {
             console.log(e);
             console.log(e.response);
@@ -80,79 +87,82 @@ const LoginForm = () => {
     };
 
     return (
-        <Form
-            onSubmit={loginUser}
-            validate={validator}
-            initialValues={form}
-            render={({ handleSubmit, submitting }) => (
-                <Grid
-                    component="form"
-                    noValidate
-                    onSubmit={handleSubmit}
-                    container
-                    item
-                    direction="column"
-                    xs={10}
-                    md={3}
-                    lg={2}
-                    spacing={2}
-                >
-                    <Grid item>
-                        <TextField
-                            label="Username or Email"
-                            name="username"
-                            value={form.username || ""}
-                            variant="outlined"
-                            size="small"
-                            required={required.username}
-                            onChange={handleData}
-                        />
+        <>
+        {jwt && <Redirect to="/modules" />}
+            <Form
+                onSubmit={loginUser}
+                validate={validator}
+                initialValues={form}
+                render={({ handleSubmit, submitting }) => (
+                    <Grid
+                        component="form"
+                        noValidate
+                        onSubmit={handleSubmit}
+                        container
+                        item
+                        direction="column"
+                        xs={10}
+                        md={3}
+                        lg={2}
+                        spacing={2}
+                    >
+                        <Grid item>
+                            <TextField
+                                label="Username or Email"
+                                name="username"
+                                value={form.username || ""}
+                                variant="outlined"
+                                size="small"
+                                required={required.username}
+                                onChange={handleData}
+                            />
+                        </Grid>
+                        <Grid item>
+                            <TextField
+                                id="password"
+                                name="password"
+                                required={required.password}
+                                type={showPass ? "text" : "password"}
+                                label="Password"
+                                variant="outlined"
+                                fullWidth
+                                size="small"
+                                onChange={handleData}
+                                value={form.password || ""}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={togglePass}
+                                                // onMouseDown={handleMouseDownPassword}
+                                            >
+                                                {showPass ? (
+                                                    <Visibility />
+                                                ) : (
+                                                    <VisibilityOff />
+                                                )}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    )
+                                }}
+                            />
+                        </Grid>
+                        <Grid item justify="flex-end" container>
+                            <Button
+                                variant="outlined"
+                                type="submit"
+                                color="primary"
+                                size="small"
+                                disabled={submitting}
+                            >
+                                Login
+                            </Button>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <TextField
-                            id="password"
-                            name="password"
-                            required={required.password}
-                            type={showPass ? "text" : "password"}
-                            label="Password"
-                            variant="outlined"
-                            fullWidth
-                            size="small"
-                            onChange={handleData}
-                            value={form.password || ""}
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={togglePass}
-                                            // onMouseDown={handleMouseDownPassword}
-                                        >
-                                            {showPass ? (
-                                                <Visibility />
-                                            ) : (
-                                                <VisibilityOff />
-                                            )}
-                                        </IconButton>
-                                    </InputAdornment>
-                                )
-                            }}
-                        />
-                    </Grid>
-                    <Grid item justify="flex-end" container>
-                        <Button
-                            variant="outlined"
-                            type="submit"
-                            color="primary"
-                            size="small"
-                            disabled={submitting}
-                        >
-                            Login
-                        </Button>
-                    </Grid>
-                </Grid>
-            )}
-        />
+                )}
+            />
+        </>
     );
 };
 

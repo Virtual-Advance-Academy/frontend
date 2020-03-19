@@ -89,7 +89,9 @@ const ModuleCard = ({
                     to={`${match.path}/${slug}`}
                     color="primary"
                 >
-                    Get Started
+                    {completion === 100 && "Review"}
+                    {completion < 100 && completion > 0 && "Continue"}
+                    {completion === 0 && "Get Startedz"}
                 </Button>
             </CardActions>
         </Card>

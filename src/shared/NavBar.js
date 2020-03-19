@@ -1,7 +1,7 @@
-import React, { useGlobal, useState } from "reactn";
+import React, { useGlobal, useDispatch } from "reactn";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -10,7 +10,8 @@ import clsx from "clsx";
 import logo from "../assets/AdvanceLogo.png";
 import MenuDrawer, { drawerWidth } from "./MenuDrawer";
 
-import { Avatar } from "@material-ui/core";
+import { Avatar, Typography } from "@material-ui/core";
+import UserDrawer from "./UserDrawer";
 
 const LoginButton = () => {
     const classes = useStyles();
@@ -25,37 +26,46 @@ const LoginButton = () => {
         </Button>
     );
 };
-const UserAvatar = () => {
-    const classes = useStyles();
-    const [user] = useGlobal("user");
-    const firstLetter = user.name
-        .toUpperCase()
-        .split(" ")[0]
-        .split("")[0];
-    const lastLetter = user.name
-        .toUpperCase()
-        .split(" ")[1]
-        .split("")[0];
-    return (
-        <Avatar className={classes.loginButton}>
-            {firstLetter}
-            {lastLetter}
-        </Avatar>
-    );
-};
 
 const NavBar = () => {
     const classes = useStyles();
     const [jwt] = useGlobal("jwt");
 
-    const [open, setOpen] = useState(false);
+    const [menuOpen] = useGlobal("menuDrawer");
+    const [userOpen] = useGlobal("userDrawer");
+    const openDrawer = useDispatch("openDrawer");
+    const closeDrawer = useDispatch("closeDrawer");
 
-    const handleDrawerOpen = () => {
-        setOpen(true);
+    const UserAvatar = () => {
+        const classes = useStyles();
+        const [user] = useGlobal("user");
+        const firstLetter = user.name
+            .toUpperCase()
+            .split(" ")[0]
+            .split("")[0];
+        const lastLetter = user.name
+            .toUpperCase()
+            .split(" ")[1]
+            .split("")[0];
+        return (
+            <Avatar
+                className={classes.UserAvatar}
+                onClick={handleDrawerOpen("user")}
+            >
+                <Typography variant="inherit">
+                    {firstLetter}
+                    {lastLetter}
+                </Typography>
+            </Avatar>
+        );
     };
 
-    const handleDrawerClose = () => {
-        setOpen(false);
+    const handleDrawerOpen = drawer => e => {
+        openDrawer(drawer);
+    };
+
+    const handleDrawerClose = drawer => e => {
+        closeDrawer(drawer);
     };
 
     return (
@@ -64,7 +74,7 @@ const NavBar = () => {
                 color="default"
                 position="sticky"
                 className={clsx(classes.appBar, {
-                    [classes.appBarShift]: open
+                    [classes.appBarShift]: menuOpen
                 })}
             >
                 <Toolbar>
@@ -72,11 +82,10 @@ const NavBar = () => {
                         edge="start"
                         color="inherit"
                         aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
+                        onClick={handleDrawerOpen("menu")}
                         className={clsx(
                             classes.menuButton,
-                            open && classes.hide
+                            menuOpen && classes.hide
                         )}
                     >
                         <MenuIcon />
@@ -88,7 +97,8 @@ const NavBar = () => {
                     {jwt && <UserAvatar />}
                 </Toolbar>
             </AppBar>
-            <MenuDrawer open={open} onClose={handleDrawerClose} />
+            <MenuDrawer open={menuOpen} onClose={handleDrawerClose("menu")} />
+            <UserDrawer open={userOpen} onClose={handleDrawerClose("user")} />
         </>
     );
 };
@@ -103,6 +113,13 @@ const useStyles = makeStyles(theme => ({
     },
     loginButton: {
         marginLeft: "auto"
+    },
+    UserAvatar: {
+        marginLeft: "auto",
+        border: "4px solid " + theme.palette.primary.dark,
+        boxSizing: "content-box",
+        background: theme.palette.primary.main,
+        cursor: "pointer"
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,

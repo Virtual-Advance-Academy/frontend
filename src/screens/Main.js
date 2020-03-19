@@ -4,15 +4,17 @@ import { makeStyles } from "@material-ui/core/styles";
 import ModuleCard from "../shared/modules/ModuleCard";
 import modules from "shared/modules/modules";
 import { Redirect } from "react-router-dom";
+import ScrollToTop from "shared/ScrollToTop";
 
 const Main = () => {
     const classes = styles();
     const [user] = useGlobal("user");
     const [jwt] = useGlobal("jwt");
-    const firstName = user && user.name.split(" ")[0] || "";
+    const firstName = (user && user.name.split(" ")[0]) || "";
     return (
         <>
             {!jwt && <Redirect to="/login" />}
+            <ScrollToTop />
             <Container className={classes.container}>
                 <Grid item>
                     <Typography

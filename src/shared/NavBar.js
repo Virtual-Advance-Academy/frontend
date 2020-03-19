@@ -26,26 +26,6 @@ const LoginButton = () => {
         </Button>
     );
 };
-const UserAvatar = () => {
-    const classes = useStyles();
-    const [user] = useGlobal("user");
-    const firstLetter = user.name
-        .toUpperCase()
-        .split(" ")[0]
-        .split("")[0];
-    const lastLetter = user.name
-        .toUpperCase()
-        .split(" ")[1]
-        .split("")[0];
-    return (
-        <Avatar className={classes.loginButton}>
-            <Typography variant="inherit">
-                {firstLetter}
-                {lastLetter}
-            </Typography>
-        </Avatar>
-    );
-};
 
 const NavBar = () => {
     const classes = useStyles();
@@ -55,6 +35,30 @@ const NavBar = () => {
     const [userOpen] = useGlobal("userDrawer");
     const openDrawer = useDispatch("openDrawer");
     const closeDrawer = useDispatch("closeDrawer");
+
+    const UserAvatar = () => {
+        const classes = useStyles();
+        const [user] = useGlobal("user");
+        const firstLetter = user.name
+            .toUpperCase()
+            .split(" ")[0]
+            .split("")[0];
+        const lastLetter = user.name
+            .toUpperCase()
+            .split(" ")[1]
+            .split("")[0];
+        return (
+            <Avatar
+                className={classes.UserAvatar}
+                onClick={handleDrawerOpen("user")}
+            >
+                <Typography variant="inherit">
+                    {firstLetter}
+                    {lastLetter}
+                </Typography>
+            </Avatar>
+        );
+    };
 
     const handleDrawerOpen = drawer => e => {
         openDrawer(drawer);
@@ -109,6 +113,14 @@ const useStyles = makeStyles(theme => ({
     },
     loginButton: {
         marginLeft: "auto"
+    },
+    UserAvatar: {
+        marginLeft: "auto",
+        border: "4px solid " + theme.palette.primary.dark,
+        boxSizing: "content-box",
+        background: theme.palette.primary.main,
+        cursor: "pointer",
+        zIndex: 1500
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,

@@ -10,7 +10,7 @@ const Main = () => {
     const classes = styles();
     const [user] = useGlobal("user");
     const [jwt] = useGlobal("jwt");
-    const firstName = user && user.name.split(" ")[0] || "";
+    const firstName = (user && user.name.split(" ")[0]) || "";
     return (
         <>
             {!jwt && <Redirect to="/login" />}

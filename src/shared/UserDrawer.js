@@ -5,15 +5,10 @@ import {
     makeStyles,
     ListItemText,
     ListItem,
-    IconButton,
     Divider,
     List,
     Typography
 } from "@material-ui/core";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-import ClassIcon from "@material-ui/icons/Class";
-import { Link } from "react-router-dom";
 import { ExitToApp } from "@material-ui/icons";
 
 const drawerWidth = 240;

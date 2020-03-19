@@ -81,7 +81,7 @@ const NavBar = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Link to="/">
+                    <Link to="/" className={classes.linkFix}>
                         <img src={logo} alt="logo" className={classes.logo} />
                     </Link>
                     {!jwt && <LoginButton />}
@@ -117,6 +117,9 @@ const useStyles = makeStyles(theme => ({
     },
     hide: {
         display: "none"
+    },
+    linkFix: {
+        fontSize: 0
     }
 }));
 

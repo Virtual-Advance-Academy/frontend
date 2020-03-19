@@ -44,11 +44,6 @@ const ModuleCard = ({
     let [raised, setRaised] = useState(false);
     const classes = styles();
     const match = useRouteMatch();
-    let cardStyles = [
-        classes.moduleCard,
-        // Dim the card if it's completed
-        completion === 100 && classes.cardDimmed
-    ];
 
     return (
         <Card

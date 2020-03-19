@@ -81,12 +81,14 @@ const NavBar = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <img src={logo} alt="logo" className={classes.logo} />
+                    <Link to="/">
+                        <img src={logo} alt="logo" className={classes.logo} />
+                    </Link>
                     {!jwt && <LoginButton />}
                     {jwt && <UserAvatar />}
                 </Toolbar>
             </AppBar>
-            <MenuDrawer open={open} onClose={handleDrawerClose}/>
+            <MenuDrawer open={open} onClose={handleDrawerClose} />
         </>
     );
 };

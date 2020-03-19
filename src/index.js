@@ -18,7 +18,7 @@ const darkTheme = responsiveFontSizes(
         palette: {
             type: "dark",
             primary: {
-                main: "#BB86FC",
+                main: "#BB86FC"
             }
         }
     })
@@ -64,6 +64,15 @@ addReducer("closeDrawer", (global, dispatch, drawer) => {
                 userDrawer: false
             };
     }
+});
+
+addReducer("logout", (global, dispatch) => {
+    console.log("logout");
+    window.localStorage.removeItem("jwt");
+    return {
+        user: undefined,
+        jwt: undefined
+    };
 });
 
 ReactDOM.render(

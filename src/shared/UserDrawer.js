@@ -1,18 +1,36 @@
-import React from "react";
-import { Drawer, ListItemIcon, makeStyles, ListItemText, ListItem, IconButton, Divider, List } from "@material-ui/core";
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import ClassIcon from '@material-ui/icons/Class';
+import React, { useGlobal, useDispatch } from "reactn";
+import {
+    Drawer,
+    ListItemIcon,
+    makeStyles,
+    ListItemText,
+    ListItem,
+    IconButton,
+    Divider,
+    List,
+    Typography
+} from "@material-ui/core";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import ClassIcon from "@material-ui/icons/Class";
 import { Link } from "react-router-dom";
+import { ExitToApp } from "@material-ui/icons";
 
 const drawerWidth = 240;
 
 const UserDrawer = ({ open, onClose }) => {
     const classes = useStyles();
+    const [user] = useGlobal("user");
+    const logout = useDispatch("logout");
+    const name = (user && user.name) || '';
 
     function ListItemLink(props) {
-        return <ListItem button component="a" {...props} onClick={onClose} />;
-    }    
+        const clickChain = () => {
+            onClose()
+            props.onClick()
+        }
+        return <ListItem button component="a" {...props} onClick={clickChain} />;
+    }
 
     return (
         <Drawer
@@ -26,23 +44,17 @@ const UserDrawer = ({ open, onClose }) => {
             }}
         >
             <div className={classes.drawerHeader}>
-                <IconButton onClick={onClose}>
-                    <ChevronLeftIcon />
-                </IconButton>
+                <Typography variant="h4" component="h2">
+                    {name}
+                </Typography>
             </div>
             <Divider />
             <List>
-                <ListItemLink component={Link} to="/modules">
+                <ListItemLink onClick={logout}>
                     <ListItemIcon>
-                        <ClassIcon />
+                        <ExitToApp />
                     </ListItemIcon>
-                    <ListItemText primary="Modules" />
-                </ListItemLink>
-                <ListItemLink href="https://upe.cs.fiu.edu">
-                    <ListItemIcon>
-                        <AccountBalanceIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="UPE" />
+                    <ListItemText primary="Logout" />
                 </ListItemLink>
             </List>
         </Drawer>
@@ -58,27 +70,8 @@ const useStyles = makeStyles(theme => ({
         width: drawerWidth
     },
     drawerHeader: {
-        display: "flex",
-        alignItems: "center",
-        padding: theme.spacing(0, 1),
-        ...theme.mixins.toolbar,
-        justifyContent: "flex-end"
-    },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-        transition: theme.transitions.create("margin", {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen
-        }),
-        marginLeft: -drawerWidth
-    },
-    contentShift: {
-        transition: theme.transitions.create("margin", {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen
-        }),
-        marginLeft: 0
+        padding: theme.spacing(1, 1),
+        ...theme.mixins.toolbar
     }
 }));
 

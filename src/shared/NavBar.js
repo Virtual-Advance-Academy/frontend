@@ -119,8 +119,7 @@ const useStyles = makeStyles(theme => ({
         border: "4px solid " + theme.palette.primary.dark,
         boxSizing: "content-box",
         background: theme.palette.primary.main,
-        cursor: "pointer",
-        zIndex: 1500
+        cursor: "pointer"
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,

@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ModuleCard from "../shared/modules/ModuleCard";
 import modules from "shared/modules/modules";
 import { Redirect } from "react-router-dom";
+import ScrollToTop from "shared/ScrollToTop";
 
 const Main = () => {
     const classes = styles();
@@ -13,6 +14,7 @@ const Main = () => {
     return (
         <>
             {!jwt && <Redirect to="/login" />}
+            <ScrollToTop />
             <Container className={classes.container}>
                 <Grid item>
                     <Typography

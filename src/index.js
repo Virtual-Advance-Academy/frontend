@@ -1,4 +1,4 @@
-import React, { setGlobal } from "reactn";
+import React, { setGlobal, addReducer } from "reactn";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -30,7 +30,42 @@ const onClickDismiss = key => () => {
     notistackRef.current.closeSnackbar(key);
 };
 
-setGlobal(appState)
+setGlobal(appState);
+addReducer("openDrawer", (global, dispatch, drawer) => {
+    console.log(drawer);
+    switch (drawer) {
+        case "menu":
+            return {
+                menuDrawer: true
+            };
+        case "user":
+            return {
+                userDrawer: true
+            };
+        default:
+            return {
+                menuDrawer: true,
+                userDrawer: true
+            };
+    }
+});
+addReducer("closeDrawer", (global, dispatch, drawer) => {
+    switch (drawer) {
+        case "menu":
+            return {
+                menuDrawer: false
+            };
+        case "user":
+            return {
+                userDrawer: false
+            };
+        default:
+            return {
+                menuDrawer: false,
+                userDrawer: false
+            };
+    }
+});
 
 ReactDOM.render(
     <ThemeProvider theme={darkTheme}>

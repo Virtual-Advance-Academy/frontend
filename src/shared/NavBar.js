@@ -1,4 +1,4 @@
-import React, { useGlobal, useState } from "reactn";
+import React, { useGlobal, useDispatch } from "reactn";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,7 +10,8 @@ import clsx from "clsx";
 import logo from "../assets/AdvanceLogo.png";
 import MenuDrawer, { drawerWidth } from "./MenuDrawer";
 
-import { Avatar } from "@material-ui/core";
+import { Avatar, Typography } from "@material-ui/core";
+import UserDrawer from "./UserDrawer";
 
 const LoginButton = () => {
     const classes = useStyles();
@@ -38,8 +39,10 @@ const UserAvatar = () => {
         .split("")[0];
     return (
         <Avatar className={classes.loginButton}>
-            {firstLetter}
-            {lastLetter}
+            <Typography variant="inherit">
+                {firstLetter}
+                {lastLetter}
+            </Typography>
         </Avatar>
     );
 };
@@ -48,14 +51,17 @@ const NavBar = () => {
     const classes = useStyles();
     const [jwt] = useGlobal("jwt");
 
-    const [open, setOpen] = useState(false);
+    const [menuOpen] = useGlobal("menuDrawer");
+    const [userOpen] = useGlobal("userDrawer");
+    const openDrawer = useDispatch("openDrawer");
+    const closeDrawer = useDispatch("closeDrawer");
 
-    const handleDrawerOpen = () => {
-        setOpen(true);
+    const handleDrawerOpen = drawer => e => {
+        openDrawer(drawer);
     };
 
-    const handleDrawerClose = () => {
-        setOpen(false);
+    const handleDrawerClose = drawer => e => {
+        closeDrawer(drawer);
     };
 
     return (
@@ -64,7 +70,7 @@ const NavBar = () => {
                 color="default"
                 position="sticky"
                 className={clsx(classes.appBar, {
-                    [classes.appBarShift]: open
+                    [classes.appBarShift]: menuOpen
                 })}
             >
                 <Toolbar>
@@ -72,10 +78,10 @@ const NavBar = () => {
                         edge="start"
                         color="inherit"
                         aria-label="open drawer"
-                        onClick={handleDrawerOpen}
+                        onClick={handleDrawerOpen("menu")}
                         className={clsx(
                             classes.menuButton,
-                            open && classes.hide
+                            menuOpen && classes.hide
                         )}
                     >
                         <MenuIcon />
@@ -87,7 +93,8 @@ const NavBar = () => {
                     {jwt && <UserAvatar />}
                 </Toolbar>
             </AppBar>
-            <MenuDrawer open={open} onClose={handleDrawerClose} />
+            <MenuDrawer open={menuOpen} onClose={handleDrawerClose("menu")} />
+            <UserDrawer open={userOpen} onClose={handleDrawerClose("user")} />
         </>
     );
 };

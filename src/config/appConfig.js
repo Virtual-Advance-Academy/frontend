@@ -20,6 +20,8 @@ const extractUser = jwt => {
 
 const appState = {
     user: extractUser(window.localStorage["jwt"]) || undefined,
-    jwt: window.localStorage["jwt"] || undefined
+    jwt: window.localStorage["jwt"] || undefined,
+    menuDrawer: false,
+    userDrawer: false
 };
 export { config, appState, extractUser };

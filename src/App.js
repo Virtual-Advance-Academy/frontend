@@ -7,6 +7,7 @@ import Main from './screens/Main';
 import Login from './screens/Login'
 // import Survey from './screens/Survey';
 import ModuleRoutes from 'shared/ModuleRoutes'
+import Profile from 'screens/Profile';
 
   class App extends Component {
     render() {
@@ -16,6 +17,7 @@ import ModuleRoutes from 'shared/ModuleRoutes'
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/login" exact component={Login} />
+              <Route path="/profile" exact component={Profile} />
               <Route path="/modules" exact component={Main}/>
               <Route path="/modules" component={ModuleRoutes}/>
               <Route component={null} /> { /* This is a catch-all route */ }

@@ -6,7 +6,8 @@ const config = {
     API_URL,
     API_ENDPOINTS: {
         USERS: `${API_URL}/users`,
-        AUTH: `${API_URL}/users/auth`
+        AUTH: `${API_URL}/users/auth`,
+        PROFILE: `${API_URL}/users/profile`
     }
 };
 

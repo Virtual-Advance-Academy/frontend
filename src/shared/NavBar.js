@@ -12,6 +12,7 @@ import MenuDrawer, { drawerWidth } from "./MenuDrawer";
 
 import { Avatar, Typography } from "@material-ui/core";
 import UserDrawer from "./UserDrawer";
+import UserAvatar from "./UserAvatar";
 
 const LoginButton = () => {
     const classes = useStyles();
@@ -35,30 +36,6 @@ const NavBar = () => {
     const [userOpen] = useGlobal("userDrawer");
     const openDrawer = useDispatch("openDrawer");
     const closeDrawer = useDispatch("closeDrawer");
-
-    const UserAvatar = () => {
-        const classes = useStyles();
-        const [user] = useGlobal("user");
-        const firstLetter = user.name
-            .toUpperCase()
-            .split(" ")[0]
-            .split("")[0];
-        const lastLetter = user.name
-            .toUpperCase()
-            .split(" ")[1]
-            .split("")[0];
-        return (
-            <Avatar
-                className={classes.UserAvatar}
-                onClick={handleDrawerOpen("user")}
-            >
-                <Typography variant="inherit">
-                    {firstLetter}
-                    {lastLetter}
-                </Typography>
-            </Avatar>
-        );
-    };
 
     const handleDrawerOpen = drawer => e => {
         openDrawer(drawer);
@@ -94,7 +71,12 @@ const NavBar = () => {
                         <img src={logo} alt="logo" className={classes.logo} />
                     </Link>
                     {!jwt && <LoginButton />}
-                    {jwt && <UserAvatar />}
+                    {jwt && (
+                        <UserAvatar
+                            className={classes.UserAvatar}
+                            onClick={handleDrawerOpen("user")}
+                        />
+                    )}
                 </Toolbar>
             </AppBar>
             <MenuDrawer open={menuOpen} onClose={handleDrawerClose("menu")} />
@@ -117,8 +99,6 @@ const useStyles = makeStyles(theme => ({
     UserAvatar: {
         marginLeft: "auto",
         border: "4px solid " + theme.palette.primary.dark,
-        boxSizing: "content-box",
-        background: theme.palette.primary.main,
         cursor: "pointer"
     },
     appBarShift: {

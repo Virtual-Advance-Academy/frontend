@@ -5,13 +5,13 @@ import { Form } from "react-final-form";
 import { TextField, makeValidate, makeRequired } from "mui-rff";
 import * as Yup from "yup";
 import { useSnackbar } from "notistack";
-import { useClient } from "utils/Client";
+import { makeClient } from "utils/Client";
 
 const HomeRegister = () => {
     const [showPass, setShowPass] = useState(false);
     const [form, setForm] = useState({});
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-    const Client = useClient();
+    const Client = makeClient();
 
     const schema = Yup.object().shape({
         username: Yup.string()

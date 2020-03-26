@@ -14,7 +14,7 @@ import * as Yup from "yup";
 import { extractUser } from "config/appConfig";
 import { useSnackbar } from "notistack";
 import { Redirect } from "react-router-dom";
-import { useClient } from "utils/Client";
+import { makeClient } from "utils/Client";
 
 const Login = () => {
     const classes = styles();
@@ -46,7 +46,7 @@ const LoginForm = () => {
     const [form, setForm] = useState({});
     const [user, setUser] = useGlobal("user");
     const [jwt, setJwt] = useGlobal("jwt");
-    const Client = useClient(jwt);
+    const Client = makeClient(jwt);
 
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 

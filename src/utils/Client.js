@@ -1,7 +1,7 @@
 import axios from "axios";
 import { config } from "config/appConfig";
 
-const useClient = jwt => {
+const makeClient = jwt => {
     const auth = { headers: { Authorization: `Bearer ${jwt}` } };
 
     const getProfile = async () => {
@@ -25,4 +25,4 @@ const useClient = jwt => {
     return Client
 };
 
-export { useClient };
+export { makeClient };

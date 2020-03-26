@@ -2,7 +2,7 @@ import React, { useState, useGlobal } from "reactn";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid, Paper, TextField } from "@material-ui/core";
 import AuthorizedRoute from "shared/AuthorizedRoute";
-import { useClient } from "utils/Client";
+import { makeClient } from "utils/Client";
 import { useEffect } from "react";
 
 const Profile = () => {
@@ -10,19 +10,19 @@ const Profile = () => {
 
     const [jwt] = useGlobal("jwt");
 
-    const Client = useClient(jwt);
-
     const [profile, setProfile] = useState({});
 
     const { fullName = "", email = "", username = "" } = profile;
 
     useEffect(() => {
         const fetch = async () => {
+            const Client = makeClient(jwt);
+
             let res = await Client.getProfile();
             setProfile(res.data);
         };
         fetch();
-    }, []);
+    }, [jwt]);
 
     return (
         <>

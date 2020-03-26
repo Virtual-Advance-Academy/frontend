@@ -86,7 +86,7 @@ const ModuleCard = ({
                 >
                     {completion === 100 && "Review"}
                     {completion < 100 && completion > 0 && "Continue"}
-                    {completion === 0 && "Get Startedz"}
+                    {completion === 0 && "Get Started"}
                 </Button>
             </CardActions>
         </Card>

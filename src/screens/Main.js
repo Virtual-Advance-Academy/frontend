@@ -5,15 +5,15 @@ import ModuleCard from "../shared/modules/ModuleCard";
 import modules from "shared/modules/modules";
 import { Redirect } from "react-router-dom";
 import ScrollToTop from "shared/ScrollToTop";
+import AuthorizedRoute from "shared/AuthorizedRoute";
 
 const Main = () => {
     const classes = styles();
     const [user] = useGlobal("user");
-    const [jwt] = useGlobal("jwt");
     const firstName = (user && user.name.split(" ")[0]) || "";
     return (
         <>
-            {!jwt && <Redirect to="/login" />}
+            <AuthorizedRoute />
             <ScrollToTop />
             <Container className={classes.container}>
                 <Grid item>

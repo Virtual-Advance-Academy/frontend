@@ -11,10 +11,10 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { Form } from "react-final-form";
 import { TextField, makeValidate, makeRequired } from "mui-rff";
 import * as Yup from "yup";
-import { config, extractUser } from "config/appConfig";
-import axios from "axios";
+import { extractUser } from "config/appConfig";
 import { useSnackbar } from "notistack";
 import { Redirect } from "react-router-dom";
+import { makeClient } from "utils/Client";
 
 const Login = () => {
     const classes = styles();
@@ -46,6 +46,7 @@ const LoginForm = () => {
     const [form, setForm] = useState({});
     const [user, setUser] = useGlobal("user");
     const [jwt, setJwt] = useGlobal("jwt");
+    const Client = makeClient(jwt);
 
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -73,12 +74,12 @@ const LoginForm = () => {
 
     const loginUser = async () => {
         try {
-            const res = await axios.post(config.API_ENDPOINTS.AUTH, form);
+            const res = await Client.authUser(form);
             console.log(res);
             let userInfo = extractUser(res.data.token);
             setUser(userInfo);
             setJwt(res.data.token);
-            window.localStorage.setItem('jwt', res.data.token)
+            window.localStorage.setItem("jwt", res.data.token);
         } catch (e) {
             console.log(e);
             console.log(e.response);
@@ -88,7 +89,7 @@ const LoginForm = () => {
 
     return (
         <>
-        {jwt && <Redirect to="/modules" />}
+            {jwt && <Redirect to="/modules" />}
             <Form
                 onSubmit={loginUser}
                 validate={validator}

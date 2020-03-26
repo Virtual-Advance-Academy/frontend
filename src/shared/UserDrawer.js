@@ -9,7 +9,8 @@ import {
     List,
     Typography
 } from "@material-ui/core";
-import { ExitToApp } from "@material-ui/icons";
+import { ExitToApp, Person } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -22,7 +23,7 @@ const UserDrawer = ({ open, onClose }) => {
     function ListItemLink(props) {
         const clickChain = () => {
             onClose()
-            props.onClick()
+            props.onClick && props.onClick()
         }
         return <ListItem button component="a" {...props} onClick={clickChain} />;
     }
@@ -45,6 +46,12 @@ const UserDrawer = ({ open, onClose }) => {
             </div>
             <Divider />
             <List>
+                <ListItemLink component={Link} to="/profile">
+                    <ListItemIcon>
+                        <Person />
+                    </ListItemIcon>
+                    <ListItemText primary="Profile" />
+                </ListItemLink>
                 <ListItemLink onClick={logout}>
                     <ListItemIcon>
                         <ExitToApp />

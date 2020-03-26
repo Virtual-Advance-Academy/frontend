@@ -2,7 +2,7 @@ import React, { useGlobal } from "reactn";
 import clsx from "clsx";
 import { makeStyles, Avatar, Typography } from "@material-ui/core";
 
-const UserAvatar = props => {
+const UserAvatar = ({className, ...props}) => {
     const classes = useStyles();
 
     const [user] = useGlobal("user");
@@ -17,7 +17,7 @@ const UserAvatar = props => {
     return (
         <Avatar
             {...props}
-            className={clsx(classes.UserAvatar, props.className)}
+            className={clsx(classes.UserAvatar, className)}
         >
             <Typography variant="inherit">
                 {firstLetter}
@@ -30,7 +30,8 @@ const UserAvatar = props => {
 const useStyles = makeStyles(theme => ({
     UserAvatar: {
         boxSizing: "content-box",
-        background: theme.palette.primary.main
+        background: theme.palette.primary.main,
+        fontWeight: theme.typography.fontWeightBold
     }
 }));
 

@@ -4,6 +4,7 @@ import { Typography, Grid, Paper, TextField } from "@material-ui/core";
 import AuthorizedRoute from "shared/AuthorizedRoute";
 import { makeClient } from "utils/Client";
 import { useEffect } from "react";
+import UserAvatar from "shared/UserAvatar";
 
 const Profile = () => {
     const classes = styles();
@@ -33,7 +34,7 @@ const Profile = () => {
                 justify="center"
                 alignContent="center"
             >
-                <Grid item container lg={4}>
+                <Grid item container xl={4} lg={5} md={8} sm={10} xs={11}>
                     <Grid item className={classes.profileTitle}>
                         <Typography
                             variant="h3"
@@ -53,35 +54,68 @@ const Profile = () => {
                         variant="outlined"
                         className={classes.profileBox}
                     >
-                        <Grid item container xs={12}>
-                            <Grid item>
-                                <Typography variant="button">Photo</Typography>
+                        <Grid
+                            item
+                            container
+                            xs={12}
+                            alignItems="center"
+                            className={classes.photoContainer}
+                        >
+                            <Grid item className={classes.photoArea}>
+                                <Typography
+                                    variant="overline"
+                                    className={classes.itemTitle}
+                                >
+                                    Photo
+                                </Typography>
                                 <Typography variant="body1" paragraph>
                                     A photo helps personalize your account.
                                 </Typography>
                             </Grid>
-                            <Grid item></Grid>
+                            <Grid item>
+                                <UserAvatar className={classes.UserAvatar} />
+                            </Grid>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="button">Name</Typography>
+                            <Typography
+                                variant="overline"
+                                className={classes.itemTitle}
+                            >
+                                Name
+                            </Typography>
                             <Typography variant="body1" paragraph>
                                 {fullName}
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="button">Username</Typography>
+                            <Typography
+                                variant="overline"
+                                className={classes.itemTitle}
+                            >
+                                Username
+                            </Typography>
                             <Typography variant="body1" paragraph>
                                 {username}
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="button">Email</Typography>
+                            <Typography
+                                variant="overline"
+                                className={classes.itemTitle}
+                            >
+                                Email
+                            </Typography>
                             <Typography variant="body1" paragraph>
                                 {email}
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="button">Password</Typography>
+                            <Typography
+                                variant="overline"
+                                className={classes.itemTitle}
+                            >
+                                Password
+                            </Typography>
                             <Typography variant="body1" paragraph>
                                 ********
                             </Typography>
@@ -101,6 +135,9 @@ const styles = makeStyles(theme => ({
             fontWeight: theme.typography.fontWeightLight
         }
     },
+    itemTitle: {
+        color: theme.palette.grey[400]
+    },
     profileBox: {
         padding: `${theme.spacing(4)}px ${theme.spacing(6)}px `
     },
@@ -112,6 +149,17 @@ const styles = makeStyles(theme => ({
     },
     page: {
         minHeight: "100vh"
+    },
+    UserAvatar: {
+        width: theme.spacing(7),
+        height: theme.spacing(7),
+        fontSize: theme.spacing(3)
+    },
+    photoArea: {
+        flex: "1 1 auto"
+    },
+    photoContainer: {
+        flexWrap: "nowrap"
     }
 }));
 

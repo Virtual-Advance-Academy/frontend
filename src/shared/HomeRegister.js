@@ -3,15 +3,15 @@ import { Grid, Button, IconButton, InputAdornment } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { Form } from "react-final-form";
 import { TextField, makeValidate, makeRequired } from "mui-rff";
-import axios from "axios";
 import * as Yup from "yup";
-import { config } from "config/appConfig";
 import { useSnackbar } from "notistack";
+import { useClient } from "utils/Client";
 
 const HomeRegister = () => {
     const [showPass, setShowPass] = useState(false);
     const [form, setForm] = useState({});
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const Client = useClient();
 
     const schema = Yup.object().shape({
         username: Yup.string()
@@ -50,7 +50,7 @@ const HomeRegister = () => {
     const registerUser = async () => {
         console.log("Values: ", form);
         try {
-            const res = await axios.post(config.API_ENDPOINTS.USERS, form);
+            const res = await Client.registerUser(form);
         } catch (e) {
             console.log(e);
             console.log(e.response);

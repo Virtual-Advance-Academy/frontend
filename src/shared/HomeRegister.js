@@ -6,11 +6,13 @@ import { TextField, makeValidate, makeRequired } from "mui-rff";
 import * as Yup from "yup";
 import { useSnackbar } from "notistack";
 import { makeClient } from "utils/Client";
+import { useHistory } from "react-router-dom";
 
 const HomeRegister = () => {
     const [showPass, setShowPass] = useState(false);
     const [form, setForm] = useState({});
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const history = useHistory();
     const Client = makeClient();
 
     const schema = Yup.object().shape({
@@ -51,11 +53,15 @@ const HomeRegister = () => {
         console.log("Values: ", form);
         try {
             const res = await Client.registerUser(form);
+            history.push("/login");
         } catch (e) {
             console.log(e);
             console.log(e.response);
-            let errorMsg = (e.response && e.response.data) ? (e.response.data.message) : e.toString()
-            enqueueSnackbar(errorMsg)
+            let errorMsg =
+                e.response && e.response.data
+                    ? e.response.data.message
+                    : e.toString();
+            enqueueSnackbar(errorMsg);
         }
     };
 

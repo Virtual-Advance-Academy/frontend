@@ -16,8 +16,9 @@ const Survey = ({ onSubmit, initialValues, children }) => {
         }));
 
     const previous = () =>
-        setFormState(state => ({...state,
-            page: Math.max(state.page - 1, 0),
+        setFormState(state => ({
+            ...state,
+            page: Math.max(state.page - 1, 0)
         }));
 
     const handleSubmit = values => {
@@ -48,7 +49,7 @@ const Survey = ({ onSubmit, initialValues, children }) => {
             validate={validate}
             onSubmit={handleSubmit}
             render={({ handleSubmit, submitting, values }) => (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} noValidate>
                     {activePage}
                     <div className="buttons">
                         {page > 0 && (
@@ -56,9 +57,18 @@ const Survey = ({ onSubmit, initialValues, children }) => {
                                 « Previous
                             </Button>
                         )}
-                        {!isLastPage && <Button variant="contained" type="submit">Next »</Button>}
+                        {!isLastPage && (
+                            <Button variant="contained" type="submit">
+                                Next »
+                            </Button>
+                        )}
                         {isLastPage && (
-                            <Button variant="contained" type="submit" disabled={submitting}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                type="submit"
+                                disabled={submitting}
+                            >
                                 Submit
                             </Button>
                         )}

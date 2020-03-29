@@ -5,9 +5,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Page from './shared/Page';
 import Main from './screens/Main';
 import Login from './screens/Login'
-// import Survey from './screens/Survey';
 import ModuleRoutes from 'shared/ModuleRoutes'
 import Profile from 'screens/Profile';
+import SurveyPage from 'screens/SurveyPage';
 
   class App extends Component {
     render() {
@@ -20,6 +20,7 @@ import Profile from 'screens/Profile';
               <Route path="/profile" exact component={Profile} />
               <Route path="/modules" exact component={Main}/>
               <Route path="/modules" component={ModuleRoutes}/>
+              <Route path="/survey" exact component={SurveyPage}/>
               <Route component={null} /> { /* This is a catch-all route */ }
             </Switch>
           </Page>

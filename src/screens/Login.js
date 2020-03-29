@@ -83,7 +83,8 @@ const LoginForm = () => {
         } catch (e) {
             console.log(e);
             console.log(e.response);
-            enqueueSnackbar(e.response.data.message);
+            let errorMsg = (e.response && e.response.data) ? (e.response.data.message) : e.toString()
+            enqueueSnackbar(errorMsg)
         }
     };
 

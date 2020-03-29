@@ -238,5 +238,83 @@ export default [
             { label: "10+", value: "10+" }
         ],
         row: true
+    },
+    {
+        number: 10,
+        page: 3,
+        question: "With technical interviews, to what extent do you...",
+        type: "matrix",
+        header: ["Not at all", "", "Neutral", "", "Very Much So"],
+        data: [
+            {
+                question:
+                    "... feel prepared to succeed on a technical phone interview?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... feel prepared to succeed on a technical in person interview",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question: "... feel confident to explain your logic",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question: "... feel prepared to whiteboard a technical problem",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question: "... feel prepared for an online coding challenge",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... feel prepared to pseudocode an a technical problem",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            }
+        ]
     }
 ];

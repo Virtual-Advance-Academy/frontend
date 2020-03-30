@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles, Typography, Container, Grid, Divider } from '@material-ui/core';
 import { Link, useRouteMatch } from 'react-router-dom';
 
-const ModuleContent = ({ title, description }) => {
+const ModuleContent = ({ title, description, image }) => {
     let [raised, setRaised] = useState(false)
     const classes = styles()
     const match = useRouteMatch()
@@ -20,6 +20,13 @@ const ModuleContent = ({ title, description }) => {
             </Grid>
             <Grid>
                 <Divider variant="middle" />
+            </Grid>
+            <Grid container
+                spacing={0}
+                alignItems="center"
+                justify="center"
+            >
+                <img src={require(`assets/modules/${image}.svg`)} alt="module image" className={classes.mainImg}/>
             </Grid>
         </Container>
     );
@@ -39,6 +46,10 @@ const styles = makeStyles(theme => ({
         fontWeight: '300',
         padding: theme.spacing(3),
     },
+    mainImg:{
+        maxWidth: 300,
+        margin: '20px 0',
+    }
 }))
 
 export default ModuleContent;

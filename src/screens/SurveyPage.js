@@ -1,8 +1,9 @@
 import React from "react";
 import Survey from "shared/Survey";
-import { Radios, Checkboxes } from "mui-rff";
+import { Radios, Checkboxes, makeValidate } from "mui-rff";
 import survey from "shared/SurveyData";
-import { InputLabel, makeStyles } from "@material-ui/core";
+import { InputLabel, makeStyles, FormLabel } from "@material-ui/core";
+import * as Yup from "yup";
 
 const SurveyPage = () => {
     let pages = makePages(survey);
@@ -14,7 +15,7 @@ const SurveyPage = () => {
             }}
         >
             {pages.map(page => {
-                return <Survey.Page>{page.children}</Survey.Page>;
+                return <Survey.Page {...page}></Survey.Page>;
             })}
         </Survey>
     );
@@ -30,10 +31,16 @@ const makePages = questions => {
     pages = pages.map(page => {
         page.sort((a, b) => a.number - b.number);
 
+        const schema = Yup.object().shape(
+            page.map(makeSchema).reduce((a, c) => ({ ...a, ...c }))
+        );
+
         page = page.map(makeInput);
 
+        const validate = makeValidate(schema);
+
         return {
-            validation: {},
+            validate,
             children: page
         };
     });
@@ -52,6 +59,8 @@ const makeInput = q => {
                     name={`question-${q.number}`}
                     helperText={q.helperText}
                     radioGroupProps={{ row: q.row }}
+                    formControlLabelProps={q.row && { labelPlacement: "top" }}
+                    required={q.required}
                 />
             );
 
@@ -63,20 +72,24 @@ const makeInput = q => {
                     name={`question-${q.number}`}
                     helperText={q.helperText}
                     formGroupProps={{ row: q.row }}
+                    required={q.required}
                 />
             );
         case "matrix":
             q.data = q.data.map((subQ, i) => ({
                 ...subQ,
-                number: `${q.number}-${i}`
+                number: `${q.number}-${i}`,
+                required: q.required
             }));
             return (
                 <div>
-                    <InputLabel>{q.question}</InputLabel>
+                    <FormLabel>{q.question}</FormLabel>
                     <header className={classes.matrixHeader}>
                         <div></div>
                         <div className={classes.matrixHeadings}>
-                            {q.header.map(h => <InputLabel>{h}</InputLabel>)}
+                            {q.header.map(h => (
+                                <InputLabel>{h}</InputLabel>
+                            ))}
                         </div>
                     </header>
                     <div className={classes.matrix}>
@@ -89,12 +102,36 @@ const makeInput = q => {
     }
 };
 
+const makeSchema = q => {
+    switch (q.type) {
+        case "radio":
+            return {
+                [`question-${q.number}`]: Yup.mixed()
+                    .required()
+                    .label("This")
+            };
+        case "checkbox":
+            return {
+                [`question-${q.number}`]: Yup.array()
+                    .required()
+                    .label("This")
+            };
+        case "matrix":
+            return q.data
+                .map((subQ, i) => ({ ...subQ, number: `${q.number}-${i}` }))
+                .map(makeSchema)
+                .reduce((a, c) => ({ ...a, ...c }));
+        default:
+            return {};
+    }
+};
+
 const styles = makeStyles(theme => ({
     matrix: {
         display: "grid",
         "& > *": {
             display: "grid",
-            gridTemplateColumns: "repeat(1, 25% 1fr)",
+            gridTemplateColumns: "repeat(1, 35% 1fr)",
             alignItems: "center",
             "& > .MuiFormGroup-root": {
                 display: "grid",
@@ -108,7 +145,7 @@ const styles = makeStyles(theme => ({
     },
     matrixHeader: {
         display: "grid",
-        gridTemplateColumns: "repeat(1, 25% 1fr)"
+        gridTemplateColumns: "repeat(1, 35% 1fr)"
     },
     matrixHeadings: {
         display: "grid",

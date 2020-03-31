@@ -13,7 +13,8 @@ export default [
             { label: "Masters", value: "Masters" },
             { label: "PhD", value: "PhD" },
             { label: "N/A", value: "N/A" }
-        ]
+        ],
+        required: true
     },
     {
         number: 1,
@@ -43,7 +44,8 @@ export default [
             { label: "IoT", value: "IoT" },
             { label: "Mathematics", value: "Mathematics" },
             { label: "Other", value: "Other" }
-        ]
+        ],
+        required: true
     },
     {
         number: 2,
@@ -66,7 +68,8 @@ export default [
             { label: "Networking", value: "Networking" },
             { label: "UI/UX", value: "UI/UX" },
             { label: "Other", value: "Other" }
-        ]
+        ],
+        required: true
     },
     {
         number: 3,
@@ -78,7 +81,8 @@ export default [
             { label: "Full-Time Position", value: "Full-Time Position" },
             { label: "Part-Time Position", value: "Part-Time Position" },
             { label: "Research", value: "Research" }
-        ]
+        ],
+        required: true
     },
     {
         number: 4,
@@ -110,7 +114,8 @@ export default [
             { label: "IBM", value: "IBM" },
             { label: "Other", value: "Other" }
         ],
-        row: true
+        row: true,
+        required: true
     },
     {
         number: 5,
@@ -163,7 +168,8 @@ export default [
                 value: "Interacting with students in different year(s)"
             },
             { label: "None", value: "None" }
-        ]
+        ],
+        required: true
     },
     {
         number: 6,
@@ -195,7 +201,8 @@ export default [
                 value: "Campus workshops by clubs and organizations on campus"
             },
             { label: "Other", value: "Other" }
-        ]
+        ],
+        required: true
     },
     {
         number: 7,
@@ -209,7 +216,8 @@ export default [
             { label: "LeetCode Account", value: "LeetCode Account" },
             { label: "HackerRank Account", value: "HackerRank Account" },
             { label: "None of the above", value: "None of the above" }
-        ]
+        ],
+        required: true
     },
     {
         number: 8,
@@ -223,7 +231,8 @@ export default [
             { label: "7-9", value: "7-9" },
             { label: "10+", value: "10+" }
         ],
-        row: true
+        row: true,
+        required: true
     },
     {
         number: 9,
@@ -237,7 +246,8 @@ export default [
             { label: "7-9", value: "7-9" },
             { label: "10+", value: "10+" }
         ],
-        row: true
+        row: true,
+        required: true
     },
     {
         number: 10,
@@ -260,7 +270,7 @@ export default [
             },
             {
                 question:
-                    "... feel prepared to succeed on a technical in person interview",
+                    "... feel prepared to succeed on a technical in person interview?",
                 type: "radio",
                 data: [
                     { label: "", value: "1" },
@@ -271,29 +281,7 @@ export default [
                 ]
             },
             {
-                question: "... feel confident to explain your logic",
-                type: "radio",
-                data: [
-                    { label: "", value: "1" },
-                    { label: "", value: "2" },
-                    { label: "", value: "3" },
-                    { label: "", value: "4" },
-                    { label: "", value: "5" }
-                ]
-            },
-            {
-                question: "... feel prepared to whiteboard a technical problem",
-                type: "radio",
-                data: [
-                    { label: "", value: "1" },
-                    { label: "", value: "2" },
-                    { label: "", value: "3" },
-                    { label: "", value: "4" },
-                    { label: "", value: "5" }
-                ]
-            },
-            {
-                question: "... feel prepared for an online coding challenge",
+                question: "... feel confident to explain your logic?",
                 type: "radio",
                 data: [
                     { label: "", value: "1" },
@@ -305,7 +293,30 @@ export default [
             },
             {
                 question:
-                    "... feel prepared to pseudocode an a technical problem",
+                    "... feel prepared to whiteboard a technical problem?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question: "... feel prepared for an online coding challenge?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... feel prepared to pseudocode an a technical problem?",
                 type: "radio",
                 data: [
                     { label: "", value: "1" },
@@ -315,6 +326,343 @@ export default [
                     { label: "", value: "5" }
                 ]
             }
-        ]
+        ],
+        required: true
+    },
+    {
+        number: 11,
+        page: 3,
+        question: "With behavioral interviews, to what extent do you..",
+        type: "matrix",
+        header: ["Not at all", "", "Neutral", "", "Very Much So"],
+        data: [
+            {
+                question:
+                    "... feel prepared to succeed on a behavioral phone interview",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... feel prepared to succeed on a behavioral in person interview?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question: "... feel confident to pitch yourself?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... feel prepared to explain in detail your previous technical projects/experience?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... feel prepared to answer a tell me a time when question?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            }
+        ],
+        required: true
+    },
+    {
+        number: 12,
+        page: 3,
+        question: "With the application process, to what extent do you..",
+        type: "matrix",
+        header: ["Not at all", "", "Neutral", "", "Very Much So"],
+        data: [
+            {
+                question:
+                    "... know where to find internships/full-time jobs online?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... know where to find internships/full-time jobs in-person?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... what to put on your resume (cover letter, resume, portfolio, etc)?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            }
+        ],
+        required: true
+    },
+    {
+        number: 13,
+        page: 3,
+        question: "With the application process, to what extent do you..",
+        type: "matrix",
+        header: ["Not at all", "", "Neutral", "", "Very Much So"],
+        data: [
+            {
+                question:
+                    "... know where to find internships/full-time jobs online?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... know where to find internships/full-time jobs in-person?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... what to put on your resume (cover letter, resume, portfolio, etc)?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            }
+        ],
+        required: true
+    },
+    {
+        number: 14,
+        page: 3,
+        question: "With resumes, to what extent do you..",
+        type: "matrix",
+        header: ["Not at all", "", "Neutral", "", "Very Much So"],
+        data: [
+            {
+                question: "... know what should go on a resume?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question: "... know what shouldn't go on a resume?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question: "... know how to make your resume stand out?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            }
+        ],
+        required: true
+    },
+    {
+        number: 15,
+        page: 3,
+        question: "With networking to what extent do you..",
+        type: "matrix",
+        header: ["Not at all", "", "Neutral", "", "Very Much So"],
+        data: [
+            {
+                question:
+                    "... know how to network with the tech community beyond your university?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question:
+                    "... know how to network with the tech community within your university?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            }
+        ],
+        required: true
+    },
+    {
+        number: 16,
+        page: 3,
+        question: "With in person interviews, to what extent do you..",
+        type: "matrix",
+        header: ["Not at all", "", "Neutral", "", "Very Much So"],
+        data: [
+            {
+                question: "... know what is appropriate to wear?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            },
+            {
+                question: ".... know what is appropriate to say?",
+                type: "radio",
+                data: [
+                    { label: "", value: "1" },
+                    { label: "", value: "2" },
+                    { label: "", value: "3" },
+                    { label: "", value: "4" },
+                    { label: "", value: "5" }
+                ]
+            }
+        ],
+        required: true
+    },
+    {
+        number: 17,
+        page: 4,
+        question: "With which racial and ethnic group(s) do you identify?",
+        helperText: "Mark all that apply",
+        type: "checkbox",
+        data: [
+            {
+                label: "American Indian or Alaska Native",
+                value: "American Indian or Alaska Native"
+            },
+            { label: "Asian", value: "Asian" },
+            {
+                label: "Black or African American",
+                value: "Black or African American"
+            },
+            {
+                label: "Hispanic, Latinx, or Spanish Origin",
+                value: "Hispanic, Latinx, or Spanish Origin"
+            },
+            {
+                label: "Middle Easter or North African",
+                value: "Middle Easter or North African"
+            },
+            {
+                label: "Native Hawaiian or Other Pacific Islander",
+                value: "Native Hawaiian or Other Pacific Islander"
+            },
+            { label: "White", value: "White" },
+            {
+                label: "Another race or ethnicity not listed above",
+                value: "Another race or ethnicity not listed above"
+            }
+        ],
+        required: true
+    },
+    {
+        number: 18,
+        page: 4,
+        question: "How do you describe your gender identity?",
+        type: "radio",
+        data: [
+            { label: "Female", value: "Female" },
+            { label: "Male", value: "Male" },
+            { label: "Transgender", value: "Transgender" },
+            { label: "A gender not listed", value: "A gender not listed" }
+        ],
+        required: true
+    },
+    {
+        number: 19,
+        page: 4,
+        question:
+            "How many hours on average do you code per week? (Class work, personal projects, etc)",
+        type: "radio",
+        data: [
+            { label: "0", value: "0" },
+            { label: "1-5", value: "1-5" },
+            { label: "6-10", value: "6-10" },
+            { label: "11-15", value: "11-15" },
+            { label: "16-20", value: "16-20" },
+            { label: "More than 20", value: "More than 20" }
+        ],
+        row: true,
+        required: true
     }
 ];

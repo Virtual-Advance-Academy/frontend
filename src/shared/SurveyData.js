@@ -90,6 +90,7 @@ export default [
         question:
             "Are there any companies you are particularly interested in landing a full-time position or internship with?",
         helperText: "Mark all that apply",
+        grid: true,
         type: "checkbox",
         data: [
             { label: "Google", value: "Google" },
@@ -660,7 +661,7 @@ export default [
             { label: "6-10", value: "6-10" },
             { label: "11-15", value: "11-15" },
             { label: "16-20", value: "16-20" },
-            { label: "More than 20", value: "More than 20" }
+            { label: "21+", value: "21+" }
         ],
         row: true,
         required: true

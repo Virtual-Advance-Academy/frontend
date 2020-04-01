@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { Form } from "react-final-form";
-import { Button } from "@material-ui/core";
+import { Button, Grid, makeStyles } from "@material-ui/core";
+import ScrollToTop from "./ScrollToTop";
 
-const Survey = ({ onSubmit, initialValues, children }) => {
+const Survey = ({ onSubmit, initialValues, children, ...props }) => {
     const [formState, setFormState] = useState({
         page: 0,
         values: initialValues || {}
@@ -43,43 +44,68 @@ const Survey = ({ onSubmit, initialValues, children }) => {
     const activePage = React.Children.toArray(children)[page];
     const isLastPage = page === React.Children.count(children) - 1;
 
+    const classes = styles();
+
     return (
         <Form
             initialValues={values}
             validate={validate}
             onSubmit={handleSubmit}
+            subscription={{submit: true}}
             render={({ handleSubmit, submitting, values }) => (
-                <form onSubmit={handleSubmit} noValidate>
+                <Grid
+                    component="form"
+                    onSubmit={handleSubmit}
+                    noValidate
+                    {...props}
+                >
+                    <ScrollToTop />
                     {activePage}
-                    <div className="buttons">
-                        {page > 0 && (
-                            <Button variant="contained" onClick={previous}>
-                                « Previous
-                            </Button>
-                        )}
-                        {!isLastPage && (
-                            <Button variant="contained" type="submit">
-                                Next »
-                            </Button>
-                        )}
-                        {isLastPage && (
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                type="submit"
-                                disabled={submitting}
-                            >
-                                Submit
-                            </Button>
-                        )}
-                    </div>
+                    <Grid item container className={classes.buttons}>
+                        <div>
+                            {page > 0 && (
+                                <Button variant="contained" onClick={previous}>
+                                    « Previous
+                                </Button>
+                            )}
+                            {!isLastPage && (
+                                <Button variant="contained" type="submit">
+                                    Next »
+                                </Button>
+                            )}
+                            {isLastPage && (
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    type="submit"
+                                    disabled={submitting}
+                                >
+                                    Submit
+                                </Button>
+                            )}
+                        </div>
+                    </Grid>
 
                     <pre>{JSON.stringify(values, 0, 2)}</pre>
-                </form>
+                </Grid>
             )}
         />
     );
 };
+
+const styles = makeStyles(theme => ({
+    buttons: {
+        position: "sticky",
+        bottom: 0,
+        background: theme.palette.background.default,
+        "& > div": {
+            marginLeft: "auto",
+            "& > *:last-of-type": {
+                marginLeft: "4px"
+            }
+        }
+    }
+}));
 
 Survey.Page = ({ children }) => children;
 

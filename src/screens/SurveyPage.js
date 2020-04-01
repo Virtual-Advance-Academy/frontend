@@ -2,22 +2,72 @@ import React from "react";
 import Survey from "shared/Survey";
 import { Radios, Checkboxes, makeValidate } from "mui-rff";
 import survey from "shared/SurveyData";
-import { InputLabel, makeStyles, FormLabel } from "@material-ui/core";
+import {
+    InputLabel,
+    makeStyles,
+    FormLabel,
+    Grid,
+    Typography,
+    FormControl
+} from "@material-ui/core";
 import * as Yup from "yup";
 
 const SurveyPage = () => {
-    let pages = makePages(survey);
+    const pages = makePages(survey);
+    const classes = styles();
     console.log(pages);
     return (
-        <Survey
-            onSubmit={values => {
-                alert(values);
-            }}
+        <Grid
+            container
+            justify="center"
+            alignItems="center"
+            className={classes.page}
         >
-            {pages.map(page => {
-                return <Survey.Page {...page}></Survey.Page>;
-            })}
-        </Survey>
+            <Grid
+                item
+                container
+                xs={11}
+                lg={7}
+                xl={5}
+                className={classes.surveyContainer}
+            >
+                <Grid item xs={10} lg={3}>
+                    <Typography
+                        className={classes.mainTitle}
+                        variant="h2"
+                        color="primary"
+                        component="p"
+                    >
+                        <span>Survey </span>
+                    </Typography>
+                </Grid>
+                <Grid
+                    component={Survey}
+                    item
+                    container
+                    direction="column"
+                    lg={8}
+                    spacing={3}
+                    onSubmit={values => {
+                        alert(JSON.stringify(values));
+                    }}
+                >
+                    {pages.map(page => {
+                        return (
+                            <Survey.Page {...page}>
+                                {page.children.map(child => {
+                                    return (
+                                        <Grid item className={classes.question}>
+                                            {child}
+                                        </Grid>
+                                    );
+                                })}
+                            </Survey.Page>
+                        );
+                    })}
+                </Grid>
+            </Grid>
+        </Grid>
     );
 };
 
@@ -73,6 +123,7 @@ const makeInput = q => {
                     helperText={q.helperText}
                     formGroupProps={{ row: q.row }}
                     required={q.required}
+                    formControlProps={q.grid && { className: classes.grid }}
                 />
             );
         case "matrix":
@@ -82,20 +133,20 @@ const makeInput = q => {
                 required: q.required
             }));
             return (
-                <div>
+                <FormControl>
                     <FormLabel>{q.question}</FormLabel>
                     <header className={classes.matrixHeader}>
                         <div></div>
                         <div className={classes.matrixHeadings}>
                             {q.header.map(h => (
-                                <InputLabel>{h}</InputLabel>
+                                <FormLabel>{h}</FormLabel>
                             ))}
                         </div>
                     </header>
                     <div className={classes.matrix}>
                         {q.data.map(makeInput)}
                     </div>
-                </div>
+                </FormControl>
             );
         default:
             return null;
@@ -129,6 +180,7 @@ const makeSchema = q => {
 const styles = makeStyles(theme => ({
     matrix: {
         display: "grid",
+        gridRowGap: "10px",
         "& > *": {
             display: "grid",
             gridTemplateColumns: "repeat(1, 35% 1fr)",
@@ -151,6 +203,46 @@ const styles = makeStyles(theme => ({
         display: "grid",
         gridTemplateColumns: "repeat(5, 1fr)",
         textAlign: "center"
+    },
+    grid: {
+        "& > .MuiFormGroup-root": {
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)"
+        }
+    },
+    mainTitle: {
+        display: "inline-block",
+        "& span": {
+            display: "block"
+        }
+    },
+    titleSpacing: {
+        marginRight: "80px",
+        [theme.breakpoints.down("xs")]: {
+            marginRight: "unset"
+        }
+    },
+    page: {
+        minHeight: "100vh"
+    },
+    surveyContainer: {
+        [theme.breakpoints.up("lg")] : {
+            padding: "60px 0"
+        },
+        padding: "30px 0"
+    },
+    question: {
+        "& > .MuiFormControl-root": {
+            width: "100%",
+            "& .MuiFormGroup-root.MuiFormGroup-row":{
+                justifyContent: "space-around"
+            },
+            "& > .MuiFormLabel-root": {
+                fontSize: "1.1rem",
+                marginBottom: "10px",
+                lineHeight: "1.5rem"
+            }
+        }
     }
 }));
 

@@ -11,6 +11,7 @@ const WhatToWear = () => {
         <ModuleContent
             title={clothing.title}
             description={clothing.description}
+            image={clothing.image}
         />
     );
 }

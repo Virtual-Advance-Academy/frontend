@@ -11,6 +11,7 @@ const Tips = () => {
         <ModuleContent
             title={tips.title}
             description={tips.description}
+            image={tips.image}
         />
     );
 }

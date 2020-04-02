@@ -11,6 +11,7 @@ const AppProcess = () => {
         <ModuleContent
             title={applications.title}
             description={applications.description}
+            image={applications.image}
         />
     );
 }

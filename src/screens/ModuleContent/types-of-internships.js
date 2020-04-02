@@ -11,6 +11,7 @@ const InternshipTypes = () => {
         <ModuleContent
             title={internships.title}
             description={internships.description}
+            image={internships.image}
         />
     );
 }

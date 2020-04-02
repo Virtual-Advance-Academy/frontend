@@ -11,6 +11,7 @@ const TechnicalQuestions = () => {
         <ModuleContent
             title={technical.title}
             description={technical.description}
+            image={technical.image}
         />
     );
 }

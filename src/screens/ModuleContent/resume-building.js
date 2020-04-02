@@ -11,6 +11,7 @@ const Resumes = () => {
         <ModuleContent
             title={resumes.title}
             description={resumes.description}
+            image={resumes.image}
         />
     );
 }

@@ -11,6 +11,8 @@ const DosAndDonts = () => {
         <ModuleContent
             title={dosanddonts.title}
             description={dosanddonts.description}
+            image={dosanddonts.image}
+
         />
     );
 }

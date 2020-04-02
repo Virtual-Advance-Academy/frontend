@@ -401,7 +401,7 @@ const styles = makeStyles(theme => ({
         maxWidth: 1500
     },
     contentHeader: {
-        fontWeight: '500',
+        fontWeight: '700',
         padding: theme.spacing(3),
         marginLeft: '10%',
     },

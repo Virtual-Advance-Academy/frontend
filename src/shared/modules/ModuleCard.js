@@ -93,7 +93,7 @@ const ModuleCard = ({
     );
 };
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
     moduleCard: {
         // Provide some spacing between cards
         margin: 8,

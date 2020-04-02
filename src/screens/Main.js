@@ -53,7 +53,7 @@ const Main = () => {
     );
 };
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
     title: {
         margin: "20px 0"
     },

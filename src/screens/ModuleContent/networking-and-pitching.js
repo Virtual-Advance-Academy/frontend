@@ -4,20 +4,20 @@ import { makeStyles } from "@material-ui/core/styles";
 import ModuleContent from "../../shared/modules/ModuleContent";
 import modules from "../../shared/modules/modules";
 
-const WhatToWear = () => {
+const Networking = () => {
     const classes = styles();
-    const [clothing] = modules.filter(
-        (module) => module.title === "What to Wear"
+    const [networking] = modules.filter(
+        (module) => module.title === "Networking & Pitching"
     );
     return (
         <ModuleContent
-            title={clothing.title}
-            description={clothing.description}
-            image={clothing.image}
+            title={networking.title}
+            description={networking.description}
+            image={networking.image}
         />
     );
 };
 
 const styles = makeStyles((theme) => ({}));
 
-export default WhatToWear;
+export default Networking;

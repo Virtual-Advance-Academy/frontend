@@ -127,7 +127,7 @@ const Profile = () => {
     );
 };
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
     profileTitle: {
         width: "100%",
         padding: `${theme.spacing(4)}px 0`,

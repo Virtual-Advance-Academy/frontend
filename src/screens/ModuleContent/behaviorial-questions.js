@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography, Container } from '@material-ui/core';
+import { Grid, Typography, Container, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import ModuleContent from '../../shared/modules/ModuleContent';
 import modules from '../../shared/modules/modules'
@@ -25,7 +25,7 @@ const BehaviorialQuestions = () => {
                 image={behaviorial.image}
             />
             <Grid container>
-                <Typography className={classes.contentHeader} variant="h5" color="primary">Introduction</Typography>
+                <Typography className={classes.contentHeader} variant="h5" color="primary" gutterBottom>Introduction</Typography>
             </Grid>
             <Grid container
                 justify="center"
@@ -46,8 +46,8 @@ const BehaviorialQuestions = () => {
                         the collection of your stories, your personal projects and your background do.
                     </Typography>
                 </Grid>
-
             </Grid>
+
             <Grid container>
                 <Typography className={classes.contentHeader} variant="h5" color="primary">Preparation</Typography>
             </Grid>
@@ -132,14 +132,14 @@ const BehaviorialQuestions = () => {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container>
-                <Typography className={classes.subContentHeader} variant="h5" color="#D8D8D8">Problem Solving</Typography>
-            </Grid>
+
             <Grid container
                 justify="center"
                 spacing={1}
             >
                 <Grid item>
+                    <Typography className={classes.subContentHeader} variant="h6" color="#D8D8D8">Problem Solving</Typography>
+
                     <Typography className={classes.subDescription} variant="body1" gutterBottom>
                         Can you give an example of a time you streamlined a process?
                     </Typography>
@@ -158,14 +158,13 @@ const BehaviorialQuestions = () => {
                 </Grid>
             </Grid>
 
-            <Grid container>
-                <Typography className={classes.subContentHeader} variant="h5" color="#D8D8D8">Team Work</Typography>
-            </Grid>
             <Grid container
                 justify="center"
                 spacing={1}
             >
                 <Grid item>
+                    <Typography className={classes.subContentHeader} variant="h6" color="#D8D8D8">Team Work</Typography>
+
                     <Typography className={classes.subDescription} variant="body1" gutterBottom>
                         Which role do you usually play in a team?
                     </Typography>
@@ -184,14 +183,13 @@ const BehaviorialQuestions = () => {
                 </Grid>
             </Grid>
 
-            <Grid container>
-                <Typography className={classes.subContentHeader} variant="h5" color="#D8D8D8">Leadership</Typography>
-            </Grid>
             <Grid container
                 justify="center"
                 spacing={1}
             >
                 <Grid item>
+                    <Typography className={classes.subContentHeader} variant="h6" color="#D8D8D8">Leadership</Typography>
+
                     <Typography className={classes.subDescription} variant="body1" gutterBottom>
                         Can you tell me about a project you were in charge of? How did you organize the tasks and make sure everything got done?
                     </Typography>
@@ -210,14 +208,13 @@ const BehaviorialQuestions = () => {
                 </Grid>
             </Grid>
 
-            <Grid container>
-                <Typography className={classes.subContentHeader} variant="h5" color="#D8D8D8">Initiative</Typography>
-            </Grid>
             <Grid container
                 justify="center"
                 spacing={1}
             >
                 <Grid item>
+                    <Typography className={classes.subContentHeader} variant="h6" color="#D8D8D8">Initiative</Typography>
+
                     <Typography className={classes.subDescription} variant="body1" gutterBottom>
                         Can you describe a time when you saw a problem at work and created a solution for it.
                     </Typography>
@@ -232,14 +229,13 @@ const BehaviorialQuestions = () => {
                 </Grid>
             </Grid>
 
-            <Grid container>
-                <Typography className={classes.subContentHeader} variant="h5" color="#D8D8D8">Negativity</Typography>
-            </Grid>
             <Grid container
                 justify="center"
                 spacing={1}
             >
                 <Grid item>
+                    <Typography className={classes.subContentHeader} variant="h6" color="#D8D8D8">Negativity</Typography>
+
                     <Typography className={classes.subDescription} variant="body1" gutterBottom>
                         What did you not like about ____ experience? Looking back, how would you have been able to change that experience?
                     </Typography>
@@ -258,14 +254,13 @@ const BehaviorialQuestions = () => {
                 </Grid>
             </Grid>
 
-            <Grid container>
-                <Typography className={classes.subContentHeader} variant="h5" color="#D8D8D8">Decision Making</Typography>
-            </Grid>
             <Grid container
                 justify="center"
                 spacing={1}
             >
                 <Grid item>
+                    <Typography className={classes.subContentHeader} variant="h6" color="#D8D8D8">Decision Making</Typography>
+
                     <Typography className={classes.subDescription} variant="body1" gutterBottom>
                         Can you talk us through a time when you had to decline a client’s request? How did you approach that?
                     </Typography>
@@ -280,14 +275,13 @@ const BehaviorialQuestions = () => {
                 </Grid>
             </Grid>
 
-            <Grid container>
-                <Typography className={classes.subContentHeader} variant="h5" color="#D8D8D8">Professional Priorities</Typography>
-            </Grid>
             <Grid container
                 justify="center"
                 spacing={1}
             >
                 <Grid item>
+                    <Typography className={classes.subContentHeader} variant="h6" color="#D8D8D8">Professional Priorities</Typography>
+
                     <Typography className={classes.subDescription} variant="body1" gutterBottom>
                         What motivates you in life?
                     </Typography>
@@ -302,14 +296,13 @@ const BehaviorialQuestions = () => {
                 </Grid>
             </Grid>
 
-            <Grid container>
-                <Typography className={classes.subContentHeader} variant="h5" color="#D8D8D8">About the Company</Typography>
-            </Grid>
             <Grid container
                 justify="center"
                 spacing={1}
             >
                 <Grid item>
+                    <Typography className={classes.subContentHeader} variant="h6" color="#D8D8D8">About the Company</Typography>
+                    
                     <Typography className={classes.subDescription} variant="body1" gutterBottom>
                         Why Company X?                    
                     </Typography>
@@ -408,7 +401,9 @@ const styles = makeStyles(theme => ({
     subContentHeader: {
         fontWeight: '500',
         padding: theme.spacing(3),
-        marginLeft: '12%',
+        textAlign: 'center',
+        justify: 'center',
+        // marginLeft: '14%',
     },
     contentDescription: {
         textAlign: 'left',

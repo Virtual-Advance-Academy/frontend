@@ -51,7 +51,7 @@ const Survey = ({ onSubmit, initialValues, children, ...props }) => {
             initialValues={values}
             validate={validate}
             onSubmit={handleSubmit}
-            subscription={{submit: true}}
+            subscription={{submitting: true, pristine: true}}
             render={({ handleSubmit, submitting, values }) => (
                 <Grid
                     component="form"

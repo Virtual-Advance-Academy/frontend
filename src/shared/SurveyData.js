@@ -401,7 +401,7 @@ export default [
     },
     {
         number: 12,
-        page: 3,
+        page: 4,
         question: "With the application process, to what extent do you..",
         type: "matrix",
         header: ["Not at all", "", "Neutral", "", "Very Much So"],
@@ -447,7 +447,7 @@ export default [
     },
     {
         number: 13,
-        page: 3,
+        page: 4,
         question: "With the application process, to what extent do you..",
         type: "matrix",
         header: ["Not at all", "", "Neutral", "", "Very Much So"],
@@ -493,7 +493,7 @@ export default [
     },
     {
         number: 14,
-        page: 3,
+        page: 5,
         question: "With resumes, to what extent do you..",
         type: "matrix",
         header: ["Not at all", "", "Neutral", "", "Very Much So"],
@@ -536,7 +536,7 @@ export default [
     },
     {
         number: 15,
-        page: 3,
+        page: 5,
         question: "With networking to what extent do you..",
         type: "matrix",
         header: ["Not at all", "", "Neutral", "", "Very Much So"],
@@ -570,7 +570,7 @@ export default [
     },
     {
         number: 16,
-        page: 3,
+        page: 5,
         question: "With in person interviews, to what extent do you..",
         type: "matrix",
         header: ["Not at all", "", "Neutral", "", "Very Much So"],
@@ -602,7 +602,7 @@ export default [
     },
     {
         number: 17,
-        page: 4,
+        page: 6,
         question: "With which racial and ethnic group(s) do you identify?",
         helperText: "Mark all that apply",
         type: "checkbox",
@@ -638,7 +638,7 @@ export default [
     },
     {
         number: 18,
-        page: 4,
+        page: 6,
         question: "How do you describe your gender identity?",
         type: "radio",
         data: [
@@ -651,7 +651,7 @@ export default [
     },
     {
         number: 19,
-        page: 4,
+        page: 6,
         question:
             "How many hours on average do you code per week? (Class work, personal projects, etc)",
         type: "radio",

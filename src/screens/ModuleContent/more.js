@@ -11,6 +11,7 @@ const More = () => {
         <ModuleContent
             title={more.title}
             description={more.description}
+            image={more.image}
         />
     );
 }

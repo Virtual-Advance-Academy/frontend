@@ -6,7 +6,7 @@ const ModuleRoutes = () => {
     const match = useRouteMatch();
     return (
         <Switch>
-            {modules.map(module => {
+            {modules.map((module) => {
                 return (
                     <Route
                         key={module.id}

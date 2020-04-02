@@ -1,8 +1,17 @@
 import React from "react";
-import { Drawer, ListItemIcon, makeStyles, ListItemText, ListItem, IconButton, Divider, List } from "@material-ui/core";
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import ClassIcon from '@material-ui/icons/Class';
+import {
+    Drawer,
+    ListItemIcon,
+    makeStyles,
+    ListItemText,
+    ListItem,
+    IconButton,
+    Divider,
+    List
+} from "@material-ui/core";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import ClassIcon from "@material-ui/icons/Class";
 import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -12,7 +21,7 @@ const MenuDrawer = ({ open, onClose }) => {
 
     function ListItemLink(props) {
         return <ListItem button component="a" {...props} onClick={onClose} />;
-    }    
+    }
 
     return (
         <Drawer
@@ -49,7 +58,7 @@ const MenuDrawer = ({ open, onClose }) => {
     );
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0

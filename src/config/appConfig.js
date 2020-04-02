@@ -11,11 +11,11 @@ const config = {
     }
 };
 
-const extractUser = jwt => {
+const extractUser = (jwt) => {
     try {
         return JSON.parse(atob(jwt.split(".")[1]));
     } catch (e) {
-        return null
+        return null;
     }
 };
 

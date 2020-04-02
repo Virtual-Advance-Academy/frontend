@@ -1,7 +1,7 @@
 import axios from "axios";
 import { config } from "config/appConfig";
 
-const makeClient = jwt => {
+const makeClient = (jwt) => {
     const auth = { headers: { Authorization: `Bearer ${jwt}` } };
 
     const getProfile = async () => {
@@ -9,12 +9,12 @@ const makeClient = jwt => {
     };
 
     const authUser = async (login) => {
-        return axios.post(config.API_ENDPOINTS.AUTH, login)
-    }
+        return axios.post(config.API_ENDPOINTS.AUTH, login);
+    };
 
     const registerUser = async (registration) => {
         return axios.post(config.API_ENDPOINTS.USERS, registration);
-    }
+    };
 
     const Client = {
         getProfile,
@@ -22,7 +22,7 @@ const makeClient = jwt => {
         registerUser
     };
 
-    return Client
+    return Client;
 };
 
 export { makeClient };

@@ -25,7 +25,7 @@ const darkTheme = responsiveFontSizes(
 );
 
 const notistackRef = React.createRef();
-const onClickDismiss = key => () => {
+const onClickDismiss = (key) => () => {
     notistackRef.current.closeSnackbar(key);
 };
 
@@ -80,7 +80,7 @@ ReactDOM.render(
         <CssBaseline />
         <SnackbarProvider
             ref={notistackRef}
-            action={key => (
+            action={(key) => (
                 <Button
                     onClick={onClickDismiss(key)}
                     color="secondary"

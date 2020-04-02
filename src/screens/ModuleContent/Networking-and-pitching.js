@@ -11,6 +11,7 @@ const Networking = () => {
         <ModuleContent
             title={networking.title}
             description={networking.description}
+            image={networking.image}
         />
     );
 }

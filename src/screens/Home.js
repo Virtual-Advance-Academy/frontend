@@ -1,4 +1,4 @@
-import React, {useGlobal} from "reactn";
+import React, { useGlobal } from "reactn";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid } from "@material-ui/core";
 import HomeRegister from "shared/HomeRegister";
@@ -6,11 +6,11 @@ import { Redirect } from "react-router-dom";
 
 const Home = () => {
     const classes = styles();
-    const [jwt] = useGlobal("jwt")
+    const [jwt] = useGlobal("jwt");
 
     return (
         <>
-        {jwt && <Redirect to="/modules" />}
+            {jwt && <Redirect to="/modules" />}
             <Grid
                 container
                 justify="center"
@@ -36,7 +36,7 @@ const Home = () => {
     );
 };
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
     mainTitle: {
         display: "inline-block",
         "& span": {

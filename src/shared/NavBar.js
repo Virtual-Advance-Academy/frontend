@@ -37,11 +37,11 @@ const NavBar = () => {
     const openDrawer = useDispatch("openDrawer");
     const closeDrawer = useDispatch("closeDrawer");
 
-    const handleDrawerOpen = drawer => e => {
+    const handleDrawerOpen = (drawer) => (e) => {
         openDrawer(drawer);
     };
 
-    const handleDrawerClose = drawer => e => {
+    const handleDrawerClose = (drawer) => (e) => {
         closeDrawer(drawer);
     };
 
@@ -85,7 +85,7 @@ const NavBar = () => {
     );
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     logo: {
         maxWidth: 160,
         marginLeft: 10

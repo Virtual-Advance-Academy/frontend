@@ -51,14 +51,8 @@ const LoginForm = () => {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     const schema = Yup.object().shape({
-        username: Yup.string()
-            .min(3)
-            .required()
-            .label("Username/Email"),
-        password: Yup.string()
-            .min(8)
-            .required()
-            .label("Password")
+        username: Yup.string().min(3).required().label("Username/Email"),
+        password: Yup.string().min(8).required().label("Password")
     });
 
     const validator = makeValidate(schema);
@@ -68,7 +62,7 @@ const LoginForm = () => {
         showPass ? setShowPass(false) : setShowPass(true);
     };
 
-    const handleData = e => {
+    const handleData = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
@@ -83,8 +77,11 @@ const LoginForm = () => {
         } catch (e) {
             console.log(e);
             console.log(e.response);
-            let errorMsg = (e.response && e.response.data) ? (e.response.data.message) : e.toString()
-            enqueueSnackbar(errorMsg)
+            let errorMsg =
+                e.response && e.response.data
+                    ? e.response.data.message
+                    : e.toString();
+            enqueueSnackbar(errorMsg);
         }
     };
 
@@ -168,7 +165,7 @@ const LoginForm = () => {
     );
 };
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
     mainTitle: {
         display: "inline-block",
         "& span": {

@@ -18,14 +18,16 @@ const UserDrawer = ({ open, onClose }) => {
     const classes = useStyles();
     const [user] = useGlobal("user");
     const logout = useDispatch("logout");
-    const name = (user && user.name) || '';
+    const name = (user && user.name) || "";
 
     function ListItemLink(props) {
         const clickChain = () => {
-            onClose()
-            props.onClick && props.onClick()
-        }
-        return <ListItem button component="a" {...props} onClick={clickChain} />;
+            onClose();
+            props.onClick && props.onClick();
+        };
+        return (
+            <ListItem button component="a" {...props} onClick={clickChain} />
+        );
     }
 
     return (
@@ -63,7 +65,7 @@ const UserDrawer = ({ open, onClose }) => {
     );
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0

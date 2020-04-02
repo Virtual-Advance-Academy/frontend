@@ -1,4 +1,4 @@
-import React, {useGlobal} from "reactn";
+import React, { useGlobal } from "reactn";
 import { Redirect } from "react-router-dom";
 
 const AuthorizedRoute = () => {

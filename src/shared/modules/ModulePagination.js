@@ -73,7 +73,7 @@ const ModulePagination = ({ onSubmit, initialValues, children, ...props }) => {
     );
 };
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
     paginationFooter: {
         position: "sticky",
         bottom: 0,

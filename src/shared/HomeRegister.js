@@ -25,17 +25,9 @@ const HomeRegister = () => {
                 "Usernames may only contain numbers, letters, and underscores"
             )
             .label("Username"),
-        fullName: Yup.string()
-            .required()
-            .label("Full Name"),
-        email: Yup.string()
-            .email()
-            .required()
-            .label("Email"),
-        password: Yup.string()
-            .min(8)
-            .required()
-            .label("Password")
+        fullName: Yup.string().required().label("Full Name"),
+        email: Yup.string().email().required().label("Email"),
+        password: Yup.string().min(8).required().label("Password")
     });
 
     const validator = makeValidate(schema);
@@ -45,7 +37,7 @@ const HomeRegister = () => {
         showPass ? setShowPass(false) : setShowPass(true);
     };
 
-    const handleData = e => {
+    const handleData = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 

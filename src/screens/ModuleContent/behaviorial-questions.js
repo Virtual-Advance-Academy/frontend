@@ -17,7 +17,7 @@ import ModulePagination from "shared/modules/ModulePagination";
 const BehaviorialQuestions = () => {
     const classes = styles();
     const [behaviorial] = modules.filter(
-        module => module.title === "Behaviorial Questions"
+        (module) => module.title === "Behaviorial Questions"
     );
     return (
         <Container className={classes.container}>
@@ -703,7 +703,7 @@ const BehaviorialQuestions = () => {
     );
 };
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
     container: {
         maxWidth: 1500
     },

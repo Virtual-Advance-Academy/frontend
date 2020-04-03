@@ -10,7 +10,8 @@ const ModuleRoutes = () => {
                 return (
                     <Route
                         key={module.id}
-                        path={`${match.path}/${module.slug}`}
+                        exact
+                        path={`${match.path}/${module.slug}/:page?`}
                         component={module.component}
                     />
                 );

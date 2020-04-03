@@ -8,24 +8,30 @@ import {
     Typography
 } from "@material-ui/core";
 import ScrollToTop from "shared/ScrollToTop";
+import {
+    Link,
+    Switch,
+    useRouteMatch,
+    useParams,
+    generatePath,
+    Redirect
+} from "react-router-dom";
 
 const ModulePagination = ({ onSubmit, initialValues, children, ...props }) => {
-    const [page, setPage] = useState(0);
+    const match = useRouteMatch();
+    const { page = 1 } = useParams();
 
-    const next = () => setPage(Math.min(page + 1, children.length - 1));
-
-    const previous = () => setPage(Math.max(page - 1, 0));
-
+    const currentPage = parseInt(page);
     const pages = React.Children.toArray(children);
-    const activePage = pages[page];
-    const isLastPage = page === pages.length - 1;
-    const currentPage = page + 1;
+    const activePage = pages[currentPage - 1];
+    const isLastPage = currentPage === pages.length;
     const completed = (currentPage / pages.length) * 100;
 
     const classes = styles();
 
     return (
         <>
+            {(page < 1 || page > pages.length) && <Redirect to="/404" />}
             <ScrollToTop />
             {activePage}
             {pages.length > 0 && (
@@ -55,13 +61,25 @@ const ModulePagination = ({ onSubmit, initialValues, children, ...props }) => {
                             </Typography>
                         </Grid>
                         <Grid item>
-                            {page > 0 && (
-                                <Button variant="contained" onClick={previous}>
+                            {currentPage > 1 && (
+                                <Button
+                                    variant="contained"
+                                    component={Link}
+                                    to={generatePath(match.path, {
+                                        page: currentPage - 1
+                                    })}
+                                >
                                     « Previous
                                 </Button>
                             )}
                             {!isLastPage && (
-                                <Button variant="contained" onClick={next}>
+                                <Button
+                                    variant="contained"
+                                    component={Link}
+                                    to={generatePath(match.path, {
+                                        page: currentPage + 1
+                                    })}
+                                >
                                     Next »
                                 </Button>
                             )}
@@ -77,7 +95,7 @@ const styles = makeStyles((theme) => ({
     paginationFooter: {
         position: "sticky",
         bottom: 0,
-        width: "100%",
+        width: "auto",
         marginTop: 25,
         paddingBottom: 10,
         alignSelf: "center",

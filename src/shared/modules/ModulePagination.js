@@ -5,70 +5,109 @@ import {
     Grid,
     makeStyles,
     LinearProgress,
-    Typography
+    Typography,
+    useMediaQuery,
+    useTheme
 } from "@material-ui/core";
 import ScrollToTop from "shared/ScrollToTop";
+import {
+    Link,
+    Switch,
+    useRouteMatch,
+    useParams,
+    generatePath,
+    Redirect
+} from "react-router-dom";
 
 const ModulePagination = ({ onSubmit, initialValues, children, ...props }) => {
-    const [page, setPage] = useState(0);
+    const match = useRouteMatch();
+    const { page = 1 } = useParams();
 
-    const next = () => setPage(Math.min(page + 1, children.length - 1));
+    const theme = useTheme();
+    const isXs = useMediaQuery(theme.breakpoints.down("xs"));
 
-    const previous = () => setPage(Math.max(page - 1, 0));
-
+    const currentPage = parseInt(page);
     const pages = React.Children.toArray(children);
-    const activePage = pages[page];
-    const isLastPage = page === pages.length - 1;
-    const currentPage = page + 1;
+    const activePage = pages[currentPage - 1];
+    const isLastPage = currentPage === pages.length;
     const completed = (currentPage / pages.length) * 100;
+    const multiPaged = pages.length > 1;
 
     const classes = styles();
 
     return (
         <>
+            {(page < 1 || page > pages.length) && <Redirect to="/404" />}
             <ScrollToTop />
             {activePage}
-            {pages.length > 0 && (
-                <Grid
-                    item
-                    container
-                    spacing={2}
-                    className={classes.paginationFooter}
-                    direction="column"
-                >
+            <Grid
+                item
+                container
+                spacing={2}
+                className={classes.paginationFooter}
+                direction="column"
+            >
+                {multiPaged && (
                     <Grid item>
                         <LinearProgress
                             variant="determinate"
                             value={completed}
                         />
                     </Grid>
-                    <Grid
-                        item
-                        container
-                        className={classes.buttons}
-                        justify="space-between"
-                        alignItems="center"
-                    >
-                        <Grid item>
+                )}
+                <Grid
+                    item
+                    container
+                    className={classes.buttons}
+                    justify="space-between"
+                    alignItems="center"
+                >
+                    <Grid item>
+                        {multiPaged && (
                             <Typography>
                                 Page {currentPage} of {pages.length}
                             </Typography>
-                        </Grid>
-                        <Grid item>
-                            {page > 0 && (
-                                <Button variant="contained" onClick={previous}>
-                                    « Previous
-                                </Button>
-                            )}
-                            {!isLastPage && (
-                                <Button variant="contained" onClick={next}>
-                                    Next »
-                                </Button>
-                            )}
-                        </Grid>
+                        )}
+                    </Grid>
+                    <Grid item>
+                        {currentPage > 1 && (
+                            <Button
+                                variant="contained"
+                                size={isXs ? "small" : "medium"}
+                                component={Link}
+                                to={generatePath(match.path, {
+                                    page: currentPage - 1
+                                })}
+                            >
+                                « Previous
+                            </Button>
+                        )}
+                        {!isLastPage && (
+                            <Button
+                                variant="contained"
+                                size={isXs ? "small" : "medium"}
+                                component={Link}
+                                to={generatePath(match.path, {
+                                    page: currentPage + 1
+                                })}
+                            >
+                                Next »
+                            </Button>
+                        )}
+                        {isLastPage && (
+                            <Button
+                                variant="contained"
+                                size={isXs ? "small" : "medium"}
+                                color="primary"
+                                component={Link}
+                                to="/modules"
+                            >
+                                Modules
+                            </Button>
+                        )}
                     </Grid>
                 </Grid>
-            )}
+            </Grid>
         </>
     );
 };
@@ -77,9 +116,9 @@ const styles = makeStyles((theme) => ({
     paginationFooter: {
         position: "sticky",
         bottom: 0,
-        width: "100%",
+        width: "auto",
         marginTop: 25,
-        paddingBottom: 10,
+        padding: "8px 0 10px 0",
         alignSelf: "center",
         background: theme.palette.background.default
     },

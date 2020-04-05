@@ -383,7 +383,268 @@ const Networking = () => {
                         </Grid>
                     </Grid>
                 </ModulePagination.Page>
-                <ModulePagination.Page></ModulePagination.Page>
+                <ModulePagination.Page>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://www.linkedin.com
+                                    "
+                                    color="inherit"
+                                >
+                                    LinkedIn
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                “Manage your professional identity. Build and
+                                engage with your professional network. Access
+                                knowledge, insights and opportunities.”
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Connect with recruiters and engineers in the
+                                company you’re interested in.
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Post professional updates to be seen (hackathon
+                                project, awards received, internship offer,
+                                conference attendance, etc)
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Look through job listings that are typically
+                                updated more frequently than their site.
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Directly message professionals
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Personal profile page
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link href="http://indeed.com" color="inherit">
+                                    Indeed
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                “At Indeed, our mission is to help people get
+                                jobs.”
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Indeed gives you the option to upload your
+                                resume, and once you do all potential employeers
+                                will be able to see your resume and match you to
+                                job openings.
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Look through endless job and internship
+                                opportunities
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://careerpath.cis.fiu.edu"
+                                    color="inherit"
+                                >
+                                    FIU SCIS CareerPath
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Local partners of FIU job postings for the SCIS
+                                community
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Local Miami posting
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                FIU SCIS Career Path is organized by
+                                internships, full time, fellowships, freelance,
+                                startups, research
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://www.joinhandshake.com"
+                                    color="inherit"
+                                >
+                                    Handshake
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                “We’re driven by the mission to give all
+                                students the chance to build the career they
+                                want, no matter where they’re from or what
+                                school they attend.”
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Shows specifically companies that are interested
+                                in hiring candidates from your university
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://jumpstart.me/"
+                                    color="inherit"
+                                >
+                                    JumpStart
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                “Jumpstart's mission is to make recruiting fair
+                                for all.”
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Personalized job opportunities based off what
+                                you’re looking for (location, industry type,
+                                culture, company size, and so on)
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Community based with forms
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="http://ripplematch.com"
+                                    color="inherit"
+                                >
+                                    RippleMatch
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                “Get matched with your dream job. Automate your
+                                job search and start interviewing for jobs and
+                                internships with top companies.”
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Typically someone from RippleMatch will directly
+                                call you for an initial phone screen to gauge
+                                your interests.
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Directly emails you opportunities best suited on
+                                what you’re looking for
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </ModulePagination.Page>
             </ModulePagination>
         </Container>
     );

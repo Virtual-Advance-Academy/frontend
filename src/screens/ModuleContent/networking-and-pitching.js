@@ -385,6 +385,15 @@ const Networking = () => {
                 </ModulePagination.Page>
                 <ModulePagination.Page>
                     <Grid container justify="center" spacing={1}>
+                        <Grid container>
+                            <Typography
+                                className={classes.contentHeader}
+                                variant="h5"
+                                color="primary"
+                            >
+                                Online Networking Platforms
+                            </Typography>
+                        </Grid>
                         <Grid item>
                             <Typography
                                 className={classes.subContentHeader}

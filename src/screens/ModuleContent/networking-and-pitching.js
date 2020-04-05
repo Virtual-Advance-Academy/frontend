@@ -99,7 +99,7 @@ const Networking = () => {
                                 "Grace Hopper Celebration is the world's largest
                                 gathering of women technologists. It is produced
                                 by AnitaB.org and presented in partnership with
-                                ACM." 
+                                ACM."
                             </Typography>
                         </Grid>
                     </Grid>
@@ -282,7 +282,108 @@ const Networking = () => {
                             </Typography>
                         </Grid>
                     </Grid>
+
+                    <Grid container>
+                        <Typography
+                            className={classes.contentHeader}
+                            variant="h5"
+                            color="primary"
+                        >
+                            Hackathons
+                        </Typography>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link href="https://mlh.io" color="inherit">
+                                    Major League Hacking
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                "Major League Hacking (MLH) is the official
+                                student hackathon league. Each year, we power
+                                over 200 weekend-long invention competitions
+                                that inspire innovation, cultivate communities
+                                and teach computer science skills to more than
+                                65,000 students around the world. MLH is an
+                                engaged and passionate maker community,
+                                consisting of the next generation of technology
+                                leaders and entrepreneurs. "
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container>
+                        <Typography
+                            className={classes.contentHeader}
+                            variant="h5"
+                            color="primary"
+                        >
+                            Campus
+                        </Typography>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://studentaffairs.fiu.edu/academic-success/career-and-talent-development/employers/get-involved-on-campus/recruiting-events/index.php"
+                                    color="inherit"
+                                >
+                                    Recruitment Fairs @ FIU
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                For FIU students, there are plenty of
+                                opportunites to network on campus! FIU organizes
+                                several recruitment events on campus, check them
+                                out here.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container>
+                        <Typography
+                            className={classes.contentHeader}
+                            variant="h5"
+                            color="primary"
+                        >
+                            Local Events
+                        </Typography>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                            >
+                                Local events are great to meet the people around
+                                you in your own community. A great place to
+                                start, is to check out the events posted on
+                                Eventbrite and Facebook Events.
+                            </Typography>
+                        </Grid>
+                    </Grid>
                 </ModulePagination.Page>
+                <ModulePagination.Page></ModulePagination.Page>
             </ModulePagination>
         </Container>
     );
@@ -314,6 +415,11 @@ const styles = makeStyles((theme) => ({
             display: "block"
         }
     },
+    // inLink: {
+    //     "& > * + *": {
+    //         marginLeft: theme.spacing(2)
+    //     },
+    // },
     subDescription: {
         textAlign: "left",
         justify: "center",

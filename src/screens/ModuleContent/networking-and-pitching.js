@@ -401,8 +401,7 @@ const Networking = () => {
                                 color="#D8D8D8"
                             >
                                 <Link
-                                    href="https://www.linkedin.com
-                                    "
+                                    href="https://www.linkedin.com"
                                     color="inherit"
                                 >
                                     LinkedIn
@@ -420,41 +419,28 @@ const Networking = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                gutterBottom
+                                component="ul"
                             >
-                                Connect with recruiters and engineers in the
-                                company you’re interested in.
-                            </Typography>
-                            <Typography
-                                className={classes.subDescription}
-                                variant="body1"
-                                gutterBottom
-                            >
-                                Post professional updates to be seen (hackathon
-                                project, awards received, internship offer,
-                                conference attendance, etc)
-                            </Typography>
-                            <Typography
-                                className={classes.subDescription}
-                                variant="body1"
-                                gutterBottom
-                            >
-                                Look through job listings that are typically
-                                updated more frequently than their site.
-                            </Typography>
-                            <Typography
-                                className={classes.subDescription}
-                                variant="body1"
-                                gutterBottom
-                            >
-                                Directly message professionals
-                            </Typography>
-                            <Typography
-                                className={classes.subDescription}
-                                variant="body1"
-                                gutterBottom
-                            >
-                                Personal profile page
+                                <li>
+                                    Connect with recruiters and engineers in the
+                                    company you’re interested in.
+                                </li>
+
+                                <li>
+                                    Post professional updates to be seen
+                                    (hackathon project, awards received,
+                                    internship offer, conference attendance,
+                                    etc)
+                                </li>
+
+                                <li>
+                                    Look through job listings that are typically
+                                    updated more frequently than their site.
+                                </li>
+
+                                <li>Directly message professionals</li>
+
+                                <li>Personal profile page</li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -480,20 +466,14 @@ const Networking = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                gutterBottom
+                                component="ul"
                             >
-                                Indeed gives you the option to upload your
+                                <li>Look through endless job and internship
+                                opportunities</li>
+                                <li>Indeed gives you the option to upload your
                                 resume, and once you do all potential employeers
                                 will be able to see your resume and match you to
-                                job openings.
-                            </Typography>
-                            <Typography
-                                className={classes.subDescription}
-                                variant="body1"
-                                gutterBottom
-                            >
-                                Look through endless job and internship
-                                opportunities
+                                job openings. </li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -522,18 +502,12 @@ const Networking = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                gutterBottom
+                                component="ul"
                             >
-                                Local Miami posting
-                            </Typography>
-                            <Typography
-                                className={classes.subDescription}
-                                variant="body1"
-                                gutterBottom
-                            >
-                                FIU SCIS Career Path is organized by
+                               <li> Local Miami posting</li>
+                               <li>FIU SCIS Career Path is organized by
                                 internships, full time, fellowships, freelance,
-                                startups, research
+                                startups, research</li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -564,10 +538,10 @@ const Networking = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                gutterBottom
+                                component="ul"
                             >
-                                Shows specifically companies that are interested
-                                in hiring candidates from your university
+                                <li>Shows specifically companies that are interested
+                                in hiring candidates from your university</li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -596,18 +570,12 @@ const Networking = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                gutterBottom
+                                component="ul"
                             >
-                                Personalized job opportunities based off what
+                                <li>Personalized job opportunities based off what
                                 you’re looking for (location, industry type,
-                                culture, company size, and so on)
-                            </Typography>
-                            <Typography
-                                className={classes.subDescription}
-                                variant="body1"
-                                gutterBottom
-                            >
-                                Community based with forms
+                                culture, company size, and so on)</li>
+                                <li>Community based with forms</li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -637,19 +605,13 @@ const Networking = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                gutterBottom
+                                component="ul"
                             >
-                                Typically someone from RippleMatch will directly
+                                <li>Typically someone from RippleMatch will directly
                                 call you for an initial phone screen to gauge
-                                your interests.
-                            </Typography>
-                            <Typography
-                                className={classes.subDescription}
-                                variant="body1"
-                                gutterBottom
-                            >
-                                Directly emails you opportunities best suited on
-                                what you’re looking for
+                                your interests.</li>
+                                <li>Directly emails you opportunities best suited on
+                                what you’re looking for</li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -695,6 +657,16 @@ const styles = makeStyles((theme) => ({
         justify: "center",
         color: "#D8D8D8",
         maxWidth: 600,
+        display: "block",
+        "& span": {
+            display: "block"
+        }
+    },
+    bulletDescription: {
+        textAlign: "left",
+        justify: "center",
+        color: "#D8D8D8",
+        maxWidth: 550,
         display: "block",
         "& span": {
             display: "block"

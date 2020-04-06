@@ -3,12 +3,6 @@ import { Grid, Typography, Container, Divider, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ModuleContent from "../../shared/modules/ModuleContent";
 import modules from "../../shared/modules/modules";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import CardActions from "@material-ui/core/CardActions";
 import ModulePagination from "shared/modules/ModulePagination";
 
 const Networking = () => {
@@ -223,7 +217,7 @@ const Networking = () => {
                             <Typography
                                 className={classes.subContentHeader}
                                 variant="h6"
-                                color="#D8D8D8"
+                                color="#03DAC6"
                             >
                                 <Link
                                     href="https://emergeamericas.com"
@@ -468,12 +462,16 @@ const Networking = () => {
                                 variant="body1"
                                 component="ul"
                             >
-                                <li>Look through endless job and internship
-                                opportunities</li>
-                                <li>Indeed gives you the option to upload your
-                                resume, and once you do all potential employeers
-                                will be able to see your resume and match you to
-                                job openings. </li>
+                                <li>
+                                    Look through endless job and internship
+                                    opportunities
+                                </li>
+                                <li>
+                                    Indeed gives you the option to upload your
+                                    resume, and once you do all potential
+                                    employeers will be able to see your resume
+                                    and match you to job openings.{" "}
+                                </li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -504,10 +502,12 @@ const Networking = () => {
                                 variant="body1"
                                 component="ul"
                             >
-                               <li> Local Miami posting</li>
-                               <li>FIU SCIS Career Path is organized by
-                                internships, full time, fellowships, freelance,
-                                startups, research</li>
+                                <li> Local Miami posting</li>
+                                <li>
+                                    FIU SCIS Career Path is organized by
+                                    internships, full time, fellowships,
+                                    freelance, startups, research
+                                </li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -540,8 +540,11 @@ const Networking = () => {
                                 variant="body1"
                                 component="ul"
                             >
-                                <li>Shows specifically companies that are interested
-                                in hiring candidates from your university</li>
+                                <li>
+                                    Shows specifically companies that are
+                                    interested in hiring candidates from your
+                                    university
+                                </li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -572,9 +575,11 @@ const Networking = () => {
                                 variant="body1"
                                 component="ul"
                             >
-                                <li>Personalized job opportunities based off what
-                                you’re looking for (location, industry type,
-                                culture, company size, and so on)</li>
+                                <li>
+                                    Personalized job opportunities based off
+                                    what you’re looking for (location, industry
+                                    type, culture, company size, and so on)
+                                </li>
                                 <li>Community based with forms</li>
                             </Typography>
                         </Grid>
@@ -607,11 +612,15 @@ const Networking = () => {
                                 variant="body1"
                                 component="ul"
                             >
-                                <li>Typically someone from RippleMatch will directly
-                                call you for an initial phone screen to gauge
-                                your interests.</li>
-                                <li>Directly emails you opportunities best suited on
-                                what you’re looking for</li>
+                                <li>
+                                    Typically someone from RippleMatch will
+                                    directly call you for an initial phone
+                                    screen to gauge your interests.
+                                </li>
+                                <li>
+                                    Directly emails you opportunities best
+                                    suited on what you’re looking for
+                                </li>
                             </Typography>
                         </Grid>
                     </Grid>
@@ -634,7 +643,7 @@ const styles = makeStyles((theme) => ({
         fontWeight: "500",
         padding: theme.spacing(3),
         textAlign: "center",
-        justify: "center"
+        justify: "center",
         // marginLeft: '14%',
     },
     contentDescription: {

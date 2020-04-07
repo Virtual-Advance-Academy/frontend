@@ -643,8 +643,7 @@ const styles = makeStyles((theme) => ({
         fontWeight: "500",
         padding: theme.spacing(3),
         textAlign: "center",
-        justify: "center",
-        // marginLeft: '14%',
+        justify: "center"
     },
     contentDescription: {
         textAlign: "left",
@@ -656,11 +655,6 @@ const styles = makeStyles((theme) => ({
             display: "block"
         }
     },
-    // inLink: {
-    //     "& > * + *": {
-    //         marginLeft: theme.spacing(2)
-    //     },
-    // },
     subDescription: {
         textAlign: "left",
         justify: "center",

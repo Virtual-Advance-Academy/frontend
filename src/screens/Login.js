@@ -1,4 +1,4 @@
-import React, { useState, useGlobal } from "reactn";
+import React, { useState, useGlobal, useDispatch } from "reactn";
 import { makeStyles } from "@material-ui/core/styles";
 import {
     Typography,
@@ -44,9 +44,9 @@ const Login = () => {
 const LoginForm = () => {
     const [showPass, setShowPass] = useState(false);
     const [form, setForm] = useState({});
-    const [user, setUser] = useGlobal("user");
     const [jwt, setJwt] = useGlobal("jwt");
     const Client = makeClient(jwt);
+    const login = useDispatch("login");
 
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -70,10 +70,7 @@ const LoginForm = () => {
         try {
             const res = await Client.authUser(form);
             console.log(res);
-            let userInfo = extractUser(res.data.token);
-            setUser(userInfo);
-            setJwt(res.data.token);
-            window.localStorage.setItem("jwt", res.data.token);
+            login(res.data.token);
         } catch (e) {
             console.log(e);
             console.log(e.response);

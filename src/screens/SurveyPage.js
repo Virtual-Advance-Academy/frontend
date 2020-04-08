@@ -13,23 +13,23 @@ import {
 import * as Yup from "yup";
 import { useSnackbar } from "notistack";
 import { makeClient } from "utils/Client";
+import { Redirect, useHistory } from "react-router-dom";
 
 const SurveyPage = () => {
     const pages = makePages(survey);
     const classes = styles();
 
     const [jwt] = useGlobal("jwt");
+    const [user] = useGlobal("user");
     const Client = makeClient(jwt);
     const login = useDispatch("login");
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     const submitSurvey = async (values) => {
-        console.log("Values: ", values);
         try {
             const res = await Client.submitSurvey(values);
+            //Response returns a new JWT denoting that the survey was completed
             login(res.data.token);
-            // history.push("/modules");
-            enqueueSnackbar(res.data.toString());
         } catch (e) {
             console.log(e);
             console.log(e.response);
@@ -42,55 +42,61 @@ const SurveyPage = () => {
     };
 
     return (
-        <Grid
-            container
-            justify="center"
-            alignItems="center"
-            className={classes.page}
-        >
+        <>
+            {user.completedSurvey && <Redirect to="/modules" />}
             <Grid
-                item
                 container
-                xs={11}
-                lg={7}
-                xl={5}
-                className={classes.surveyContainer}
+                justify="center"
+                alignItems="center"
+                className={classes.page}
             >
-                <Grid item xs={10} lg={3}>
-                    <Typography
-                        className={classes.mainTitle}
-                        variant="h2"
-                        color="primary"
-                        component="p"
-                    >
-                        <span>Survey </span>
-                    </Typography>
-                </Grid>
                 <Grid
-                    component={Survey}
                     item
                     container
-                    direction="column"
-                    lg={8}
-                    spacing={3}
-                    onSubmit={submitSurvey}
+                    xs={11}
+                    lg={7}
+                    xl={5}
+                    className={classes.surveyContainer}
                 >
-                    {pages.map((page) => {
-                        return (
-                            <Survey.Page {...page}>
-                                {page.children.map((child) => {
-                                    return (
-                                        <Grid item className={classes.question}>
-                                            {child}
-                                        </Grid>
-                                    );
-                                })}
-                            </Survey.Page>
-                        );
-                    })}
+                    <Grid item xs={10} lg={3}>
+                        <Typography
+                            className={classes.mainTitle}
+                            variant="h2"
+                            color="primary"
+                            component="p"
+                        >
+                            <span>Survey </span>
+                        </Typography>
+                    </Grid>
+                    <Grid
+                        component={Survey}
+                        item
+                        container
+                        direction="column"
+                        lg={8}
+                        spacing={3}
+                        onSubmit={submitSurvey}
+                    >
+                        {pages.map((page) => {
+                            return (
+                                <Survey.Page {...page}>
+                                    {page.children.map((child) => {
+                                        return (
+                                            <Grid
+                                                item
+                                                className={classes.question}
+                                            >
+                                                {child}
+                                            </Grid>
+                                        );
+                                    })}
+                                </Survey.Page>
+                            );
+                        })}
+                    </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+        </>
     );
 };
 

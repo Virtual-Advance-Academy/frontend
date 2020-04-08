@@ -717,7 +717,6 @@ const styles = makeStyles((theme) => ({
         padding: theme.spacing(3),
         textAlign: "center",
         justify: "center"
-        // marginLeft: '14%',
     },
     contentDescription: {
         textAlign: "left",

@@ -13,7 +13,6 @@ import CardActions from "@material-ui/core/CardActions";
 
 import resume1 from "../../assets/modules/content/resume1.jpeg";
 import resume2 from "../../assets/modules/content/resume2.jpeg";
-import resume3 from "../../assets/modules/content/resume3.jpeg";
 
 import resume1file from "../../assets/resumes/FirstName_LastName.doc";
 
@@ -287,6 +286,17 @@ const Resumes = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
+                                gutterBottom
+                            >
+                                Including your personal information is crucial
+                                for companies to contact you if they're
+                                interested. Do not include items such as your
+                                address, race, religious views, martial status,
+                                or gender.
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
                                 component="ul"
                             >
                                 <li>Full name</li>
@@ -295,6 +305,310 @@ const Resumes = () => {
                                 <li>Your current city and state</li>
                                 <li>LinkedIn URL (suggested)</li>
                                 <li>GitHub URL (suggested)</li>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                Education
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Your education should only include any colleges
+                                or universities you have attended in undergrad
+                                or graduate school.
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                component="ul"
+                            >
+                                <li>
+                                    University Name (i.e. Florida International
+                                    University)
+                                </li>
+                                <li>
+                                    Degree (i.e. Bachelors of Science in
+                                    Computer Science)
+                                </li>
+                                <li>Non-university email (preferred)</li>
+                                <li>City and State (i.e. Miami, FL)</li>
+                                <li>
+                                    Minor if applicable (i.e. Minor in
+                                    Psychology)
+                                </li>
+                                <li>GPA if it is above a 3.0</li>
+                                <li>Graduation Date (i.e. May 2020)</li>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                Experience
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                In chronological format, list all your relevant
+                                experiences. If you do not have any relevant
+                                experience to the role, it is okay to include
+                                1-2 long term positions you’ve held.
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Each experience should have the following:
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                component="ul"
+                            >
+                                <li>Employer's Name</li>
+                                <li>Position Title</li>
+                                <li>Start and end date</li>
+                                <li>City and State</li>
+                                <li>
+                                    2-3 bullet points about what the impact you
+                                    made. Try to include as much quantitative
+                                    results as you can, such as mentoring 30
+                                    students, optimizing the program by 80%,
+                                    etc. Also include any accomplishments or
+                                    recognitions you received.
+                                </li>
+                                <li>
+                                    Example: Debugged and optimized software
+                                    tools in Python for tracking hurricane
+                                    trajectories that resulted in a 76% speed
+                                    improvement.
+                                </li>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                Personal Projects
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                If you don’t have much experience, you should
+                                develop personal projects! Personal projects can
+                                be side projects you worked on by yourself,
+                                hackathon projects, or group projects.
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Each project should have the following:
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                component="ul"
+                            >
+                                <li>Project Name</li>
+                                <li>Your role (i.e. head iOS developer)</li>
+                                <li>
+                                    GitHub URL if it is an open source project
+                                </li>
+                                <li>1 bullet describing the project</li>
+                                <li>
+                                    1-2 bullets describing your contribution to
+                                    the project and what you were able to
+                                    accomplish (similar to experience format).
+                                    Make sure to mention what languages and
+                                    technologies were used.
+                                </li>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                Activities
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Activities can be anything from
+                                extracurriculars, volunteer work, or leadership.
+                                You should name this section to whatever is most
+                                relevant to your background.
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Each activity should have the following:
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                component="ul"
+                            >
+                                <li>
+                                    Organization Name (i.e. Upsilon Pi Epsilon,
+                                    Women in Computer Science, Habitat for
+                                    Humanity, etc)
+                                </li>
+                                <li>
+                                    Your role (i.e. President, member, event
+                                    coordinator, etc)
+                                </li>
+                                <li>Start and end date</li>
+                                <li>City and state</li>
+                                <li>
+                                    2-3 bullet points about the impact you made,
+                                    such as how you grew that organization,
+                                    organized events, etc.
+                                </li>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                Skills
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                It is recommended that you match your skills
+                                with your proficiency level as well (beginner,
+                                intermediate, advanced).
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Skills to include:
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                component="ul"
+                            >
+                                <li>
+                                    List all the technical skills you have (i.e.
+                                    C#, Java, SQL, HTML/CSS, Python, Azure, AWS,
+                                    etc)
+                                </li>
+                                <li>
+                                    List all spoken languages (i.e. French,
+                                    Spanish, etc)
+                                </li>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                Courses
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                You should only list your relevant courses if
+                                you don’t have enough content on your resume.
+                            </Typography>
+
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                component="ul"
+                            >
+                                <li>
+                                    Examples: Data Structures, Programming III
+                                    (Java, C), Artificial Intelligence, Physics
+                                    I with Calculus I, Discrete Mathematics,
+                                    Logic, Statistics, and so on.
+                                </li>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                Honors
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                This is an optional section, if you have honors
+                                or awards you’re proud of and want to include,
+                                then you should!
+                            </Typography>
+
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                component="ul"
+                            >
+                                <li>
+                                    This can be honors such as academic or
+                                    professional scholarships, Dean's List, or
+                                    university awards (Student of the Year,
+                                    Worlds Ahead, etc).
+                                </li>
                             </Typography>
                         </Grid>
                     </Grid>

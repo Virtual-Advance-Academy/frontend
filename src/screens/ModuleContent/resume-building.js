@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography, Container, Link } from "@material-ui/core";
+import { Grid, Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ModuleContent from "../../shared/modules/ModuleContent";
 import modules from "../../shared/modules/modules";
@@ -13,7 +13,6 @@ import CardActions from "@material-ui/core/CardActions";
 
 import resume1 from "../../assets/modules/content/resume1.jpeg";
 import resume2 from "../../assets/modules/content/resume2.jpeg";
-
 import resume1file from "../../assets/resumes/FirstName_LastName.doc";
 
 const Resumes = () => {

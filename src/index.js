@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { SnackbarProvider } from "notistack";
-import { appState } from "config/appConfig";
+import { appState, extractUser } from "config/appConfig";
 
 const darkTheme = responsiveFontSizes(
     createMuiTheme({
@@ -65,7 +65,14 @@ addReducer("closeDrawer", (global, dispatch, drawer) => {
             };
     }
 });
-
+addReducer("login", (global, dispatch, jwt) => {
+    let user = extractUser(jwt);
+    window.localStorage.setItem("jwt", jwt);
+    return {
+        user,
+        jwt
+    };
+});
 addReducer("logout", (global, dispatch) => {
     console.log("logout");
     window.localStorage.removeItem("jwt");

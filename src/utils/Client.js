@@ -16,10 +16,15 @@ const makeClient = (jwt) => {
         return axios.post(config.API_ENDPOINTS.USERS, registration);
     };
 
+    const submitSurvey = async (surveyData) => {
+        return axios.post(config.API_ENDPOINTS.SURVEY, surveyData, auth);
+    };
+
     const Client = {
         getProfile,
         authUser,
-        registerUser
+        registerUser,
+        submitSurvey
     };
 
     return Client;

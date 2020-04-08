@@ -7,7 +7,8 @@ const config = {
     API_ENDPOINTS: {
         USERS: `${API_URL}/users`,
         AUTH: `${API_URL}/users/auth`,
-        PROFILE: `${API_URL}/users/profile`
+        PROFILE: `${API_URL}/users/profile`,
+        SURVEY: `${API_URL}/users/survey`
     }
 };
 

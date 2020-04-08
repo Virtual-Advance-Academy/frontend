@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useGlobal, useDispatch } from "reactn";
 import Survey from "shared/Survey";
 import { Radios, Checkboxes, makeValidate } from "mui-rff";
 import survey from "shared/SurveyData";
@@ -11,11 +11,36 @@ import {
     FormControl
 } from "@material-ui/core";
 import * as Yup from "yup";
+import { useSnackbar } from "notistack";
+import { makeClient } from "utils/Client";
 
 const SurveyPage = () => {
     const pages = makePages(survey);
     const classes = styles();
-    console.log(pages);
+
+    const [jwt] = useGlobal("jwt");
+    const Client = makeClient(jwt);
+    const login = useDispatch("login");
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
+    const submitSurvey = async (values) => {
+        console.log("Values: ", values);
+        try {
+            const res = await Client.submitSurvey(values);
+            login(res.data.token);
+            // history.push("/modules");
+            enqueueSnackbar(res.data.toString());
+        } catch (e) {
+            console.log(e);
+            console.log(e.response);
+            let errorMsg =
+                e.response && e.response.data
+                    ? e.response.data.message
+                    : e.toString();
+            enqueueSnackbar(errorMsg);
+        }
+    };
+
     return (
         <Grid
             container
@@ -48,14 +73,12 @@ const SurveyPage = () => {
                     direction="column"
                     lg={8}
                     spacing={3}
-                    onSubmit={values => {
-                        alert(JSON.stringify(values));
-                    }}
+                    onSubmit={submitSurvey}
                 >
-                    {pages.map(page => {
+                    {pages.map((page) => {
                         return (
                             <Survey.Page {...page}>
-                                {page.children.map(child => {
+                                {page.children.map((child) => {
                                     return (
                                         <Grid item className={classes.question}>
                                             {child}
@@ -71,14 +94,14 @@ const SurveyPage = () => {
     );
 };
 
-const makePages = questions => {
+const makePages = (questions) => {
     let pages = [];
-    questions.forEach(q => {
+    questions.forEach((q) => {
         if (!pages[q.page]) pages[q.page] = [];
         pages[q.page].push(q);
     });
 
-    pages = pages.map(page => {
+    pages = pages.map((page) => {
         page.sort((a, b) => a.number - b.number);
 
         const schema = Yup.object().shape(
@@ -98,7 +121,7 @@ const makePages = questions => {
     return pages;
 };
 
-const makeInput = q => {
+const makeInput = (q) => {
     const classes = styles();
     switch (q.type) {
         case "radio":
@@ -138,7 +161,7 @@ const makeInput = q => {
                     <header className={classes.matrixHeader}>
                         <div></div>
                         <div className={classes.matrixHeadings}>
-                            {q.header.map(h => (
+                            {q.header.map((h) => (
                                 <FormLabel>{h}</FormLabel>
                             ))}
                         </div>
@@ -153,19 +176,15 @@ const makeInput = q => {
     }
 };
 
-const makeSchema = q => {
+const makeSchema = (q) => {
     switch (q.type) {
         case "radio":
             return {
-                [`question-${q.number}`]: Yup.mixed()
-                    .required()
-                    .label("This")
+                [`question-${q.number}`]: Yup.mixed().required().label("This")
             };
         case "checkbox":
             return {
-                [`question-${q.number}`]: Yup.array()
-                    .required()
-                    .label("This")
+                [`question-${q.number}`]: Yup.array().required().label("This")
             };
         case "matrix":
             return q.data
@@ -177,7 +196,7 @@ const makeSchema = q => {
     }
 };
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
     matrix: {
         display: "grid",
         gridRowGap: "10px",
@@ -226,7 +245,7 @@ const styles = makeStyles(theme => ({
         minHeight: "100vh"
     },
     surveyContainer: {
-        [theme.breakpoints.up("lg")] : {
+        [theme.breakpoints.up("lg")]: {
             padding: "60px 0"
         },
         padding: "30px 0"
@@ -234,7 +253,7 @@ const styles = makeStyles(theme => ({
     question: {
         "& > .MuiFormControl-root": {
             width: "100%",
-            "& .MuiFormGroup-root.MuiFormGroup-row":{
+            "& .MuiFormGroup-root.MuiFormGroup-row": {
                 justifyContent: "space-around"
             },
             "& > .MuiFormLabel-root": {

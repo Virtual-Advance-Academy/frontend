@@ -9,6 +9,7 @@ import TechnicalQuestions from "screens/ModuleContent/tech-questions";
 import DosAndDonts from "screens/ModuleContent/dos-and-donts";
 import Tips from "screens/ModuleContent/tips";
 import More from "screens/ModuleContent/more";
+import Pitching from "screens/ModuleContent/pitching";
 
 export default [
     {
@@ -25,7 +26,7 @@ export default [
         slug: "networking-and-pitching",
         title: "Networking & Pitching",
         description:
-            "Curious about where to find networking opportunities or how to perfect your elevator pitch? This module will give an overview of why networking is crucial and will provide examples of a well structured elevator pitch.",
+            "Curious about where to find networking opportunities online and in person? This module will give an overview of why networking is crucial and go over major networking opportunities.",
         image: "networking",
         component: Networking
     },
@@ -100,5 +101,14 @@ export default [
             "If you're interested in diving more into these topics, checkout these curated resources our team has put together for you! Please also leave feedback here if there is anything else you would like to see.",
         image: "more",
         component: More
+    },
+    {
+        id: "module-11",
+        slug: "pitching",
+        title: "Pitching Yourself",
+        description:
+            "Telling your story in a concise and intriguing way is important for recruiters to get a glimpse of who you are. In this module you will learn about how to pitch yourself in person and online.",
+        image: "pitching",
+        component: Pitching
     }
 ];

@@ -278,6 +278,90 @@ const Pitching = () => {
                         </Grid>
                     </Grid>
                 </ModulePagination.Page>
+                <ModulePagination.Page>
+                    <Grid container>
+                        <Typography
+                            className={classes.contentHeader}
+                            variant="h5"
+                            color="primary"
+                            gutterBottom
+                        >
+                            Cold Emailing or Messaging Recruiters
+                        </Typography>
+                    </Grid>
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.contentDescription}
+                                variant="body1"
+                            >
+                                When emailing or LinkedIn messaging a recruiter
+                                or engineer you do not know, the following
+                                samples are great templates to reach out. It
+                                includes the essential information about you as
+                                a candidate, it shows you already put the work
+                                in by applying, and it has action items for the
+                                individual to follow up with you.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                Sample #1
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                            >
+                                Hi ____. My name is ____ and I am studying ____
+                                at ____ and I am graduating in ____. I have
+                                experience in ____ and with my background I know
+                                I would be a great fit for this role that I
+                                applied for, ____ with Req. ID ____. I would
+                                love the chance to discuss more about the
+                                opportunity and your journey to ____. Please let
+                                me know if you would be able to jump on a quick
+                                10 minute call. I have also attached my resume
+                                for reference. Have a wonderful day and I look
+                                forward to hearing back!
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                Sample #2
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                            >
+                                Hi ____. My name is ____ and I am studying ____
+                                at ____ and I am graduating in ____. I have been
+                                following ____ and I am excited about ____ (news
+                                or release about the company that you are
+                                excited about to demonstrate your interest and
+                                research). I have applied to the ___ position
+                                with Req. ID ____. Based on my experience in
+                                ____ (1-2 reasons why YOU are a good fit for the
+                                role), I am a strong candidate for this
+                                position. I would like to discuss this
+                                opportunity with you further if you have time
+                                this week. Thank you and have a wonderful day.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </ModulePagination.Page>
             </ModulePagination>
         </Container>
     );

@@ -1,15 +1,17 @@
 import React from "react";
-import { Grid, Typography, Container } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+    Grid,
+    Typography,
+    Container,
+    makeStyles,
+    Card,
+    CardActionArea,
+    CardContent,
+    CardMedia
+} from "@material-ui/core";
 import ModuleContent from "../../shared/modules/ModuleContent";
 import modules from "../../shared/modules/modules";
 import ModulePagination from "shared/modules/ModulePagination";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import CardActions from "@material-ui/core/CardActions";
 import pitch from "../../assets/modules/content/pitch.png";
 
 const Pitching = () => {

@@ -1,15 +1,20 @@
 import React from "react";
-import { Grid, Typography, Container, Divider } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+    Grid,
+    Typography,
+    Container,
+    Typography,
+    Container,
+    makeStyles,
+    Card,
+    CardActionArea,
+    CardContent,
+    CardMedia,
+    Button,
+    CardActions
+} from "@material-ui/core";
 import ModuleContent from "../../shared/modules/ModuleContent";
 import modules from "../../shared/modules/modules";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import CardActions from "@material-ui/core/CardActions";
-
 import resumeGrid from "../../assets/modules/resumeGrid.png";
 import NSAR from "../../assets/modules/NSAR.png";
 import ModulePagination from "shared/modules/ModulePagination";

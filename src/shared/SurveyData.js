@@ -448,13 +448,12 @@ export default [
     {
         number: 13,
         page: 4,
-        question: "With the application process, to what extent do you..",
+        question: "With resumes, to what extent do you..",
         type: "matrix",
         header: ["Not at all", "", "Neutral", "", "Very Much So"],
         data: [
             {
-                question:
-                    "... know where to find internships/full-time jobs online?",
+                question: "... know what should go on a resume?",
                 type: "radio",
                 data: [
                     { label: "", value: "1" },
@@ -465,8 +464,7 @@ export default [
                 ]
             },
             {
-                question:
-                    "... know where to find internships/full-time jobs in-person?",
+                question: "... know what shouldn't go on a resume?",
                 type: "radio",
                 data: [
                     { label: "", value: "1" },
@@ -477,8 +475,7 @@ export default [
                 ]
             },
             {
-                question:
-                    "... what to put on your resume (cover letter, resume, portfolio, etc)?",
+                question: "... know how to make your resume stand out?",
                 type: "radio",
                 data: [
                     { label: "", value: "1" },

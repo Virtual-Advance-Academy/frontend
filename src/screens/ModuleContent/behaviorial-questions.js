@@ -1,10 +1,8 @@
 import React from "react";
 import {
     Grid,
-    Typography,
     Container,
     Typography,
-    Container,
     makeStyles,
     Card,
     CardActionArea,

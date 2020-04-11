@@ -1,4 +1,4 @@
-import React, { useGlobal, useState } from "reactn";
+import React, { useGlobal, useState, useEffect } from "reactn";
 import { Grid, Typography, Container, Grow, Zoom } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ModuleCard from "../shared/modules/ModuleCard";
@@ -6,13 +6,32 @@ import modules from "shared/modules/modules";
 import { Redirect } from "react-router-dom";
 import ScrollToTop from "shared/ScrollToTop";
 import AuthorizedRoute from "shared/AuthorizedRoute";
+import { makeClient } from "utils/Client";
 
 const Main = () => {
     const classes = styles();
     const [user] = useGlobal("user");
+    const [jwt] = useGlobal("jwt");
     const firstName = (user && user.name.split(" ")[0]) || "";
 
     const [loading, setLoading] = useState(true);
+
+    let comps = modules
+        .map((module) => ({ [module.id]: {} }))
+        .reduce((a, c) => ({ ...a, ...c }));
+    const [completions, setCompletions] = useState(comps);
+
+    useEffect(() => {
+        const fetch = async () => {
+            const Client = makeClient(jwt);
+
+            let res = await Client.getCompletion();
+            const { completion } = res.data;
+            setCompletions(completion);
+            setLoading(false);
+        };
+        fetch();
+    }, [jwt]);
 
     return (
         <>
@@ -31,27 +50,33 @@ const Main = () => {
                     </Typography>
                 </Grid>
                 <Grid item container spacing={0}>
-                    {modules.map((module, i) => (
-                        <Zoom
-                            in
-                            style={{
-                                transitionDelay: `calc(.25s + ${i * 100}ms)`
-                            }}
-                        >
-                            <Grid key={module.id} item className={classes.card}>
-                                <ModuleCard
-                                    image={module.image}
-                                    title={module.title}
-                                    description={module.description}
-                                    completion={
-                                        Math.floor(Math.random() * 11) * 10
-                                    }
-                                    loading={loading}
-                                    slug={module.slug}
-                                />
-                            </Grid>
-                        </Zoom>
-                    ))}
+                    {modules.map((module, i) => {
+                        const { currentCompletion } = completions[module.id];
+                        return (
+                            <Zoom
+                                in
+                                style={{
+                                    transitionDelay: `calc(.25s + ${i * 100}ms)`
+                                }}
+                            >
+                                <Grid
+                                    key={module.id}
+                                    item
+                                    className={classes.card}
+                                >
+                                    <ModuleCard
+                                        image={module.image}
+                                        title={module.title}
+                                        description={module.description}
+                                        completion={currentCompletion}
+                                        loading={loading}
+                                        slug={module.slug}
+                                    />
+                                    {console.log(module)}
+                                </Grid>
+                            </Zoom>
+                        );
+                    })}
                 </Grid>
             </Container>
         </>

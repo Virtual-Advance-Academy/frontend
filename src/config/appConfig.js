@@ -8,7 +8,8 @@ const config = {
         USERS: `${API_URL}/users`,
         AUTH: `${API_URL}/users/auth`,
         PROFILE: `${API_URL}/users/profile`,
-        SURVEY: `${API_URL}/users/survey`
+        SURVEY: `${API_URL}/users/survey`,
+        COMPLETION: `${API_URL}/users/completion`
     }
 };
 

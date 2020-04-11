@@ -14,6 +14,7 @@ import * as Yup from "yup";
 import { useSnackbar } from "notistack";
 import { makeClient } from "utils/Client";
 import { Redirect, useHistory } from "react-router-dom";
+import AuthorizedRoute from "shared/AuthorizedRoute";
 
 const SurveyPage = () => {
     const pages = makePages(survey);
@@ -43,6 +44,7 @@ const SurveyPage = () => {
 
     return (
         <>
+            <AuthorizedRoute />
             {user && user.completedSurvey && <Redirect to="/modules" />}
             <Grid
                 container

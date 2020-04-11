@@ -14,7 +14,7 @@ const Main = () => {
     return (
         <>
             <AuthorizedRoute />
-            {!user.completedSurvey && <Redirect to="/survey" />}
+            {user && !user.completedSurvey && <Redirect to="/survey" />}
             <ScrollToTop />
             <Container className={classes.container}>
                 <Grid item>

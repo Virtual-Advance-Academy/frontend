@@ -494,49 +494,6 @@ export default [
     {
         number: 14,
         page: 5,
-        question: "With resumes, to what extent do you..",
-        type: "matrix",
-        header: ["Not at all", "", "Neutral", "", "Very Much So"],
-        data: [
-            {
-                question: "... know what should go on a resume?",
-                type: "radio",
-                data: [
-                    { label: "", value: "1" },
-                    { label: "", value: "2" },
-                    { label: "", value: "3" },
-                    { label: "", value: "4" },
-                    { label: "", value: "5" }
-                ]
-            },
-            {
-                question: "... know what shouldn't go on a resume?",
-                type: "radio",
-                data: [
-                    { label: "", value: "1" },
-                    { label: "", value: "2" },
-                    { label: "", value: "3" },
-                    { label: "", value: "4" },
-                    { label: "", value: "5" }
-                ]
-            },
-            {
-                question: "... know how to make your resume stand out?",
-                type: "radio",
-                data: [
-                    { label: "", value: "1" },
-                    { label: "", value: "2" },
-                    { label: "", value: "3" },
-                    { label: "", value: "4" },
-                    { label: "", value: "5" }
-                ]
-            }
-        ],
-        required: true
-    },
-    {
-        number: 15,
-        page: 5,
         question: "With networking to what extent do you..",
         type: "matrix",
         header: ["Not at all", "", "Neutral", "", "Very Much So"],
@@ -569,7 +526,7 @@ export default [
         required: true
     },
     {
-        number: 16,
+        number: 15,
         page: 5,
         question: "With in person interviews, to what extent do you..",
         type: "matrix",
@@ -601,7 +558,7 @@ export default [
         required: true
     },
     {
-        number: 17,
+        number: 16,
         page: 6,
         question: "With which racial and ethnic group(s) do you identify?",
         helperText: "Mark all that apply",
@@ -637,7 +594,7 @@ export default [
         required: true
     },
     {
-        number: 18,
+        number: 17,
         page: 6,
         question: "How do you describe your gender identity?",
         type: "radio",
@@ -650,7 +607,7 @@ export default [
         required: true
     },
     {
-        number: 19,
+        number: 18,
         page: 6,
         question:
             "How many hours on average do you code per week? (Class work, personal projects, etc)",

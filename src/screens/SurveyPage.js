@@ -43,7 +43,7 @@ const SurveyPage = () => {
 
     return (
         <>
-            {user.completedSurvey && <Redirect to="/modules" />}
+            {user && user.completedSurvey && <Redirect to="/modules" />}
             <Grid
                 container
                 justify="center"

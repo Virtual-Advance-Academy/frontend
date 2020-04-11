@@ -10,24 +10,38 @@ import {
     makeStyles,
     Typography
 } from "@material-ui/core";
+import Skeleton from "@material-ui/lab/Skeleton";
 import { CheckCircle } from "@material-ui/icons";
 import clsx from "clsx";
 import React, { useState } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
-const CompletionBadge = ({ completion }) => {
+const CompletionBadge = ({ completion, loading = false }) => {
     const classes = styles();
     const completionText = `${Math.floor(completion)}%`;
     return (
         <Avatar className={classes.avatar}>
-            <CircularProgress variant="static" value={completion % 100} />
-            {completion < 100 && (
-                <Typography variant="caption" className={classes.completeCheck}>
-                    {completionText}
-                </Typography>
+            {!loading && (
+                <>
+                    <CircularProgress
+                        variant="static"
+                        value={completion % 100}
+                    />
+                    {completion < 100 && completion > 0 && (
+                        <Typography
+                            variant="caption"
+                            className={classes.completeCheck}
+                        >
+                            {completionText}
+                        </Typography>
+                    )}
+                    {completion === 100 && (
+                        <CheckCircle className={classes.completeCheck} />
+                    )}
+                </>
             )}
-            {completion === 100 && (
-                <CheckCircle className={classes.completeCheck} />
+            {loading && (
+                <Skeleton variant="circle" height="100%" width="100%" />
             )}
         </Avatar>
     );
@@ -39,11 +53,19 @@ const ModuleCard = ({
     image,
     completion = 0,
     slug,
-    msDelay = 0
+    loading = false
 }) => {
     let [raised, setRaised] = useState(false);
     const classes = styles();
     const match = useRouteMatch();
+
+    let imgSrc;
+
+    try {
+        imgSrc = require(`assets/modules/${image}.png`);
+    } catch (e) {
+        imgSrc = "";
+    }
 
     return (
         <Card
@@ -62,31 +84,61 @@ const ModuleCard = ({
         >
             <div>
                 <CardHeader
-                    title={<Typography variant="h6">{title}</Typography>}
-                    action={<CompletionBadge completion={completion} />}
+                    title={
+                        loading ? (
+                            <Skeleton width="90%" />
+                        ) : (
+                            <Typography variant="h6">{title}</Typography>
+                        )
+                    }
+                    action={
+                        <CompletionBadge
+                            loading={loading}
+                            completion={completion}
+                        />
+                    }
                     classes={{
                         action: classes.actionOverride
                     }}
                 />
-                <CardMedia
-                    image={require(`assets/modules/${image}.png`)}
-                    className={classes.cardImg}
-                />
+                {loading && (
+                    <Skeleton variant="rect" className={classes.cardImg} />
+                )}
+                {!loading && (
+                    <CardMedia image={imgSrc} className={classes.cardImg} />
+                )}
                 <CardContent>
-                    <Typography variant="body2">{description}</Typography>
+                    {!loading && (
+                        <Typography variant="body2">{description}</Typography>
+                    )}
+                    {loading && (
+                        <>
+                            <Skeleton variant="text" />
+                            <Skeleton variant="text" />
+                            <Skeleton variant="text" />
+                            <Skeleton variant="text" />
+                            <Skeleton variant="text" />
+                            <Skeleton variant="text" width="85%" />
+                        </>
+                    )}
                 </CardContent>
             </div>
             <CardActions>
                 <Button
                     className={classes.getStarted}
                     size="large"
-                    component={Link}
+                    component={slug ? Link : "button"}
                     to={`${match.path}/${slug}`}
                     color="primary"
                 >
-                    {completion === 100 && "Review"}
-                    {completion < 100 && completion > 0 && "Continue"}
-                    {completion === 0 && "Get Started"}
+                    {!loading && (
+                        <>
+                            {completion === 100 && "Review"}
+                            {completion < 100 && completion > 0 && "Continue"}
+                            {completion === 0 && "Get Started"}
+                        </>
+                    )}
+                    {loading && <Skeleton variant="text" width={100} />}
                 </Button>
             </CardActions>
         </Card>

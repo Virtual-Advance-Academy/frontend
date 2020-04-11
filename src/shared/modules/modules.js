@@ -1,5 +1,5 @@
 import React from "react";
-import Networking from "screens/ModuleContent/networking-and-pitching";
+import Networking from "screens/ModuleContent/networking";
 import InternshipTypes from "screens/ModuleContent/types-of-internships";
 import Resumes from "screens/ModuleContent/resume-building";
 import AppProcess from "screens/ModuleContent/application-process";
@@ -23,8 +23,8 @@ export default [
     },
     {
         id: "module-2",
-        slug: "networking-and-pitching",
-        title: "Networking & Pitching",
+        slug: "networking",
+        title: "Networking",
         description:
             "Curious about where to find networking opportunities online and in person? This module will give an overview of why networking is crucial and go over major networking opportunities.",
         image: "networking",

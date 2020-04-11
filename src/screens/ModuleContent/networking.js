@@ -8,7 +8,7 @@ import ModulePagination from "shared/modules/ModulePagination";
 const Networking = () => {
     const classes = styles();
     const [networking] = modules.filter(
-        (module) => module.title === "Networking & Pitching"
+        (module) => module.title === "Networking"
     );
     return (
         <Container className={classes.container}>

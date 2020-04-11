@@ -22,15 +22,6 @@ export default [
         component: InternshipTypes
     },
     {
-        id: "module-2",
-        slug: "networking",
-        title: "Networking",
-        description:
-            "Curious about where to find networking opportunities online and in person? This module will give an overview of why networking is crucial and go over major networking opportunities.",
-        image: "networking",
-        component: Networking
-    },
-    {
         id: "module-3",
         slug: "resume-building",
         title: "Resume Building",
@@ -38,6 +29,24 @@ export default [
             "Resumes are crucial for recruiters to see what makes you stand out as a potential candidate. Learn how to design a resume to best highlight your skills and experience in an aesthetically pleasing way.",
         image: "resume",
         component: Resumes
+    },
+    {
+        id: "module-11",
+        slug: "pitching",
+        title: "Pitching Yourself",
+        description:
+            "Telling your story in a concise and intriguing way is important for recruiters to get a glimpse of who you are. In this module you will learn about how to pitch yourself in person and online.",
+        image: "pitching",
+        component: Pitching
+    },
+    {
+        id: "module-2",
+        slug: "networking",
+        title: "Networking",
+        description:
+            "Curious about where to find networking or job opportunities online and in person? This module will give an overview of why networking is crucial and go over major networking opportunities.",
+        image: "networking",
+        component: Networking
     },
     {
         id: "module-4",
@@ -48,6 +57,7 @@ export default [
         image: "application",
         component: AppProcess
     },
+
     {
         id: "module-5",
         slug: "what-to-wear",
@@ -101,14 +111,5 @@ export default [
             "If you're interested in diving more into these topics, checkout these curated resources our team has put together for you! Please also leave feedback here if there is anything else you would like to see.",
         image: "more",
         component: More
-    },
-    {
-        id: "module-11",
-        slug: "pitching",
-        title: "Pitching Yourself",
-        description:
-            "Telling your story in a concise and intriguing way is important for recruiters to get a glimpse of who you are. In this module you will learn about how to pitch yourself in person and online.",
-        image: "pitching",
-        component: Pitching
     }
 ];

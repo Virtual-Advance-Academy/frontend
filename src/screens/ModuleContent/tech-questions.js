@@ -4,6 +4,7 @@ import {
     Typography,
     Container,
     makeStyles,
+    Link,
     Card,
     CardActionArea,
     CardContent,
@@ -198,12 +199,13 @@ const TechnicalQuestions = () => {
                                 variant="body1"
                                 gutterBottom
                             >
-                                Questions could be anything from:{" "}
+                                Questions could be anything from:
                             </Typography>
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
                                 component="ul"
+                                gutterBottom
                             >
                                 <li>
                                     “What are your two favorite programming
@@ -221,6 +223,372 @@ const TechnicalQuestions = () => {
                                     “How do you enforce relational integrity in
                                     database design?”
                                 </li>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Typically, questions will be centered around
+                                what you say you know on your resume, but it is
+                                very much possible to receive questions about
+                                something that you didn’t say you know. They are
+                                testing your knowledge on popular technologies
+                                or technologies they use within their company.
+                                If you could answer those questions, you would
+                                stand out from other candidates.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </ModulePagination.Page>
+                <ModulePagination.Page>
+                    <Grid container>
+                        <Typography
+                            className={classes.contentHeader}
+                            variant="h5"
+                            color="primary"
+                            gutterBottom
+                        >
+                            In Person Interviews
+                        </Typography>
+                    </Grid>
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.contentDescription}
+                                variant="body1"
+                            >
+                                In person interviews can be a mix of everything.
+                                You can expect whiteboarding questions,
+                                technical questions presented on one of their
+                                computers, behavioral questions, or anything
+                                else.
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography
+                                className={classes.contentDescription}
+                                variant="body1"
+                            >
+                                The best way to prepare for these styles of
+                                interviews is doing your own research. Your
+                                recruiter should prepare you with what that
+                                would like. If they do not explicitly tell you,
+                                ask them. Then, look up the company's name and
+                                see if you can find out their structure and
+                                previous questions asked so you can gauge what
+                                you should prepare for.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container>
+                        <Typography
+                            className={classes.contentHeader}
+                            variant="h5"
+                            color="primary"
+                            gutterBottom
+                        >
+                            Technical Interview etiquette
+                        </Typography>
+                    </Grid>
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.contentDescription}
+                                variant="body1"
+                            >
+                                From the{" "}
+                                <a
+                                    href="https://learntocodewith.me/posts/technical-interview/"
+                                    className={classes.a}
+                                >
+                                    Ultimate Guide to Acing Your Technical
+                                    Interview
+                                </a>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                During a real-time coding challenge
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                component="ul"
+                                gutterBottom
+                            >
+                                <li>
+                                    Ask clarifying questions before you even
+                                    start writing code.
+                                </li>
+                                <li>
+                                    Communicate with your interviewer and think
+                                    out loud.
+                                </li>
+                                <li>
+                                    Make it a collaborative process (use “we”
+                                    instead of “I”); interviewers want to know
+                                    that you’re a team player.
+                                </li>
+                                <li>
+                                    If you’re stuck, stay calm, think out loud,
+                                    and try new ideas
+                                </li>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                During a take-home coding assignment
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                component="ul"
+                                gutterBottom
+                            >
+                                <li>
+                                    Take time to plan out your code before
+                                    writing it out.
+                                </li>
+                                <li>
+                                    Make sure you fully understand the
+                                    instructions and requirements. Re-read them
+                                    several times before starting and once more
+                                    after you’re finished with the challenge to
+                                    make sure you've ticked every box.
+                                </li>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </ModulePagination.Page>
+                <ModulePagination.Page>
+                    <Grid container>
+                        <Typography
+                            className={classes.contentHeader}
+                            variant="h5"
+                            color="primary"
+                        >
+                            Resources to Practice Technical Questions
+                        </Typography>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://www.khanacademy.org/computing/computer-science/algorithms"
+                                    color="inherit"
+                                >
+                                    Algorithms by Khan Academy
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                If someone hasn’t told you yet, the majority of
+                                technical questions come back to data structures
+                                and algorithms. This course by Khan Academy will
+                                go over all the major algorithms that you should
+                                know.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://leetcode.com"
+                                    color="inherit"
+                                >
+                                    LeetCode
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                If you already have some understanding of data
+                                structures and algorithms, you should be
+                                practicing at least a couple times a week.
+                                LeetCode is a great resource, it is organized by
+                                difficulty as well as by company.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="http://www.crackingthecodinginterview.com"
+                                    color="inherit"
+                                >
+                                    Cracking the Coding Interview
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                Whether you’re a beginner or experienced,
+                                Cracking the Coding Interview can help you
+                                advance your skills. The book has over 150
+                                programming questions with solutions and
+                                explanations on solving them.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://www.hackerrank.com"
+                                    color="inherit"
+                                >
+                                    HackerRank
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                If you’re looking for more experience on how
+                                technical screening interviews work, HackerRank
+                                is for you. Similar to HireVue, it is an
+                                application companies use to screen candidates.
+                                HackerRank also offers developers practice
+                                problems in the same environment as a real
+                                HackerRank screening interview.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://www.youtube.com/watch?v=IhJGJG-9Dx8&list=PLI1t_8YX-Apv-UiRlnZwqqrRT8D1RhriX"
+                                    color="inherit"
+                                >
+                                    Data Structures via YouTube
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                If you are looking up to brush up on your data
+                                structures, YouTube will be one of your best
+                                resources. The one linked above is from the
+                                author of Cracking the Coding Interview, Gayle
+                                Laakmann McDowell.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={1}>
+                        <Grid item>
+                            <Typography
+                                className={classes.subContentHeader}
+                                variant="h6"
+                                color="#D8D8D8"
+                            >
+                                <Link
+                                    href="https://www.glassdoor.com/index.htm"
+                                    color="inherit"
+                                >
+                                    GlassDoor
+                                </Link>
+                            </Typography>
+                            <Typography
+                                className={classes.subDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                All candidates should search the company they
+                                are interviewing with on GlassDoor before
+                                interviewing. GlassDoor shows all the basic info
+                                about a company told by their current or
+                                previous employees. It also shows interview
+                                questions asked by previous candidates. Go
+                                through these and practice them. Not necessarily
+                                the questions you will get, but it will prepare
+                                you the style of questions the company asks.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </ModulePagination.Page>
+                <ModulePagination.Page>
+                    <Grid container>
+                        <Typography
+                            className={classes.contentHeader}
+                            variant="h5"
+                            color="primary"
+                            gutterBottom
+                        >
+                            Finally...
+                        </Typography>
+                    </Grid>
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.contentDescription}
+                                variant="body1"
+                                gutterBottom
+                            >
+                                We would like to leave you with advice from an
+                                ex-Amazon SDE intern and now a full time
+                                Microsoft PM.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify="center" spacing={2}>
+                        <Grid item>
+                            <Typography
+                                className={classes.quote}
+                                variant="body1"
+                            >
+                                “Cracking the coding interview and quite
+                                honestly, just doing them. Go interview. Be okay
+                                with failing...A LOT. That's how you learn.
+                                Don't use excuses like waiting until you're a
+                                junior, just go try.”
                             </Typography>
                         </Grid>
                     </Grid>
@@ -260,6 +628,18 @@ const styles = makeStyles((theme) => ({
         justify: "center",
         color: "#D8D8D8",
         maxWidth: 600,
+        display: "block",
+        "& span": {
+            display: "block"
+        }
+    },
+    quote: {
+        textAlign: "left",
+        justify: "center",
+        color: "#D8D8D8",
+        maxWidth: 800,
+        fontStyle: "italic",
+        fontWeight: "500",
         display: "block",
         "& span": {
             display: "block"

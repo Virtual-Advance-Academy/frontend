@@ -66,7 +66,6 @@ const Home = () => {
             </Grid>
             <Grid container spacing={10} alignItems="center" justify="center">
                 <Grid item className={classes.demo}>
-                    {/* <div className={classes.demo}> */}
                     <List>
                         <ListItem>
                             <ListItemAvatar>
@@ -157,7 +156,6 @@ const Home = () => {
                             <ListItemText primary="Additional Content" />
                         </ListItem>
                     </List>
-                    {/* </div> */}
                 </Grid>
                 <Grid item>
                     <AdvanceHome className={classes.media} />

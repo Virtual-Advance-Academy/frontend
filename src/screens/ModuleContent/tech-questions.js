@@ -630,25 +630,6 @@ const styles = makeStyles((theme) => ({
         "& span": {
             display: "block"
         }
-    },
-    titleSpacing: {
-        textAlign: "left",
-        marginRight: "80px",
-        [theme.breakpoints.down("xs")]: {
-            marginRight: "unset"
-        }
-    },
-    root: {
-        maxWidth: 1000
-    },
-    media: {
-        padding: "15%"
-    },
-    downloadHere: {
-        marginLeft: "auto"
-    },
-    a: {
-        color: "#BB86FC"
     }
 }));
 

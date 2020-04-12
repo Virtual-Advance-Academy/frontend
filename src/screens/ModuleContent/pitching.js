@@ -95,7 +95,6 @@ const Pitching = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                component="ul"
                             >
                                 To do this, write up a list of items that
                                 describe you and what you do. Writing this out
@@ -120,7 +119,6 @@ const Pitching = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                component="ul"
                             >
                                 “What are the defining moments and experiences
                                 of your life that got you where you are today
@@ -130,7 +128,6 @@ const Pitching = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                component="ul"
                             >
                                 Try to think about what led you to choose a
                                 degree in computing and what has kept you on
@@ -151,7 +148,6 @@ const Pitching = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                component="ul"
                             >
                                 Before pitching yourself, do your part and come
                                 prepared. Research the companies you want to
@@ -163,7 +159,6 @@ const Pitching = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                component="ul"
                             >
                                 Your answer should be unique and personal, not
                                 just “you build nice computers”, “I like your
@@ -184,7 +179,6 @@ const Pitching = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                component="ul"
                             >
                                 What makes you special and what are you awesome
                                 at?
@@ -192,7 +186,6 @@ const Pitching = () => {
                             <Typography
                                 className={classes.subDescription}
                                 variant="body1"
-                                component="ul"
                             >
                                 If this includes technical skills, make sure
                                 you’re prepared to be asked technical questions
@@ -415,7 +408,6 @@ const styles = makeStyles((theme) => ({
         maxWidth: 1000
     },
     media: {
-        //paddingTop: "68.9655172%",
         padding: "15%"
     },
     downloadHere: {

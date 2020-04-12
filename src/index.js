@@ -19,6 +19,9 @@ const darkTheme = responsiveFontSizes(
             type: "dark",
             primary: {
                 main: "#BB86FC"
+            },
+            secondary: {
+                main: "#03DAC6"
             }
         }
     })

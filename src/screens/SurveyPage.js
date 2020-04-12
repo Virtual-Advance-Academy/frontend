@@ -32,8 +32,6 @@ const SurveyPage = () => {
             //Response returns a new JWT denoting that the survey was completed
             login(res.data.token);
         } catch (e) {
-            console.log(e);
-            console.log(e.response);
             let errorMsg =
                 e.response && e.response.data
                     ? e.response.data.message

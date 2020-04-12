@@ -42,13 +42,10 @@ const HomeRegister = () => {
     };
 
     const registerUser = async () => {
-        console.log("Values: ", form);
         try {
             const res = await Client.registerUser(form);
             history.push("/login");
         } catch (e) {
-            console.log(e);
-            console.log(e.response);
             let errorMsg =
                 e.response && e.response.data
                     ? e.response.data.message

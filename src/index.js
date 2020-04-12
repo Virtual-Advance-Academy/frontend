@@ -34,7 +34,6 @@ const onClickDismiss = (key) => () => {
 
 setGlobal(appState);
 addReducer("openDrawer", (global, dispatch, drawer) => {
-    console.log(drawer);
     switch (drawer) {
         case "menu":
             return {
@@ -77,7 +76,6 @@ addReducer("login", (global, dispatch, jwt) => {
     };
 });
 addReducer("logout", (global, dispatch) => {
-    console.log("logout");
     window.localStorage.removeItem("jwt");
     return {
         user: undefined,

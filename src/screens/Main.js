@@ -72,7 +72,6 @@ const Main = () => {
                                         loading={loading}
                                         slug={module.slug}
                                     />
-                                    {console.log(module)}
                                 </Grid>
                             </Zoom>
                         );

@@ -69,11 +69,8 @@ const LoginForm = () => {
     const loginUser = async () => {
         try {
             const res = await Client.authUser(form);
-            console.log(res);
             login(res.data.token);
         } catch (e) {
-            console.log(e);
-            console.log(e.response);
             let errorMsg =
                 e.response && e.response.data
                     ? e.response.data.message

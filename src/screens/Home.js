@@ -12,8 +12,9 @@ import {
 } from "@material-ui/core";
 import HomeRegister from "shared/HomeRegister";
 import { Redirect } from "react-router-dom";
-import { FolderIcon, CodeIcon } from "@material-ui/icons";
-import BallotIcon from "@material-ui/icons/BallotIcon";
+import FolderIcon from "@material-ui/icons/Folder";
+import BallotIcon from "@material-ui/icons/Ballot";
+import CodeIcon from "@material-ui/icons/Code";
 import GroupIcon from "@material-ui/icons/Group";
 import WatchIcon from "@material-ui/icons/Watch";
 import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";

@@ -23,12 +23,11 @@ const BehaviorialQuestions = () => {
         (module) => module.title === "Behaviorial Questions"
     );
     return (
-        <Container className={classes.container}>
-            <ModuleContent
-                title={behaviorial.title}
-                description={behaviorial.description}
-                image={behaviorial.image}
-            />
+        <ModuleContent
+            title={behaviorial.title}
+            description={behaviorial.description}
+            image={behaviorial.image}
+        >
             <ModulePagination>
                 <ModulePagination.Page>
                     <Grid container>
@@ -702,14 +701,11 @@ const BehaviorialQuestions = () => {
                     </Grid>
                 </ModulePagination.Page>
             </ModulePagination>
-        </Container>
+        </ModuleContent>
     );
 };
 
 const styles = makeStyles((theme) => ({
-    container: {
-        maxWidth: 1500
-    },
     contentHeader: {
         fontWeight: "700",
         padding: theme.spacing(3),

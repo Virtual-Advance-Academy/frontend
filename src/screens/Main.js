@@ -36,46 +36,40 @@ const Main = () => {
         <>
             {user && !user.completedSurvey && <Redirect to="/survey" />}
             <ScrollToTop />
-            <Container className={classes.container}>
-                <Grid item>
-                    <Typography
-                        className={classes.title}
-                        variant="h2"
-                        component="h1"
-                        color="primary"
-                    >
-                        Welcome back, {firstName}!
-                    </Typography>
-                </Grid>
-                <Grid item container spacing={0} className={classes.moduleGrid}>
-                    {modules.map((module, i) => {
-                        const { currentCompletion } = completions[module.id];
-                        return (
-                            <Zoom
-                                in
-                                style={{
-                                    transitionDelay: `calc(.25s + ${i * 100}ms)`
-                                }}
-                            >
-                                <Grid
-                                    key={module.id}
-                                    item
-                                    className={classes.card}
-                                >
-                                    <ModuleCard
-                                        image={module.image}
-                                        title={module.title}
-                                        description={module.description}
-                                        completion={currentCompletion}
-                                        loading={loading}
-                                        slug={module.slug}
-                                    />
-                                </Grid>
-                            </Zoom>
-                        );
-                    })}
-                </Grid>
-            </Container>
+            <Grid item>
+                <Typography
+                    className={classes.title}
+                    variant="h2"
+                    component="h1"
+                    color="primary"
+                >
+                    Welcome back, {firstName}!
+                </Typography>
+            </Grid>
+            <Grid item container spacing={0} className={classes.moduleGrid}>
+                {modules.map((module, i) => {
+                    const { currentCompletion } = completions[module.id];
+                    return (
+                        <Zoom
+                            in
+                            style={{
+                                transitionDelay: `calc(.25s + ${i * 100}ms)`
+                            }}
+                        >
+                            <Grid key={module.id} item className={classes.card}>
+                                <ModuleCard
+                                    image={module.image}
+                                    title={module.title}
+                                    description={module.description}
+                                    completion={currentCompletion}
+                                    loading={loading}
+                                    slug={module.slug}
+                                />
+                            </Grid>
+                        </Zoom>
+                    );
+                })}
+            </Grid>
         </>
     );
 };
@@ -87,9 +81,6 @@ const styles = makeStyles((theme) => ({
     card: {
         display: "flex",
         flex: "1 1 290px"
-    },
-    container: {
-        maxWidth: 1500
     },
     moduleGrid: {
         display: "grid",

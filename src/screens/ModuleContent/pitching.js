@@ -20,12 +20,11 @@ const Pitching = () => {
         (module) => module.title === "Pitching Yourself"
     );
     return (
-        <Container className={classes.container}>
-            <ModuleContent
-                title={pitching.title}
-                description={pitching.description}
-                image={pitching.image}
-            />
+        <ModuleContent
+            title={pitching.title}
+            description={pitching.description}
+            image={pitching.image}
+        >
             <ModulePagination>
                 <ModulePagination.Page>
                     <Grid container>
@@ -358,14 +357,11 @@ const Pitching = () => {
                     </Grid>
                 </ModulePagination.Page>
             </ModulePagination>
-        </Container>
+        </ModuleContent>
     );
 };
 
 const styles = makeStyles((theme) => ({
-    container: {
-        maxWidth: 1500
-    },
     contentHeader: {
         fontWeight: "700",
         padding: theme.spacing(3),

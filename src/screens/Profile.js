@@ -26,12 +26,7 @@ const Profile = () => {
 
     return (
         <>
-            <Grid
-                container
-                className={classes.page}
-                justify="center"
-                alignContent="center"
-            >
+            <Grid container justify="center" alignContent="center">
                 <Grid item container xl={4} lg={5} md={8} sm={10} xs={11}>
                     <Grid item className={classes.profileTitle}>
                         <Typography
@@ -144,9 +139,6 @@ const styles = makeStyles((theme) => ({
         [theme.breakpoints.down("xs")]: {
             marginRight: "unset"
         }
-    },
-    page: {
-        minHeight: "100vh"
     },
     UserAvatar: {
         width: theme.spacing(7),

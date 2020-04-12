@@ -16,12 +16,11 @@ const Networking = () => {
         (module) => module.title === "Networking"
     );
     return (
-        <Container className={classes.container}>
-            <ModuleContent
-                title={networking.title}
-                description={networking.description}
-                image={networking.image}
-            />
+        <ModuleContent
+            title={networking.title}
+            description={networking.description}
+            image={networking.image}
+        >
             <ModulePagination>
                 <ModulePagination.Page>
                     <Grid container>
@@ -631,14 +630,11 @@ const Networking = () => {
                     </Grid>
                 </ModulePagination.Page>
             </ModulePagination>
-        </Container>
+        </ModuleContent>
     );
 };
 
 const styles = makeStyles((theme) => ({
-    container: {
-        maxWidth: 1500
-    },
     contentHeader: {
         fontWeight: "700",
         padding: theme.spacing(3),

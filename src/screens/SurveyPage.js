@@ -42,12 +42,7 @@ const SurveyPage = () => {
     return (
         <>
             {user && user.completedSurvey && <Redirect to="/modules" />}
-            <Grid
-                container
-                justify="center"
-                alignItems="center"
-                className={classes.page}
-            >
+            <Grid container justify="center" alignItems="center">
                 <Grid
                     item
                     container
@@ -244,9 +239,6 @@ const styles = makeStyles((theme) => ({
         [theme.breakpoints.down("xs")]: {
             marginRight: "unset"
         }
-    },
-    page: {
-        minHeight: "100vh"
     },
     surveyContainer: {
         [theme.breakpoints.up("lg")]: {

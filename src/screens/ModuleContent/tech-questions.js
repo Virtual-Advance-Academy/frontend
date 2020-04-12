@@ -19,12 +19,11 @@ const TechnicalQuestions = () => {
         (module) => module.title === "Technical Questions"
     );
     return (
-        <Container className={classes.container}>
-            <ModuleContent
-                title={technical.title}
-                description={technical.description}
-                image={technical.image}
-            />
+        <ModuleContent
+            title={technical.title}
+            description={technical.description}
+            image={technical.image}
+        >
             <ModulePagination>
                 <ModulePagination.Page>
                     <Grid container>
@@ -594,14 +593,11 @@ const TechnicalQuestions = () => {
                     </Grid>
                 </ModulePagination.Page>
             </ModulePagination>
-        </Container>
+        </ModuleContent>
     );
 };
 
 const styles = makeStyles((theme) => ({
-    container: {
-        maxWidth: 1500
-    },
     contentHeader: {
         fontWeight: "700",
         padding: theme.spacing(3),

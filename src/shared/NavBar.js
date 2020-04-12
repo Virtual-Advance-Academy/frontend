@@ -120,32 +120,4 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-// const NavBar = () => {
-//     const classes = useStyles();
-//     const theme = useTheme();
-//     const [open, setOpen] = React.useState(false);
-
-//     return (
-//         <div className={classes.root}>
-//             <AppBar color="default" position="sticky" className={clsx(classes.appBar, {
-//                 [classes.appBarShift]: open,
-//             })}>
-//                 <Toolbar>
-//                     <IconButton edge="start" color="inherit"
-//                         aria-label="open drawer"
-//                         onClick={handleDrawerOpen}
-//                         edge="start"
-//                         className={clsx(classes.menuButton, open && classes.hide)}>
-//                         <MenuIcon />
-//                     </IconButton>
-//                     <a href='/'>
-//                         <img src={logo} alt='logo' className={classes.logo} />
-//                     </a>
-//                     <Button variant="outlined" className={classes.loginButton}>Login</Button>
-//                 </Toolbar>
-//             </AppBar>
-//         </div>
-//     )
-// }
-
 export default NavBar;

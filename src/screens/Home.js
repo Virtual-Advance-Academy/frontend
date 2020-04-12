@@ -11,12 +11,7 @@ const Home = () => {
     return (
         <>
             {jwt && <Redirect to="/modules" />}
-            <Grid
-                container
-                justify="center"
-                alignItems="center"
-                className={classes.page}
-            >
+            <Grid container justify="center" alignItems="center">
                 <Grid item className={classes.titleSpacing}>
                     <Typography
                         className={classes.mainTitle}
@@ -48,9 +43,6 @@ const styles = makeStyles((theme) => ({
         [theme.breakpoints.down("xs")]: {
             marginRight: "unset"
         }
-    },
-    page: {
-        minHeight: "100vh"
     }
 }));
 

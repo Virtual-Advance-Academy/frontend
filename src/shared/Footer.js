@@ -14,7 +14,7 @@ const Footer = () => {
                     justify="space-between"
                     alignItems="center"
                 >
-                    <Grid item>
+                    <Grid item container className={classes.logoContainer}>
                         <img src={logo} className={classes.logo} />
                     </Grid>
                     <Grid item>
@@ -38,7 +38,10 @@ const styles = makeStyles((theme) => ({
         maxWidth: 1500
     },
     logo: {
-        height: ".75em"
+        height: "1em"
+    },
+    logoContainer: {
+        width: "auto"
     }
 }));
 

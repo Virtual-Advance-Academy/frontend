@@ -24,12 +24,11 @@ const More = () => {
         (module) => module.title === "Hungry for more?"
     );
     return (
-        <Container className={classes.container}>
-            <ModuleContent
-                title={more.title}
-                description={more.description}
-                image={more.image}
-            />
+        <ModuleContent
+            title={more.title}
+            description={more.description}
+            image={more.image}
+        >
             <ModulePagination>
                 <ModulePagination.Page>
                     <Grid container>
@@ -240,14 +239,11 @@ const More = () => {
                     </Grid>
                 </ModulePagination.Page>
             </ModulePagination>
-        </Container>
+        </ModuleContent>
     );
 };
 
 const styles = makeStyles((theme) => ({
-    container: {
-        maxWidth: 1500
-    },
     contentHeader: {
         fontWeight: "700",
         padding: theme.spacing(3),

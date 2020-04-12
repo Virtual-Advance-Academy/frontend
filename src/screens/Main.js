@@ -5,7 +5,6 @@ import ModuleCard from "../shared/modules/ModuleCard";
 import modules from "shared/modules/modules";
 import { Redirect } from "react-router-dom";
 import ScrollToTop from "shared/ScrollToTop";
-import AuthorizedRoute from "shared/AuthorizedRoute";
 import { makeClient } from "utils/Client";
 
 const Main = () => {
@@ -35,7 +34,6 @@ const Main = () => {
 
     return (
         <>
-            <AuthorizedRoute />
             {user && !user.completedSurvey && <Redirect to="/survey" />}
             <ScrollToTop />
             <Container className={classes.container}>

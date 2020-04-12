@@ -8,6 +8,7 @@ import Login from "./screens/Login";
 import ModuleRoutes from "shared/ModuleRoutes";
 import Profile from "screens/Profile";
 import SurveyPage from "screens/SurveyPage";
+import withAuthentication from "shared/withAuthentication";
 
 class App extends Component {
     render() {
@@ -17,10 +18,25 @@ class App extends Component {
                     <Switch>
                         <Route path="/" exact component={Home} />
                         <Route path="/login" exact component={Login} />
-                        <Route path="/profile" exact component={Profile} />
-                        <Route path="/modules" exact component={Main} />
-                        <Route path="/modules" component={ModuleRoutes} />
-                        <Route path="/survey" exact component={SurveyPage} />
+                        <Route
+                            path="/profile"
+                            exact
+                            component={withAuthentication(Profile)}
+                        />
+                        <Route
+                            path="/modules"
+                            exact
+                            component={withAuthentication(Main)}
+                        />
+                        <Route
+                            path="/modules"
+                            component={withAuthentication(ModuleRoutes)}
+                        />
+                        <Route
+                            path="/survey"
+                            exact
+                            component={withAuthentication(SurveyPage)}
+                        />
                         {/* This is a catch-all route */}
                         <Route component={null} />
                     </Switch>

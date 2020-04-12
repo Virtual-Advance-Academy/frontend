@@ -1,7 +1,6 @@
 import React, { useState, useGlobal } from "reactn";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid, Paper, TextField } from "@material-ui/core";
-import AuthorizedRoute from "shared/AuthorizedRoute";
 import { makeClient } from "utils/Client";
 import { useEffect } from "react";
 import UserAvatar from "shared/UserAvatar";
@@ -27,7 +26,6 @@ const Profile = () => {
 
     return (
         <>
-            <AuthorizedRoute />
             <Grid
                 container
                 className={classes.page}

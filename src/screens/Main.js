@@ -49,7 +49,7 @@ const Main = () => {
                         Welcome back, {firstName}!
                     </Typography>
                 </Grid>
-                <Grid item container spacing={0}>
+                <Grid item container spacing={0} className={classes.moduleGrid}>
                     {modules.map((module, i) => {
                         const { currentCompletion } = completions[module.id];
                         return (
@@ -93,6 +93,10 @@ const styles = makeStyles((theme) => ({
     },
     container: {
         maxWidth: 1500
+    },
+    moduleGrid: {
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))"
     }
 }));
 

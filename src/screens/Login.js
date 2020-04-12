@@ -19,18 +19,20 @@ const Login = () => {
     const classes = styles();
 
     return (
-        <Grid container justify="center" alignItems="center">
-            <Grid item className={classes.titleSpacing}>
-                <Typography
-                    className={classes.mainTitle}
-                    variant="h2"
-                    color="primary"
-                    component="p"
-                >
-                    <span>Login </span>
-                </Typography>
+        <Grid container className={classes.loginContainer}>
+            <Grid container justify="center" alignItems="center">
+                <Grid item className={classes.titleSpacing}>
+                    <Typography
+                        className={classes.mainTitle}
+                        variant="h2"
+                        color="primary"
+                        component="p"
+                    >
+                        <span>Login </span>
+                    </Typography>
+                </Grid>
+                <LoginForm />
             </Grid>
-            <LoginForm />
         </Grid>
     );
 };
@@ -165,6 +167,9 @@ const styles = makeStyles((theme) => ({
         [theme.breakpoints.down("xs")]: {
             marginRight: "unset"
         }
+    },
+    loginContainer: {
+        minHeight: "90vh"
     }
 }));
 

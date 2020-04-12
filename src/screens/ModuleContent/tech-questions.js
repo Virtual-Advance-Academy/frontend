@@ -1,15 +1,5 @@
 import React from "react";
-import {
-    Grid,
-    Typography,
-    Container,
-    makeStyles,
-    Link,
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia
-} from "@material-ui/core";
+import { Grid, Typography, makeStyles, Link } from "@material-ui/core";
 import ModuleContent from "../../shared/modules/ModuleContent";
 import modules from "../../shared/modules/modules";
 import ModulePagination from "shared/modules/ModulePagination";

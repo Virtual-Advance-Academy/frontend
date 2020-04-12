@@ -3,7 +3,6 @@ import Survey from "shared/Survey";
 import { Radios, Checkboxes, makeValidate } from "mui-rff";
 import survey from "shared/SurveyData";
 import {
-    InputLabel,
     makeStyles,
     FormLabel,
     Grid,
@@ -13,7 +12,7 @@ import {
 import * as Yup from "yup";
 import { useSnackbar } from "notistack";
 import { makeClient } from "utils/Client";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const SurveyPage = () => {
     const pages = makePages(survey);
@@ -23,7 +22,7 @@ const SurveyPage = () => {
     const [user] = useGlobal("user");
     const Client = makeClient(jwt);
     const login = useDispatch("login");
-    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const { enqueueSnackbar } = useSnackbar();
 
     const submitSurvey = async (values) => {
         try {

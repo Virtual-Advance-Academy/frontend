@@ -1,5 +1,5 @@
 import React, { useGlobal, useState, useEffect } from "reactn";
-import { Grid, Typography, Container, Grow, Zoom } from "@material-ui/core";
+import { Grid, Typography, Zoom } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ModuleCard from "../shared/modules/ModuleCard";
 import modules from "shared/modules/modules";

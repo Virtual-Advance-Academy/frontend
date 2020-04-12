@@ -1,10 +1,8 @@
 import React from "react";
-import { Grid, Typography, Container, makeStyles } from "@material-ui/core";
 import ModuleContent from "../../shared/modules/ModuleContent";
 import modules from "../../shared/modules/modules";
 
 const InternshipTypes = () => {
-    const classes = styles();
     const [internships] = modules.filter(
         (module) => module.title === "Types of Internships"
     );
@@ -16,7 +14,5 @@ const InternshipTypes = () => {
         />
     );
 };
-
-const styles = makeStyles((theme) => ({}));
 
 export default InternshipTypes;

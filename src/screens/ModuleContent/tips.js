@@ -1,10 +1,8 @@
 import React from "react";
-import { Grid, Typography, Container, makeStyles } from "@material-ui/core";
 import ModuleContent from "../../shared/modules/ModuleContent";
 import modules from "../../shared/modules/modules";
 
 const Tips = () => {
-    const classes = styles();
     const [tips] = modules.filter(
         (module) => module.title === "Tips from the Pros"
     );
@@ -16,7 +14,5 @@ const Tips = () => {
         />
     );
 };
-
-const styles = makeStyles((theme) => ({}));
 
 export default Tips;

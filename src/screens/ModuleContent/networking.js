@@ -660,31 +660,8 @@ const styles = makeStyles((theme) => ({
             display: "block"
         }
     },
-    bulletDescription: {
-        textAlign: "left",
-        justify: "center",
-        color: "#D8D8D8",
-        maxWidth: 550,
-        display: "block",
-        "& span": {
-            display: "block"
-        }
-    },
-    titleSpacing: {
-        textAlign: "left",
-        marginRight: "80px",
-        [theme.breakpoints.down("xs")]: {
-            marginRight: "unset"
-        }
-    },
-    root: {
-        maxWidth: 1000
-    },
     media: {
         paddingTop: "68.9655172%"
-    },
-    downloadHere: {
-        marginLeft: "auto"
     }
 }));
 

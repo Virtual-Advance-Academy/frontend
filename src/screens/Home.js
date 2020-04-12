@@ -11,21 +11,23 @@ const Home = () => {
     return (
         <>
             {jwt && <Redirect to="/modules" />}
-            <Grid container justify="center" alignItems="center">
-                <Grid item className={classes.titleSpacing}>
-                    <Typography
-                        className={classes.mainTitle}
-                        variant="h2"
-                        color="primary"
-                        component="p"
-                    >
-                        <span>Ready to </span>
-                        <span>land your </span>
-                        <span>dream </span>
-                        <span>internship?</span>
-                    </Typography>
+            <Grid container className={classes.homeContainer}>
+                <Grid container justify="center" alignItems="center">
+                    <Grid item className={classes.titleSpacing}>
+                        <Typography
+                            className={classes.mainTitle}
+                            variant="h2"
+                            color="primary"
+                            component="p"
+                        >
+                            <span>Ready to </span>
+                            <span>land your </span>
+                            <span>dream </span>
+                            <span>internship?</span>
+                        </Typography>
+                    </Grid>
+                    <HomeRegister />
                 </Grid>
-                <HomeRegister />
             </Grid>
         </>
     );
@@ -43,6 +45,9 @@ const styles = makeStyles((theme) => ({
         [theme.breakpoints.down("xs")]: {
             marginRight: "unset"
         }
+    },
+    homeContainer: {
+        minHeight: "90vh"
     }
 }));
 

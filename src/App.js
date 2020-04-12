@@ -9,6 +9,7 @@ import ModuleRoutes from "shared/ModuleRoutes";
 import Profile from "screens/Profile";
 import SurveyPage from "screens/SurveyPage";
 import withAuthentication from "shared/withAuthentication";
+import { withBigContainer } from "shared/BigContainer";
 
 class App extends Component {
     render() {
@@ -21,21 +22,29 @@ class App extends Component {
                         <Route
                             path="/profile"
                             exact
-                            component={withAuthentication(Profile)}
+                            component={withAuthentication(
+                                withBigContainer(Profile)
+                            )}
                         />
                         <Route
                             path="/modules"
                             exact
-                            component={withAuthentication(Main)}
+                            component={withAuthentication(
+                                withBigContainer(Main)
+                            )}
                         />
                         <Route
                             path="/modules"
-                            component={withAuthentication(ModuleRoutes)}
+                            component={withAuthentication(
+                                withBigContainer(ModuleRoutes)
+                            )}
                         />
                         <Route
                             path="/survey"
                             exact
-                            component={withAuthentication(SurveyPage)}
+                            component={withAuthentication(
+                                withBigContainer(SurveyPage)
+                            )}
                         />
                         {/* This is a catch-all route */}
                         <Route component={null} />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
     makeStyles,
     Typography,
@@ -6,12 +6,9 @@ import {
     Grid,
     Divider
 } from "@material-ui/core";
-import { Link, useRouteMatch } from "react-router-dom";
 
 const ModuleContent = ({ title, description, image, children }) => {
-    let [raised, setRaised] = useState(false);
     const classes = styles();
-    const match = useRouteMatch();
     return (
         <>
             <Container className={classes.container}>
@@ -50,7 +47,7 @@ const ModuleContent = ({ title, description, image, children }) => {
                 >
                     <img
                         src={require(`assets/modules/${image}.svg`)}
-                        alt="module image"
+                        alt={title}
                         className={classes.mainImg}
                     />
                 </Grid>

@@ -1,4 +1,3 @@
-import React from "react";
 import Networking from "screens/ModuleContent/networking";
 import InternshipTypes from "screens/ModuleContent/types-of-internships";
 import Resumes from "screens/ModuleContent/resume-building";

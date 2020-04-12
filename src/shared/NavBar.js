@@ -10,7 +10,6 @@ import clsx from "clsx";
 import logo from "../assets/AdvanceLogo.png";
 import MenuDrawer, { drawerWidth } from "./MenuDrawer";
 
-import { Avatar, Typography } from "@material-ui/core";
 import UserDrawer from "./UserDrawer";
 import UserAvatar from "./UserAvatar";
 

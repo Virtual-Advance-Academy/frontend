@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 const HomeRegister = () => {
     const [showPass, setShowPass] = useState(false);
     const [form, setForm] = useState({});
-    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const { enqueueSnackbar } = useSnackbar();
     const history = useHistory();
     const Client = makeClient();
 
@@ -43,7 +43,7 @@ const HomeRegister = () => {
 
     const registerUser = async () => {
         try {
-            const res = await Client.registerUser(form);
+            await Client.registerUser(form);
             history.push("/login");
         } catch (e) {
             let errorMsg =

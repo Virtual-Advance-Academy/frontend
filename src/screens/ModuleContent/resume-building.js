@@ -1,7 +1,6 @@
 import React from "react";
 import {
     Grid,
-    Container,
     Typography,
     makeStyles,
     Card,
@@ -670,13 +669,6 @@ const styles = makeStyles((theme) => ({
     },
     root: {
         maxWidth: 1000
-    },
-    media: {
-        paddingTop: "68.9655172%",
-        height: 2000
-    },
-    downloadHere: {
-        marginLeft: "auto"
     },
     a: {
         color: "#BB86FC"

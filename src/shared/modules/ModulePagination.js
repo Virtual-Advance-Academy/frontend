@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import {
     Button,
     Grid,
@@ -12,7 +11,6 @@ import {
 import ScrollToTop from "shared/ScrollToTop";
 import {
     Link,
-    Switch,
     useRouteMatch,
     useParams,
     generatePath,

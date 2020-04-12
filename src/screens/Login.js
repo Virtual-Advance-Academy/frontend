@@ -11,7 +11,6 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { Form } from "react-final-form";
 import { TextField, makeValidate, makeRequired } from "mui-rff";
 import * as Yup from "yup";
-import { extractUser } from "config/appConfig";
 import { useSnackbar } from "notistack";
 import { Redirect } from "react-router-dom";
 import { makeClient } from "utils/Client";
@@ -39,11 +38,11 @@ const Login = () => {
 const LoginForm = () => {
     const [showPass, setShowPass] = useState(false);
     const [form, setForm] = useState({});
-    const [jwt, setJwt] = useGlobal("jwt");
+    const [jwt] = useGlobal("jwt");
     const Client = makeClient(jwt);
     const login = useDispatch("login");
 
-    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const { enqueueSnackbar } = useSnackbar();
 
     const schema = Yup.object().shape({
         username: Yup.string().min(3).required().label("Username/Email"),

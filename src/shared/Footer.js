@@ -15,11 +15,23 @@ const Footer = () => {
                     alignItems="center"
                 >
                     <Grid item container className={classes.logoContainer}>
-                        <img src={logo} className={classes.logo} />
+                        <img
+                            src={logo}
+                            alt="Footer Logo"
+                            className={classes.logo}
+                        />
                     </Grid>
                     <Grid item>
                         <Typography variant="inherit">
-                            Engineered with 💖 and ☕ by UPE
+                            Engineered with{" "}
+                            <span role="img" aria-label="love">
+                                💖
+                            </span>{" "}
+                            and{" "}
+                            <span role="img" aria-label="coffee">
+                                ☕
+                            </span>{" "}
+                            by UPE
                         </Typography>
                     </Grid>
                 </Grid>

@@ -1,10 +1,8 @@
 import React from "react";
-import { Grid, Typography, Container, makeStyles } from "@material-ui/core";
 import ModuleContent from "../../shared/modules/ModuleContent";
 import modules from "../../shared/modules/modules";
 
 const WhatToWear = () => {
-    const classes = styles();
     const [clothing] = modules.filter(
         (module) => module.title === "What to Wear"
     );
@@ -16,7 +14,5 @@ const WhatToWear = () => {
         />
     );
 };
-
-const styles = makeStyles((theme) => ({}));
 
 export default WhatToWear;

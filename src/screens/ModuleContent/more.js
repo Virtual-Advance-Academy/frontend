@@ -9,7 +9,7 @@ import {
     List
 } from "@material-ui/core";
 import ModuleContent from "../../shared/modules/ModuleContent";
-import modules from "../../shared/modules/modules";
+import modules from "../../shared/modules/moduleData";
 import ModulePagination from "shared/modules/ModulePagination";
 import LinkIcon from "@material-ui/icons/Link";
 

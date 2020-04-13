@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Typography, Link, makeStyles } from "@material-ui/core";
 import ModuleContent from "../../shared/modules/ModuleContent";
-import modules from "../../shared/modules/modules";
+import modules from "../../shared/modules/moduleData";
 import ModulePagination from "shared/modules/ModulePagination";
 
 const Networking = () => {

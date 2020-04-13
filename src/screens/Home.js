@@ -14,7 +14,7 @@ import HomeRegister from "shared/HomeRegister";
 import { Redirect } from "react-router-dom";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { ReactComponent as AdvanceHome } from "../assets/home.svg";
-import modules from "shared/modules/modules";
+import modules from "shared/modules/moduleData";
 
 const Home = () => {
     const classes = styles();

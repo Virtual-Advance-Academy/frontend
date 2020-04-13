@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import modules from "./modules/modules";
+import modules from "./modules/moduleData";
 
 const ModuleRoutes = () => {
     const match = useRouteMatch();

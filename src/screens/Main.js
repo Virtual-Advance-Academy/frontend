@@ -64,6 +64,7 @@ const Main = () => {
                                     completion={currentCompletion}
                                     loading={loading}
                                     slug={module.slug}
+                                    icon={module.icon}
                                 />
                             </Grid>
                         </Zoom>

@@ -1,5 +1,12 @@
 import React from "react";
-import { Grid, Container, makeStyles, Typography } from "@material-ui/core";
+import {
+    Grid,
+    Container,
+    makeStyles,
+    Typography,
+    Link
+} from "@material-ui/core";
+import { Link as RouterLink } from "react-router-dom";
 import logo from "assets/AdvanceLogo.png";
 
 const Footer = () => {
@@ -31,7 +38,10 @@ const Footer = () => {
                             <span role="img" aria-label="coffee">
                                 ☕
                             </span>{" "}
-                            by UPE
+                            by{" "}
+                            <Link component={RouterLink} to="/contributors">
+                                these amazing people
+                            </Link>
                         </Typography>
                     </Grid>
                 </Grid>

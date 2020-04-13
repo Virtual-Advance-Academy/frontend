@@ -2,7 +2,7 @@ import React, { useGlobal, useState, useEffect } from "reactn";
 import { Grid, Typography, Zoom } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ModuleCard from "../shared/modules/ModuleCard";
-import modules from "shared/modules/modules";
+import modules from "shared/modules/moduleData";
 import { Redirect } from "react-router-dom";
 import ScrollToTop from "shared/ScrollToTop";
 import { makeClient } from "utils/Client";

@@ -11,7 +11,7 @@ import {
     CardActions
 } from "@material-ui/core";
 import ModuleContent from "../../shared/modules/ModuleContent";
-import modules from "../../shared/modules/modules";
+import modules from "../../shared/modules/moduleData";
 import resumeGrid from "../../assets/modules/resumeGrid.png";
 import NSAR from "../../assets/modules/NSAR.png";
 import ModulePagination from "shared/modules/ModulePagination";

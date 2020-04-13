@@ -6,6 +6,7 @@ import modules from "shared/modules/moduleData";
 import { Redirect } from "react-router-dom";
 import ScrollToTop from "shared/ScrollToTop";
 import { makeClient } from "utils/Client";
+import Helmet from "react-helmet";
 
 const Main = () => {
     const classes = styles();
@@ -34,6 +35,9 @@ const Main = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Modules</title>
+            </Helmet>
             {user && !user.completedSurvey && <Redirect to="/survey" />}
             <ScrollToTop />
             <Grid item>

@@ -10,11 +10,16 @@ import Profile from "screens/Profile";
 import SurveyPage from "screens/SurveyPage";
 import withAuthentication from "shared/withAuthentication";
 import { withBigContainer } from "shared/BigContainer";
+import Helmet from "react-helmet";
 
 class App extends Component {
     render() {
         return (
             <BrowserRouter>
+                <Helmet
+                    titleTemplate="%s &ndash; Advance Academy: Online"
+                    defaultTitle="Advance Academy: Online"
+                />
                 <Page>
                     <Switch>
                         <Route path="/" exact component={Home} />

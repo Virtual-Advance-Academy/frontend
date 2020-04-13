@@ -4,6 +4,7 @@ import { Typography, Grid, Paper } from "@material-ui/core";
 import { makeClient } from "utils/Client";
 import { useEffect } from "react";
 import UserAvatar from "shared/UserAvatar";
+import Helmet from "react-helmet";
 
 const Profile = () => {
     const classes = styles();
@@ -26,6 +27,9 @@ const Profile = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Profile</title>
+            </Helmet>
             <Grid container justify="center" alignContent="center">
                 <Grid item container xl={4} lg={5} md={8} sm={10} xs={11}>
                     <Grid item className={classes.profileTitle}>

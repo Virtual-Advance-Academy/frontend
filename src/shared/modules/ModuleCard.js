@@ -16,10 +16,20 @@ import clsx from "clsx";
 import React, { useState } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
-const CompletionBadge = ({ completion, loading = false }) => {
+const CompletionBadge = ({ completion, loading = false, hover, Icon }) => {
     const classes = styles();
     const completionText = `${Math.floor(completion)}%`;
-    return (
+    const isComplete = completion === 100;
+    const isInProgress = completion < 100 && completion > 0;
+
+    let canHover;
+    if (!isComplete && !isInProgress) {
+        canHover = false;
+    } else {
+        canHover = !hover;
+    }
+
+    const progressBadge = (
         <Avatar className={classes.avatar}>
             {!loading && (
                 <>
@@ -27,7 +37,7 @@ const CompletionBadge = ({ completion, loading = false }) => {
                         variant="static"
                         value={completion % 100}
                     />
-                    {completion < 100 && completion > 0 && (
+                    {isInProgress && (
                         <Typography
                             variant="caption"
                             className={classes.completeCheck}
@@ -35,7 +45,7 @@ const CompletionBadge = ({ completion, loading = false }) => {
                             {completionText}
                         </Typography>
                     )}
-                    {completion === 100 && (
+                    {isComplete && (
                         <CheckCircle className={classes.completeCheck} />
                     )}
                 </>
@@ -45,6 +55,26 @@ const CompletionBadge = ({ completion, loading = false }) => {
             )}
         </Avatar>
     );
+    const iconBadge = (
+        <Avatar className={classes.iconBadge}>
+            <Icon />
+        </Avatar>
+    );
+
+    const finalBadge = (
+        <div className={classes.perspective}>
+            <div
+                className={clsx(
+                    classes.badgeContainer,
+                    canHover && classes.badgeFlipped
+                )}
+            >
+                {iconBadge}
+                {progressBadge}
+            </div>
+        </div>
+    );
+    return finalBadge;
 };
 
 const ModuleCard = ({
@@ -53,7 +83,8 @@ const ModuleCard = ({
     image,
     completion = 0,
     slug,
-    loading = false
+    loading = false,
+    icon
 }) => {
     let [raised, setRaised] = useState(false);
     const classes = styles();
@@ -95,6 +126,8 @@ const ModuleCard = ({
                         <CompletionBadge
                             loading={loading}
                             completion={completion}
+                            Icon={icon}
+                            hover={raised}
                         />
                     }
                     classes={{
@@ -174,7 +207,10 @@ const styles = makeStyles((theme) => ({
     },
     avatar: {
         backgroundColor: "transparent",
-        color: theme.palette.common.white
+        color: theme.palette.common.white,
+        transform: "rotateY(180deg)",
+        position: "absolute",
+        backfaceVisibility: "hidden"
     },
     actionOverride: {
         marginTop: 0
@@ -182,6 +218,24 @@ const styles = makeStyles((theme) => ({
     cardDimmed: {
         opacity: 0.6,
         transition: "opacity .3s"
+    },
+    iconBadge: {
+        background: theme.palette.primary.main,
+        backfaceVisibility: "hidden",
+        position: "absolute"
+    },
+    badgeContainer: {
+        position: "relative",
+        transition: ".3s transform ease",
+        transformStyle: "preserve-3d"
+    },
+    badgeFlipped: {
+        transform: "rotateY(180deg)"
+    },
+    perspective: {
+        perspective: 1000,
+        width: 40,
+        height: 40
     }
 }));
 

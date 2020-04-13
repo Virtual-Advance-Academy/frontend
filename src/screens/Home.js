@@ -12,18 +12,9 @@ import {
 } from "@material-ui/core";
 import HomeRegister from "shared/HomeRegister";
 import { Redirect } from "react-router-dom";
-import FolderIcon from "@material-ui/icons/Folder";
-import BallotIcon from "@material-ui/icons/Ballot";
-import CodeIcon from "@material-ui/icons/Code";
-import GroupIcon from "@material-ui/icons/Group";
-import WatchIcon from "@material-ui/icons/Watch";
-import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";
-import LiveHelpIcon from "@material-ui/icons/LiveHelp";
-import DoneAllIcon from "@material-ui/icons/DoneAll";
-import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
-import DescriptionIcon from "@material-ui/icons/Description";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { ReactComponent as AdvanceHome } from "../assets/home.svg";
+import modules from "shared/modules/modules";
 
 const Home = () => {
     const classes = styles();
@@ -54,99 +45,31 @@ const Home = () => {
                 <Divider variant="middle" />
             </Grid>
             <Grid container spacing={0} alignItems="center" justify="center">
-                <Typography
-                    className={classes.description}
-                    variant="h5"
-                    color="#D8D8D8"
-                >
+                <Typography className={classes.description} variant="h5">
                     Prepare for a career in technology through Upsilon Pi
                     Epsilon's virtual Advance Academy program. Check out an
                     overview of the modules offerred below!
                 </Typography>
             </Grid>
-            <Grid container spacing={10} alignItems="center" justify="center">
+            <Grid
+                container
+                spacing={0}
+                alignItems="center"
+                justify="center"
+                className={classes.demoContainer}
+            >
                 <Grid item className={classes.demo}>
                     <List>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <BallotIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="Types of Internships" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <DescriptionIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="Resume Building" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <EmojiPeopleIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="Pitching Yourself" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <GroupIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="Networking" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <FolderIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="Application Process" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <WatchIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="What to Wear" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <LiveHelpIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="Behaviorial Questions" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <CodeIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="Technical Questions" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <DoneAllIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="The Do's and Don'ts" />
-                        </ListItem>
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                    <EmojiObjectsIcon />
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText primary="Tips from the Pros" />
-                        </ListItem>
+                        {modules.slice(0, 10).map((m) => (
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar>
+                                        <m.icon />
+                                    </Avatar>
+                                </ListItemAvatar>
+                                <ListItemText primary={m.title} />
+                            </ListItem>
+                        ))}
                         <ListItem>
                             <ListItemAvatar>
                                 <Avatar>
@@ -191,7 +114,22 @@ const styles = makeStyles((theme) => ({
         padding: theme.spacing(3)
     },
     media: {
-        maxWidth: 400
+        maxWidth: 400,
+        margin: theme.spacing(5),
+        height: "auto",
+        width: "100%",
+        [theme.breakpoints.down("sm")]: {
+            margin: "unset",
+            padding: theme.spacing(5)
+        }
+    },
+    demo: {
+        margin: theme.spacing(5)
+    },
+    demoContainer: {
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column-reverse"
+        }
     }
 }));
 

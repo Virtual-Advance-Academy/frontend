@@ -6,11 +6,16 @@ import {
     Grid,
     Divider
 } from "@material-ui/core";
+import Helmet from "react-helmet";
 
 const ModuleContent = ({ title, description, image, children }) => {
     const classes = styles();
     return (
         <>
+            <Helmet>
+                <title>{title}</title>
+                <meta name="description" content={description} />
+            </Helmet>
             <Container className={classes.container}>
                 <Grid item>
                     <Typography

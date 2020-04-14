@@ -13,6 +13,7 @@ import * as Yup from "yup";
 import { useSnackbar } from "notistack";
 import { makeClient } from "utils/Client";
 import { Redirect } from "react-router-dom";
+import Helmet from "react-helmet";
 
 const SurveyPage = () => {
     const pages = makePages(survey);
@@ -40,6 +41,9 @@ const SurveyPage = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Survey</title>
+            </Helmet>
             {user && user.completedSurvey && <Redirect to="/modules" />}
             <Grid container justify="center" alignItems="center">
                 <Grid

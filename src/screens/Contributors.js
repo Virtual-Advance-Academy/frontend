@@ -19,6 +19,8 @@ import { CheckCircle } from "@material-ui/icons";
 import clsx from "clsx";
 import { Link, useRouteMatch } from "react-router-dom";
 import Chip from "@material-ui/core/Chip";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 const Contributors = () => {
     const classes = styles();
@@ -101,19 +103,21 @@ const ContributorCard = ({ image, name, biography, grad, loading = false }) => {
             }}
         >
             <div>
-                <CardHeader
-                    avatar={
-                        <Avatar
-                            alt="Contributor"
-                            src={imgSrc}
-                            className={classes.contributorImg}
-                        />
-                    }
-                    classes={{
-                        action: classes.actionOverride
-                    }}
-                    className={classes.header}
-                />
+                <div className={classes.centerPls}>
+                    <CardHeader
+                        avatar={
+                            <Avatar
+                                alt="Contributor"
+                                src={imgSrc}
+                                className={classes.contributorImg}
+                            />
+                        }
+                        classes={{
+                            action: classes.actionOverride
+                        }}
+                        className={classes.header}
+                    />
+                </div>
                 <CardContent>
                     <Typography
                         variant="h6"
@@ -141,15 +145,24 @@ const ContributorCard = ({ image, name, biography, grad, loading = false }) => {
                     )}
                 </CardContent>
             </div>
-            <CardActions>
-                <Chip
-                    avatar={<Avatar>M</Avatar>}
-                    label="Clickable"
-                    onClick={handleClick}
-                    variant="outlined"
-                    color="primary"
-                />
-            </CardActions>
+            <div className={classes.centerPls}>
+                <CardActions justifyContent="center">
+                    <Chip
+                        icon={<LinkedInIcon color="action" fontSize="small" />}
+                        label="LinkedIn"
+                        onClick={handleClick}
+                        variant="outlined"
+                        color="primary"
+                    />
+                    <Chip
+                        icon={<GitHubIcon color="action" fontSize="small" />}
+                        label="GitHub"
+                        onClick={handleClick}
+                        variant="outlined"
+                        color="primary"
+                    />
+                </CardActions>
+            </div>
         </Card>
     );
 };
@@ -219,6 +232,10 @@ const styles = makeStyles((theme) => ({
     contributorBio: {
         fontWeight: 400,
         textAlign: "center"
+    },
+    centerPls: {
+        display: "flex",
+        justifyContent: "center"
     }
 }));
 

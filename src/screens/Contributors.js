@@ -54,6 +54,7 @@ const Contributors = () => {
                                     biography={contributor.biography}
                                     grad={contributor.grad}
                                     linkedin={contributor.linkedin}
+                                    github={contributor.github}
                                 />
                             </Grid>
                         </Zoom>
@@ -69,7 +70,8 @@ const ContributorCard = ({
     name,
     biography,
     loading = false,
-    linkedin
+    linkedin,
+    github
 }) => {
     let [raised, setRaised] = useState(false);
     const classes = styles();
@@ -155,9 +157,11 @@ const ContributorCard = ({
                     <Chip
                         icon={<GitHubIcon color="action" fontSize="small" />}
                         label="GitHub"
-                        onClick={handleClick}
+                        href={github}
+                        clickable
                         variant="outlined"
                         color="primary"
+                        component="a"
                     />
                 </CardActions>
             </div>

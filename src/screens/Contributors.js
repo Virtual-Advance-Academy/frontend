@@ -1,19 +1,21 @@
 import React, { useState } from "reactn";
-import { Grid, Typography, Zoom } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import contributors from "../shared/ContributorsData";
 import ScrollToTop from "shared/ScrollToTop";
 import {
+    Grid,
+    Typography,
+    Zoom,
     Avatar,
     Card,
     CardActions,
     CardContent,
-    CardHeader
+    CardHeader,
+    makeStyles,
+    Chip
 } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";
 import clsx from "clsx";
 import { useRouteMatch } from "react-router-dom";
-import Chip from "@material-ui/core/Chip";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
@@ -69,13 +71,11 @@ const ContributorCard = ({
     image,
     name,
     biography,
-    grad,
     loading = false,
     linkedin
 }) => {
     let [raised, setRaised] = useState(false);
     const classes = styles();
-    const match = useRouteMatch();
 
     let imgSrc;
 

@@ -35,32 +35,30 @@ const Contributors = () => {
                 </Typography>
             </Grid>
             <Grid container justify="center" alignContent="center">
-                <Grid item spacing={0} className={classes.moduleGrid}>
-                    {contributors.map((contributor, i) => {
-                        return (
-                            <Zoom
-                                in
-                                style={{
-                                    transitionDelay: `calc(.25s + ${i * 100}ms)`
-                                }}
+                {contributors.map((contributor, i) => {
+                    return (
+                        <Zoom
+                            in
+                            style={{
+                                transitionDelay: `calc(.25s + ${i * 100}ms)`
+                            }}
+                        >
+                            <Grid
+                                key={contributor.id}
+                                item
+                                className={classes.card}
                             >
-                                <Grid
-                                    key={contributor.id}
-                                    item
-                                    className={classes.card}
-                                >
-                                    <ContributorCard
-                                        image={contributor.image}
-                                        name={contributor.name}
-                                        biography={contributor.biography}
-                                        grad={contributor.grad}
-                                        linkedin={contributor.linkedin}
-                                    />
-                                </Grid>
-                            </Zoom>
-                        );
-                    })}
-                </Grid>
+                                <ContributorCard
+                                    image={contributor.image}
+                                    name={contributor.name}
+                                    biography={contributor.biography}
+                                    grad={contributor.grad}
+                                    linkedin={contributor.linkedin}
+                                />
+                            </Grid>
+                        </Zoom>
+                    );
+                })}
             </Grid>
         </>
     );
@@ -173,12 +171,12 @@ const styles = makeStyles((theme) => ({
     },
     card: {
         display: "flex",
-        flex: "1 1 290px"
+        flex: "0 1 290px",
+        [theme.breakpoints.down("sm")]: {
+            flexGrow: 1
+        }
     },
-    moduleGrid: {
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))"
-    },
+    moduleGrid: {},
     moduleCard: {
         // Provide some spacing between cards
         margin: 8,

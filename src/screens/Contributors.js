@@ -101,22 +101,14 @@ const ContributorCard = ({
             }}
         >
             <div>
-                <div className={classes.centerPls}>
-                    <CardHeader
-                        avatar={
-                            <Avatar
-                                alt="Contributor"
-                                src={imgSrc}
-                                className={classes.contributorImg}
-                            />
-                        }
-                        classes={{
-                            action: classes.actionOverride
-                        }}
-                        className={classes.header}
+                <Grid container justify="center" className={classes.avatar}>
+                    <Avatar
+                        alt="Contributor"
+                        src={imgSrc}
+                        className={classes.contributorImg}
                     />
-                </div>
-                <CardContent>
+                </Grid>
+                <CardContent className={classes.content}>
                     <Typography
                         variant="h6"
                         className={classes.contributorName}
@@ -199,18 +191,15 @@ const styles = makeStyles((theme) => ({
         backgroundColor: "#2b2730"
     },
     avatar: {
-        backgroundColor: "transparent",
-        color: theme.palette.common.white,
-        transform: "rotateY(180deg)",
-        position: "absolute",
-        backfaceVisibility: "hidden"
+        paddingTop: 32
     },
-    actionOverride: {
-        marginTop: 0
+    content: {
+        paddingTop: 12
     },
     contributorImg: {
         width: theme.spacing(20),
-        height: theme.spacing(20)
+        height: theme.spacing(20),
+        margin: "unset"
     },
     contributorName: {
         fontWeight: 200,
@@ -220,10 +209,6 @@ const styles = makeStyles((theme) => ({
     contributorBio: {
         fontWeight: 400,
         textAlign: "center"
-    },
-    centerPls: {
-        display: "flex",
-        justifyContent: "center"
     }
 }));
 

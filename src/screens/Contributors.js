@@ -38,42 +38,46 @@ const Contributors = () => {
                     Contributors
                 </Typography>
             </Grid>
-            <Grid
-                item
-                container
-                spacing={0}
-                justify="center"
-                className={classes.moduleGrid}
-            >
-                {contributors.map((contributor, i) => {
-                    return (
-                        <Zoom
-                            in
-                            style={{
-                                transitionDelay: `calc(.25s + ${i * 100}ms)`
-                            }}
-                        >
-                            <Grid
-                                key={contributor.id}
-                                item
-                                className={classes.card}
+            <Grid container justify="center" alignContent="center">
+                <Grid item spacing={0} className={classes.moduleGrid}>
+                    {contributors.map((contributor, i) => {
+                        return (
+                            <Zoom
+                                in
+                                style={{
+                                    transitionDelay: `calc(.25s + ${i * 100}ms)`
+                                }}
                             >
-                                <ContributorCard
-                                    image={contributor.image}
-                                    name={contributor.name}
-                                    biography={contributor.biography}
-                                    grad={contributor.grad}
-                                />
-                            </Grid>
-                        </Zoom>
-                    );
-                })}
+                                <Grid
+                                    key={contributor.id}
+                                    item
+                                    className={classes.card}
+                                >
+                                    <ContributorCard
+                                        image={contributor.image}
+                                        name={contributor.name}
+                                        biography={contributor.biography}
+                                        grad={contributor.grad}
+                                        linkedin={contributor.linkedin}
+                                    />
+                                </Grid>
+                            </Zoom>
+                        );
+                    })}
+                </Grid>
             </Grid>
         </>
     );
 };
 
-const ContributorCard = ({ image, name, biography, grad, loading = false }) => {
+const ContributorCard = ({
+    image,
+    name,
+    biography,
+    grad,
+    loading = false,
+    linkedin
+}) => {
     let [raised, setRaised] = useState(false);
     const classes = styles();
     const match = useRouteMatch();
@@ -150,9 +154,11 @@ const ContributorCard = ({ image, name, biography, grad, loading = false }) => {
                     <Chip
                         icon={<LinkedInIcon color="action" fontSize="small" />}
                         label="LinkedIn"
-                        onClick={handleClick}
+                        clickable
                         variant="outlined"
                         color="primary"
+                        href={linkedin}
+                        component="a"
                     />
                     <Chip
                         icon={<GitHubIcon color="action" fontSize="small" />}

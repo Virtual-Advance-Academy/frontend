@@ -1,23 +1,18 @@
-import React, { useGlobal, useState, useEffect } from "reactn";
+import React, { useState } from "reactn";
 import { Grid, Typography, Zoom } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import ModuleCard from "../shared/modules/ModuleCard";
 import contributors from "../shared/ContributorsData";
 import ScrollToTop from "shared/ScrollToTop";
 import {
     Avatar,
-    Button,
     Card,
     CardActions,
     CardContent,
-    CardHeader,
-    CardMedia,
-    CircularProgress
+    CardHeader
 } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";
-import { CheckCircle } from "@material-ui/icons";
 import clsx from "clsx";
-import { Link, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import Chip from "@material-ui/core/Chip";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -141,7 +136,7 @@ const ContributorCard = ({
                         <>
                             <Skeleton variant="text" />
                             <Skeleton variant="text" />
-                            <Skeleton variant="text" />
+                            <Skeleton variant="text" />s
                             <Skeleton variant="text" />
                             <Skeleton variant="text" />
                             <Skeleton variant="text" width="85%" />
@@ -215,20 +210,6 @@ const styles = makeStyles((theme) => ({
     contributorImg: {
         width: theme.spacing(20),
         height: theme.spacing(20)
-        // alignSelf: "center",
-        // display: "flex",
-        // alignItems: "center",
-        // justifyContent: "center",
-        // flex: 1,
-        // display: "flex"
-    },
-    heading: {
-        // alignItems: "center",
-        // justifyContent: "center",
-        display: "inline-block",
-        float: "left",
-        marginTop: 50
-        // padding: "40px 20px 30px 20px",
     },
     contributorName: {
         fontWeight: 200,

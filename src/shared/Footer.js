@@ -20,6 +20,7 @@ const Footer = () => {
                     direction="row"
                     justify="space-between"
                     alignItems="center"
+                    wrap="nowrap"
                 >
                     <Grid item container className={classes.logoContainer}>
                         <img
@@ -28,7 +29,7 @@ const Footer = () => {
                             className={classes.logo}
                         />
                     </Grid>
-                    <Grid item>
+                    <Grid item className={classes.footerText}>
                         <Typography variant="inherit">
                             Engineered with{" "}
                             <span role="img" aria-label="love">
@@ -63,7 +64,11 @@ const styles = makeStyles((theme) => ({
         height: "1em"
     },
     logoContainer: {
-        width: "auto"
+        width: "auto",
+        paddingRight: 30
+    },
+    footerText: {
+        textAlign: "right"
     }
 }));
 

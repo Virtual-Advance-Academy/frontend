@@ -9,11 +9,9 @@ import {
     Card,
     CardActions,
     CardContent,
-    CardHeader,
     makeStyles,
     Chip
 } from "@material-ui/core";
-import Skeleton from "@material-ui/lab/Skeleton";
 import clsx from "clsx";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -65,14 +63,7 @@ const Contributors = () => {
     );
 };
 
-const ContributorCard = ({
-    image,
-    name,
-    biography,
-    loading = false,
-    linkedin,
-    github
-}) => {
+const ContributorCard = ({ image, name, biography, linkedin, github }) => {
     let [raised, setRaised] = useState(false);
     const classes = styles();
 
@@ -84,10 +75,6 @@ const ContributorCard = ({
         imgSrc = "";
     }
 
-    const handleClick = () => {
-        console.info("You clicked the Chip.");
-    };
-
     return (
         <Card
             raised={raised}
@@ -95,7 +82,6 @@ const ContributorCard = ({
             onMouseLeave={() => setRaised(false)}
             className={clsx(classes.moduleCard)}
             // Light up the card on hover
-            style={raised ? { opacity: 1 } : {}}
             classes={{
                 root: classes.cardRoot
             }}
@@ -115,48 +101,34 @@ const ContributorCard = ({
                     >
                         {name}
                     </Typography>
-                    {!loading && (
-                        <Typography
-                            variant="body2"
-                            className={classes.contributorBio}
-                        >
-                            {biography}
-                        </Typography>
-                    )}
-                    {loading && (
-                        <>
-                            <Skeleton variant="text" />
-                            <Skeleton variant="text" />
-                            <Skeleton variant="text" />s
-                            <Skeleton variant="text" />
-                            <Skeleton variant="text" />
-                            <Skeleton variant="text" width="85%" />
-                        </>
-                    )}
+                    <Typography
+                        variant="body2"
+                        className={classes.contributorBio}
+                    >
+                        {biography}
+                    </Typography>
                 </CardContent>
             </div>
-            <div className={classes.centerPls}>
-                <CardActions justifyContent="center">
-                    <Chip
-                        icon={<LinkedInIcon color="action" fontSize="small" />}
-                        label="LinkedIn"
-                        clickable
-                        variant="outlined"
-                        color="primary"
-                        href={linkedin}
-                        component="a"
-                    />
-                    <Chip
-                        icon={<GitHubIcon color="action" fontSize="small" />}
-                        label="GitHub"
-                        href={github}
-                        clickable
-                        variant="outlined"
-                        color="primary"
-                        component="a"
-                    />
-                </CardActions>
-            </div>
+            <CardActions className={classes.actions}>
+                <Chip
+                    icon={<LinkedInIcon color="action" fontSize="small" />}
+                    label="LinkedIn"
+                    clickable
+                    variant="outlined"
+                    color="primary"
+                    href={linkedin}
+                    component="a"
+                />
+                <Chip
+                    icon={<GitHubIcon color="action" fontSize="small" />}
+                    label="GitHub"
+                    href={github}
+                    clickable
+                    variant="outlined"
+                    color="primary"
+                    component="a"
+                />
+            </CardActions>
         </Card>
     );
 };
@@ -172,7 +144,6 @@ const styles = makeStyles((theme) => ({
             flexGrow: 1
         }
     },
-    moduleGrid: {},
     moduleCard: {
         // Provide some spacing between cards
         margin: 8,
@@ -209,6 +180,9 @@ const styles = makeStyles((theme) => ({
     contributorBio: {
         fontWeight: 400,
         textAlign: "center"
+    },
+    actions: {
+        justifyContent: "center"
     }
 }));
 

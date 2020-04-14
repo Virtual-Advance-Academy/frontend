@@ -18,6 +18,7 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import { CheckCircle } from "@material-ui/icons";
 import clsx from "clsx";
 import { Link, useRouteMatch } from "react-router-dom";
+import Chip from "@material-ui/core/Chip";
 
 const Contributors = () => {
     const classes = styles();
@@ -83,6 +84,10 @@ const ContributorCard = ({ image, name, biography, grad, loading = false }) => {
         imgSrc = "";
     }
 
+    const handleClick = () => {
+        console.info("You clicked the Chip.");
+    };
+
     return (
         <Card
             raised={raised}
@@ -107,10 +112,22 @@ const ContributorCard = ({ image, name, biography, grad, loading = false }) => {
                     classes={{
                         action: classes.actionOverride
                     }}
+                    className={classes.header}
                 />
                 <CardContent>
+                    <Typography
+                        variant="h6"
+                        className={classes.contributorName}
+                    >
+                        {name}
+                    </Typography>
                     {!loading && (
-                        <Typography variant="body2">{biography}</Typography>
+                        <Typography
+                            variant="body2"
+                            className={classes.contributorBio}
+                        >
+                            {biography}
+                        </Typography>
                     )}
                     {loading && (
                         <>
@@ -124,6 +141,15 @@ const ContributorCard = ({ image, name, biography, grad, loading = false }) => {
                     )}
                 </CardContent>
             </div>
+            <CardActions>
+                <Chip
+                    avatar={<Avatar>M</Avatar>}
+                    label="Clickable"
+                    onClick={handleClick}
+                    variant="outlined"
+                    color="primary"
+                />
+            </CardActions>
         </Card>
     );
 };
@@ -178,8 +204,21 @@ const styles = makeStyles((theme) => ({
         // display: "flex"
     },
     heading: {
-        alignItems: "center",
-        justifyContent: "center"
+        // alignItems: "center",
+        // justifyContent: "center",
+        display: "inline-block",
+        float: "left",
+        marginTop: 50
+        // padding: "40px 20px 30px 20px",
+    },
+    contributorName: {
+        fontWeight: 200,
+        textAlign: "center",
+        padding: theme.spacing(1)
+    },
+    contributorBio: {
+        fontWeight: 400,
+        textAlign: "center"
     }
 }));
 

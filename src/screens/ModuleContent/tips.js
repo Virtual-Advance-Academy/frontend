@@ -1,6 +1,6 @@
 import React from "react";
 import ModuleContent from "../../shared/modules/ModuleContent";
-import modules from "../../shared/modules/modules";
+import modules from "../../shared/modules/moduleData";
 
 const Tips = () => {
     const [tips] = modules.filter(

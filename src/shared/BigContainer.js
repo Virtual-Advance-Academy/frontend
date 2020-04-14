@@ -14,7 +14,7 @@ const styles = makeStyles((theme) => ({
 }));
 
 const withBigContainer = (ComponentToWrap) => {
-    return (
+    return () => (
         <BigContainer>
             <ComponentToWrap />
         </BigContainer>

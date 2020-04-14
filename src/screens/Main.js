@@ -2,10 +2,11 @@ import React, { useGlobal, useState, useEffect } from "reactn";
 import { Grid, Typography, Zoom } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ModuleCard from "../shared/modules/ModuleCard";
-import modules from "shared/modules/modules";
+import modules from "shared/modules/moduleData";
 import { Redirect } from "react-router-dom";
 import ScrollToTop from "shared/ScrollToTop";
 import { makeClient } from "utils/Client";
+import Helmet from "react-helmet";
 
 const Main = () => {
     const classes = styles();
@@ -34,6 +35,9 @@ const Main = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Modules</title>
+            </Helmet>
             {user && !user.completedSurvey && <Redirect to="/survey" />}
             <ScrollToTop />
             <Grid item>
@@ -64,6 +68,7 @@ const Main = () => {
                                     completion={currentCompletion}
                                     loading={loading}
                                     slug={module.slug}
+                                    icon={module.icon}
                                 />
                             </Grid>
                         </Zoom>

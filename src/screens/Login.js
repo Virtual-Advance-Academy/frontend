@@ -14,6 +14,7 @@ import * as Yup from "yup";
 import { useSnackbar } from "notistack";
 import { Redirect } from "react-router-dom";
 import { makeClient } from "utils/Client";
+import Helmet from "react-helmet";
 
 const Login = () => {
     const classes = styles();
@@ -77,6 +78,9 @@ const LoginForm = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
             {jwt && <Redirect to="/modules" />}
             <Form
                 onSubmit={loginUser}

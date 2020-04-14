@@ -10,11 +10,17 @@ import Profile from "screens/Profile";
 import SurveyPage from "screens/SurveyPage";
 import withAuthentication from "shared/withAuthentication";
 import { withBigContainer } from "shared/BigContainer";
+import Contributors from "screens/Contributors";
+import Helmet from "react-helmet";
 
 class App extends Component {
     render() {
         return (
             <BrowserRouter>
+                <Helmet
+                    titleTemplate="%s &ndash; Advance Academy: Online"
+                    defaultTitle="Advance Academy: Online"
+                />
                 <Page>
                     <Switch>
                         <Route path="/" exact component={Home} />
@@ -45,6 +51,11 @@ class App extends Component {
                             component={withAuthentication(
                                 withBigContainer(SurveyPage)
                             )}
+                        />
+                        <Route
+                            path="/contributors"
+                            exact
+                            component={withBigContainer(Contributors)}
                         />
                         {/* This is a catch-all route */}
                         <Route component={null} />

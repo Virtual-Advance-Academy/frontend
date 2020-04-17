@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.8434b960.chunk.css",
-    "main.js": "/static/js/main.b5b8d60c.chunk.js",
-    "main.js.map": "/static/js/main.b5b8d60c.chunk.js.map",
+    "main.css": "/static/css/main.06672712.chunk.css",
+    "main.js": "/static/js/main.74d5f91d.chunk.js",
+    "main.js.map": "/static/js/main.74d5f91d.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.84578d5e.js",
     "runtime-main.js.map": "/static/js/runtime-main.84578d5e.js.map",
     "static/js/2.4ac806a9.chunk.js": "/static/js/2.4ac806a9.chunk.js",
     "static/js/2.4ac806a9.chunk.js.map": "/static/js/2.4ac806a9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.9e67c48582a8c68ad4ce8fe47b4e6c35.js": "/precache-manifest.9e67c48582a8c68ad4ce8fe47b4e6c35.js",
+    "precache-manifest.6471ae7ab56fa5d2d005f2c5e0244631.js": "/precache-manifest.6471ae7ab56fa5d2d005f2c5e0244631.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.8434b960.chunk.css.map": "/static/css/main.8434b960.chunk.css.map",
+    "static/css/main.06672712.chunk.css.map": "/static/css/main.06672712.chunk.css.map",
     "static/js/2.4ac806a9.chunk.js.LICENSE.txt": "/static/js/2.4ac806a9.chunk.js.LICENSE.txt",
     "static/media/AdvanceLogo.png": "/static/media/AdvanceLogo.f284c245.png",
     "static/media/CarolinaU.jpg": "/static/media/CarolinaU.a755a857.jpg",
@@ -49,7 +49,7 @@
   "entrypoints": [
     "static/js/runtime-main.84578d5e.js",
     "static/js/2.4ac806a9.chunk.js",
-    "static/css/main.8434b960.chunk.css",
-    "static/js/main.b5b8d60c.chunk.js"
+    "static/css/main.06672712.chunk.css",
+    "static/js/main.74d5f91d.chunk.js"
   ]
 }

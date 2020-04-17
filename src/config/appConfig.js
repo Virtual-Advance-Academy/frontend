@@ -1,4 +1,4 @@
-const LIVE_API_URL = "https://job-internship-api.azurewebsites.net";
+const LIVE_API_URL = "https://advance-academy-api.herokuapp.com";
 const LOCAL_API_URI = "http://localhost:3030";
 const API_URL =
     process.env.NODE_ENV === "production" ? LIVE_API_URL : LOCAL_API_URI;

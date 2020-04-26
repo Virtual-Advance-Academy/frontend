@@ -1,3 +1,10 @@
+# Virtual Advance Academy - Frontend
+
+Feel free to reach out to both Christopher and Carolina if you feel like you need clarification or help with any of the code in this repository.
+
+-   Christopher Rodriguez: (chrisrodrig1 [AT] gmail.com)
+-   Carolina Uribe-Gosselin (curibegosselin [AT] gmail.com)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

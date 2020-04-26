@@ -6,6 +6,8 @@ const InternshipTypes = () => {
     const [internships] = modules.filter(
         (module) => module.title === "Types of Internships"
     );
+    const classes = styles();
+
     return (
         <ModuleContent
             title={internships.title}
